@@ -1,0 +1,39 @@
+{
+  "extracted_data" : {
+    "currency" : "CHF",
+    "extraction_method" : "FUSÉE-ÉTAGE-1-SWISS",
+    "category" : "Restaurant",
+    "tax_amount" : 19.108057354301565,
+    "total_amount" : 255.00999999999999,
+    "merchant" : "Val-des-Dix Sar"
+  },
+  "confidence" : 0.94999999999999996,
+  "logs" : [
+    "4:04:21.793 AM [ℹ️ INFO] 🔧 UnifiedPipelineManager initialized",
+    "4:04:21.795 AM [ℹ️ INFO] 🎯 Starting unified extraction - Mode: auto (Smart Fusée) - ID: 69393887-D401-4093-8763-648D41C6EEA8",
+    "4:04:21.795 AM [ℹ️ INFO] 🚀 [UNIFIED_PIPELINE] Using mode: auto (Smart Fusée)",
+    "4:04:21.796 AM [🔍 DEBUG] 📖 Step 1: OCR Processing",
+    "4:04:21.797 AM [ℹ️ INFO] 📖 OCR Processing started",
+    "4:04:23.089 AM [ℹ️ INFO] ✅ OCR completed: 588 chars, confidence: 1.0",
+    "4:04:23.090 AM [ℹ️ INFO] 🚀 [EXTRACTION_MODE] Executing mode: auto (Smart Fusée)",
+    "4:04:23.090 AM [ℹ️ INFO] 🚀 [AUTO] Starting Fusée logic - Parser → AI fallback",
+    "4:04:23.091 AM [ℹ️ INFO] 🚀 [ÉTAGE 1] FUSÉE - Parser déterministe processing...",
+    "4:04:23.094 AM [ℹ️ INFO] ✅ Parser completed: La Pinte Neuchateloise - CHF 227.40",
+    "4:04:23.094 AM [🇨🇭 SWISS] 🚀 [ÉTAGE 1] SUCCÈS DÉTERMINISTE - CHF 227.4 trouvé, arrêt du pipeline",
+    "4:04:23.095 AM [🇨🇭 SWISS] 🚀 [AUTO] ✅ Swiss deterministic SUCCESS - Pipeline complete",
+    "4:04:23.095 AM [ℹ️ INFO] 🎉 Extraction completed in 1.30s",
+    "4:04:57.497 AM [ℹ️ INFO] 🎯 Starting unified extraction - Mode: auto (Smart Fusée) - ID: D7CACB59-69C3-4087-8D16-EA283F1C3BD6",
+    "4:04:57.498 AM [ℹ️ INFO] 🚀 [UNIFIED_PIPELINE] Using mode: auto (Smart Fusée)",
+    "4:04:57.498 AM [🔍 DEBUG] 📖 Step 1: OCR Processing",
+    "4:04:57.499 AM [ℹ️ INFO] 📖 OCR Processing started",
+    "4:04:58.943 AM [ℹ️ INFO] ✅ OCR completed: 455 chars, confidence: 1.0",
+    "4:04:58.943 AM [ℹ️ INFO] 🚀 [EXTRACTION_MODE] Executing mode: auto (Smart Fusée)",
+    "4:04:58.944 AM [ℹ️ INFO] 🚀 [AUTO] Starting Fusée logic - Parser → AI fallback",
+    "4:04:58.944 AM [ℹ️ INFO] 🚀 [ÉTAGE 1] FUSÉE - Parser déterministe processing...",
+    "4:04:58.945 AM [ℹ️ INFO] ✅ Parser completed: Val-des-Dix Sar - CHF 255.01"
+  ],
+  "pipeline_used" : "auto (Smart Fusée)",
+  "correlation_id" : "D7CACB59-69C3-4087-8D16-EA283F1C3BD6",
+  "processing_time" : 1.4484900236129761,
+  "timestamp" : "2026-01-16_4-04-58 AM"
+}

@@ -1,0 +1,27 @@
+{
+  "timestamp" : "2026-01-17_午前3-19-38",
+  "correlation_id" : "B74A26A1-6DB3-44B4-A30B-317A9D4166CA",
+  "logs" : [
+    "午前3:19:33.889 [ℹ️ INFO] 🔧 UnifiedPipelineManager initialized",
+    "午前3:19:33.891 [ℹ️ INFO] 🎯 Starting unified extraction - Mode: forceQwen (100% AI) - ID: B74A26A1-6DB3-44B4-A30B-317A9D4166CA",
+    "午前3:19:33.891 [ℹ️ INFO] 🚀 [UNIFIED_PIPELINE] Using mode: forceQwen (100% AI)",
+    "午前3:19:33.891 [🔍 DEBUG] 📖 Step 1: OCR Processing",
+    "午前3:19:33.892 [ℹ️ INFO] 📖 OCR Processing started",
+    "午前3:19:35.185 [ℹ️ INFO] ✅ OCR completed: 646 chars, confidence: 1.0",
+    "午前3:19:35.186 [ℹ️ INFO] 🚀 [EXTRACTION_MODE] Executing mode: forceQwen (100% AI)",
+    "午前3:19:35.186 [ℹ️ INFO] 🧠 [FORCE_QWEN] Using AI Qwen only - Bypassing parser",
+    "午前3:19:35.187 [ℹ️ INFO] 🤖 AI processing via MLXService (LlamaInferenceService)...",
+    "午前3:19:38.360 [ℹ️ INFO] ✅ MLX completed: confidence 0.9"
+  ],
+  "pipeline_used" : "forceQwen (100% AI)",
+  "processing_time" : 4.4719150066375732,
+  "confidence" : 0.90000000000000002,
+  "extracted_data" : {
+    "extraction_method" : "MLX-AI",
+    "total_amount" : 0,
+    "category" : "Sante",
+    "merchant" : "CARÉ RESTAURANT",
+    "tax_amount" : 0,
+    "currency" : "EUR"
+  }
+}

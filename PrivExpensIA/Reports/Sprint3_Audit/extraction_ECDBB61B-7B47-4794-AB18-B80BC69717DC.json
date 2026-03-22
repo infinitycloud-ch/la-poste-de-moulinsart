@@ -1,0 +1,27 @@
+{
+  "confidence" : 0.94999999999999996,
+  "pipeline_used" : "auto (Smart Fusée)",
+  "logs" : [
+    "3:52:22.626 AM [ℹ️ INFO] 🔧 UnifiedPipelineManager initialized",
+    "3:52:22.627 AM [ℹ️ INFO] 🎯 Starting unified extraction - Mode: auto (Smart Fusée) - ID: ECDBB61B-7B47-4794-AB18-B80BC69717DC",
+    "3:52:22.628 AM [ℹ️ INFO] 🚀 [UNIFIED_PIPELINE] Using mode: auto (Smart Fusée)",
+    "3:52:22.628 AM [🔍 DEBUG] 📖 Step 1: OCR Processing",
+    "3:52:22.628 AM [ℹ️ INFO] 📖 OCR Processing started",
+    "3:52:24.211 AM [ℹ️ INFO] ✅ OCR completed: 455 chars, confidence: 1.0",
+    "3:52:24.212 AM [ℹ️ INFO] 🚀 [EXTRACTION_MODE] Executing mode: auto (Smart Fusée)",
+    "3:52:24.212 AM [ℹ️ INFO] 🚀 [AUTO] Starting Fusée logic - Parser → AI fallback",
+    "3:52:24.212 AM [ℹ️ INFO] 🚀 [ÉTAGE 1] FUSÉE - Parser déterministe processing...",
+    "3:52:24.215 AM [ℹ️ INFO] ✅ Parser completed: Val-des-Dix Sar - CHF 255.01"
+  ],
+  "correlation_id" : "ECDBB61B-7B47-4794-AB18-B80BC69717DC",
+  "timestamp" : "2026-01-16_3-52-24 AM",
+  "processing_time" : 1.5918530225753784,
+  "extracted_data" : {
+    "category" : "Restaurant",
+    "total_amount" : 255.00999999999999,
+    "extraction_method" : "FUSÉE-ÉTAGE-1-SWISS",
+    "tax_amount" : 19.108057354301565,
+    "merchant" : "Val-des-Dix Sar",
+    "currency" : "CHF"
+  }
+}

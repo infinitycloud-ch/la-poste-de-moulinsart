@@ -1,0 +1,21 @@
+{
+  "model": "dolphin-mixtral:latest",
+  "messages": [
+    {"role": "user", "content": "Utilise l'outil mono_ls pour lister les fichiers"}
+  ],
+  "tools": [
+    {
+      "type": "function",
+      "function": {
+        "name": "mono_ls",
+        "description": "List files and directories",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "path": {"type": "string", "description": "Path to list", "default": "."}
+          }
+        }
+      }
+    }
+  ]
+}

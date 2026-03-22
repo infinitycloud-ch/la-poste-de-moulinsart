@@ -1,0 +1,330 @@
+{
+  "name": "localization-test-tool",
+  "version": "1.0.0",
+  "description": "Standardized MCP tool for iOS localization testing with comprehensive validation and reporting",
+  "author": "Moulinsart iOS Development Team",
+  "license": "MIT",
+  "runtime": {
+    "type": "shell",
+    "command": "./mcp_localization_test.sh"
+  },
+  "capabilities": {
+    "tools": [
+      {
+        "name": "check_localization",
+        "description": "Runs comprehensive localization tests and returns structured results with pass/fail status for each component",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "project_path": {
+              "type": "string",
+              "description": "Absolute path to the iOS project directory"
+            },
+            "target_name": {
+              "type": "string",
+              "description": "Name of the iOS target to test",
+              "default": "main"
+            },
+            "languages": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "List of language codes to validate (e.g., ['en', 'fr', 'es'])",
+              "default": ["en", "fr"]
+            },
+            "strict_mode": {
+              "type": "boolean",
+              "description": "Enable strict validation mode for comprehensive testing",
+              "default": false
+            }
+          },
+          "required": ["project_path"]
+        },
+        "outputSchema": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "type": "string",
+              "enum": ["success", "failure", "warning"]
+            },
+            "overall_score": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100
+            },
+            "tests_run": {
+              "type": "number"
+            },
+            "tests_passed": {
+              "type": "number"
+            },
+            "tests_failed": {
+              "type": "number"
+            },
+            "results": {
+              "type": "object",
+              "properties": {
+                "hardcoded_strings": {
+                  "type": "object",
+                  "properties": {
+                    "status": {"type": "string", "enum": ["pass", "fail", "warning"]},
+                    "count": {"type": "number"},
+                    "violations": {"type": "array", "items": {"type": "string"}}
+                  }
+                },
+                "missing_keys": {
+                  "type": "object",
+                  "properties": {
+                    "status": {"type": "string", "enum": ["pass", "fail", "warning"]},
+                    "count": {"type": "number"},
+                    "missing": {"type": "array", "items": {"type": "string"}}
+                  }
+                },
+                "unused_keys": {
+                  "type": "object",
+                  "properties": {
+                    "status": {"type": "string", "enum": ["pass", "fail", "warning"]},
+                    "count": {"type": "number"},
+                    "unused": {"type": "array", "items": {"type": "string"}}
+                  }
+                },
+                "translation_coverage": {
+                  "type": "object",
+                  "properties": {
+                    "status": {"type": "string", "enum": ["pass", "fail", "warning"]},
+                    "percentage": {"type": "number"},
+                    "by_language": {"type": "object"}
+                  }
+                }
+              }
+            },
+            "report_path": {
+              "type": "string",
+              "description": "Path to generated HTML report"
+            },
+            "timestamp": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        }
+      },
+      {
+        "name": "validate_strings",
+        "description": "Specifically checks for hardcoded strings in Swift/Objective-C files",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "project_path": {
+              "type": "string",
+              "description": "Absolute path to the iOS project directory"
+            },
+            "file_patterns": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "File patterns to scan (e.g., ['*.swift', '*.m', '*.mm'])",
+              "default": ["*.swift", "*.m", "*.mm"]
+            },
+            "exclude_patterns": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Patterns to exclude from scanning",
+              "default": ["*Test*", "*Mock*", "Pods/*"]
+            }
+          },
+          "required": ["project_path"]
+        },
+        "outputSchema": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "type": "string",
+              "enum": ["pass", "fail", "warning"]
+            },
+            "hardcoded_count": {
+              "type": "number"
+            },
+            "violations": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "file": {"type": "string"},
+                  "line": {"type": "number"},
+                  "content": {"type": "string"},
+                  "severity": {"type": "string", "enum": ["error", "warning", "info"]}
+                }
+              }
+            },
+            "suggestions": {
+              "type": "array",
+              "items": {"type": "string"}
+            }
+          }
+        }
+      },
+      {
+        "name": "verify_keys",
+        "description": "Validates localization keys consistency across all language files",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "project_path": {
+              "type": "string",
+              "description": "Absolute path to the iOS project directory"
+            },
+            "base_language": {
+              "type": "string",
+              "description": "Base language to compare against",
+              "default": "en"
+            },
+            "check_duplicates": {
+              "type": "boolean",
+              "description": "Check for duplicate keys within files",
+              "default": true
+            },
+            "check_formatting": {
+              "type": "boolean",
+              "description": "Validate string formatting consistency",
+              "default": true
+            }
+          },
+          "required": ["project_path"]
+        },
+        "outputSchema": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "type": "string",
+              "enum": ["pass", "fail", "warning"]
+            },
+            "total_keys": {
+              "type": "number"
+            },
+            "missing_translations": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "array",
+                "items": {"type": "string"}
+              }
+            },
+            "extra_keys": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "array",
+                "items": {"type": "string"}
+              }
+            },
+            "duplicate_keys": {
+              "type": "array",
+              "items": {"type": "string"}
+            },
+            "formatting_issues": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "key": {"type": "string"},
+                  "issue": {"type": "string"},
+                  "languages": {"type": "array", "items": {"type": "string"}}
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "name": "generate_report",
+        "description": "Creates comprehensive HTML report with screenshots and opens it automatically",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "project_path": {
+              "type": "string",
+              "description": "Absolute path to the iOS project directory"
+            },
+            "output_path": {
+              "type": "string",
+              "description": "Path where to save the HTML report",
+              "default": "./localization_report.html"
+            },
+            "include_screenshots": {
+              "type": "boolean",
+              "description": "Include UI screenshots in the report",
+              "default": true
+            },
+            "auto_open": {
+              "type": "boolean",
+              "description": "Automatically open the report in default browser",
+              "default": true
+            },
+            "theme": {
+              "type": "string",
+              "enum": ["light", "dark", "auto"],
+              "description": "Report theme",
+              "default": "auto"
+            }
+          },
+          "required": ["project_path"]
+        },
+        "outputSchema": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "type": "string",
+              "enum": ["success", "failure"]
+            },
+            "report_path": {
+              "type": "string",
+              "description": "Absolute path to generated report"
+            },
+            "report_size": {
+              "type": "number",
+              "description": "Report file size in bytes"
+            },
+            "generation_time": {
+              "type": "number",
+              "description": "Time taken to generate report in seconds"
+            },
+            "sections_included": {
+              "type": "array",
+              "items": {"type": "string"}
+            },
+            "opened_in_browser": {
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "configuration": {
+    "environment": {
+      "LOCALIZATION_TEST_DEBUG": {
+        "type": "boolean",
+        "description": "Enable debug output",
+        "default": false
+      },
+      "LOCALIZATION_TEST_TIMEOUT": {
+        "type": "number",
+        "description": "Timeout for tests in seconds",
+        "default": 300
+      }
+    },
+    "dependencies": {
+      "required": ["bash", "python3", "xcodebuild"],
+      "optional": ["xcpretty", "swiftlint"]
+    }
+  },
+  "metadata": {
+    "tags": ["ios", "localization", "testing", "i18n", "validation"],
+    "category": "development-tools",
+    "maturity": "stable",
+    "documentation": "https://github.com/moulinsart/localization-test-tool"
+  }
+}

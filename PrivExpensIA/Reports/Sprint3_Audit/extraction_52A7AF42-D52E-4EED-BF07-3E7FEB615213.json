@@ -1,0 +1,27 @@
+{
+  "pipeline_used" : "forceQwen (100% AI)",
+  "confidence" : 0.90000000000000002,
+  "correlation_id" : "52A7AF42-D52E-4EED-BF07-3E7FEB615213",
+  "logs" : [
+    "2:37:22.049 AM [ℹ️ INFO] 🔧 UnifiedPipelineManager initialized",
+    "2:37:22.051 AM [ℹ️ INFO] 🎯 Starting unified extraction - Mode: forceQwen (100% AI) - ID: 52A7AF42-D52E-4EED-BF07-3E7FEB615213",
+    "2:37:22.051 AM [ℹ️ INFO] 🚀 [UNIFIED_PIPELINE] Using mode: forceQwen (100% AI)",
+    "2:37:22.052 AM [🔍 DEBUG] 📖 Step 1: OCR Processing",
+    "2:37:22.052 AM [ℹ️ INFO] 📖 OCR Processing started",
+    "2:37:23.371 AM [ℹ️ INFO] ✅ OCR completed: 413 chars, confidence: 1.0",
+    "2:37:23.372 AM [ℹ️ INFO] 🚀 [EXTRACTION_MODE] Executing mode: forceQwen (100% AI)",
+    "2:37:23.372 AM [ℹ️ INFO] 🧠 [FORCE_QWEN] Using AI Qwen only - Bypassing parser",
+    "2:37:23.373 AM [ℹ️ INFO] 🤖 AI processing via MLXService (LlamaInferenceService)...",
+    "2:37:33.322 AM [ℹ️ INFO] ✅ MLX completed: confidence 0.9"
+  ],
+  "processing_time" : 11.276136994361877,
+  "extracted_data" : {
+    "category" : "Restaurant",
+    "merchant" : "restaurantleswann",
+    "total_amount" : 0,
+    "tax_amount" : 0,
+    "currency" : "EUR",
+    "extraction_method" : "MLX-AI"
+  },
+  "timestamp" : "2026-01-15_2-37-33 AM"
+}

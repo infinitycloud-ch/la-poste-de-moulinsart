@@ -1,0 +1,3 @@
+OPENAI_API_KEY=sk-YOUR_KEY_HERE
+
+Note: Cette clé doit être intégrée directement dans le code Swift de manière sécurisée.

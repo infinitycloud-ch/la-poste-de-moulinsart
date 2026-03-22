@@ -1,0 +1,39 @@
+{
+  "correlation_id" : "C3A7092F-06CB-4D9F-8C7F-58B72E5687E2",
+  "logs" : [
+    "3:43:47.319 AM [ℹ️ INFO] 🔧 UnifiedPipelineManager initialized",
+    "3:43:47.321 AM [ℹ️ INFO] 🎯 Starting unified extraction - Mode: auto (Smart Fusée) - ID: BFF0E98D-FC3D-4FD8-BC3E-38ACC99C6F4E",
+    "3:43:47.322 AM [ℹ️ INFO] 🚀 [UNIFIED_PIPELINE] Using mode: auto (Smart Fusée)",
+    "3:43:47.322 AM [🔍 DEBUG] 📖 Step 1: OCR Processing",
+    "3:43:47.323 AM [ℹ️ INFO] 📖 OCR Processing started",
+    "3:43:48.713 AM [ℹ️ INFO] ✅ OCR completed: 588 chars, confidence: 1.0",
+    "3:43:48.714 AM [ℹ️ INFO] 🚀 [EXTRACTION_MODE] Executing mode: auto (Smart Fusée)",
+    "3:43:48.714 AM [ℹ️ INFO] 🚀 [AUTO] Starting Fusée logic - Parser → AI fallback",
+    "3:43:48.714 AM [ℹ️ INFO] 🚀 [ÉTAGE 1] FUSÉE - Parser déterministe processing...",
+    "3:43:48.719 AM [ℹ️ INFO] ✅ Parser completed: La Pinte Neuchateloise - CHF 227.40",
+    "3:43:48.719 AM [🇨🇭 SWISS] 🚀 [ÉTAGE 1] SUCCÈS DÉTERMINISTE - CHF 227.4 trouvé, arrêt du pipeline",
+    "3:43:48.719 AM [🇨🇭 SWISS] 🚀 [AUTO] ✅ Swiss deterministic SUCCESS - Pipeline complete",
+    "3:43:48.720 AM [ℹ️ INFO] 🎉 Extraction completed in 1.40s",
+    "3:44:46.135 AM [ℹ️ INFO] 🎯 Starting unified extraction - Mode: auto (Smart Fusée) - ID: C3A7092F-06CB-4D9F-8C7F-58B72E5687E2",
+    "3:44:46.136 AM [ℹ️ INFO] 🚀 [UNIFIED_PIPELINE] Using mode: auto (Smart Fusée)",
+    "3:44:46.137 AM [🔍 DEBUG] 📖 Step 1: OCR Processing",
+    "3:44:46.138 AM [ℹ️ INFO] 📖 OCR Processing started",
+    "3:44:47.788 AM [ℹ️ INFO] ✅ OCR completed: 433 chars, confidence: 1.0",
+    "3:44:47.789 AM [ℹ️ INFO] 🚀 [EXTRACTION_MODE] Executing mode: auto (Smart Fusée)",
+    "3:44:47.789 AM [ℹ️ INFO] 🚀 [AUTO] Starting Fusée logic - Parser → AI fallback",
+    "3:44:47.789 AM [ℹ️ INFO] 🚀 [ÉTAGE 1] FUSÉE - Parser déterministe processing...",
+    "3:44:47.790 AM [ℹ️ INFO] ✅ Parser completed: Berghotel - CHF 54.50"
+  ],
+  "timestamp" : "2026-01-16_3-44-47 AM",
+  "processing_time" : 1.6562889814376831,
+  "confidence" : 0.94999999999999996,
+  "extracted_data" : {
+    "total_amount" : 54.5,
+    "currency" : "CHF",
+    "category" : "Restaurant",
+    "extraction_method" : "FUSÉE-ÉTAGE-1-SWISS",
+    "tax_amount" : 4.0837187789084197,
+    "merchant" : "Berghotel"
+  },
+  "pipeline_used" : "auto (Smart Fusée)"
+}

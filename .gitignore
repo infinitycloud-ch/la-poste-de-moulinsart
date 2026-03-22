@@ -1,0 +1,39 @@
+# macOS
+.DS_Store
+._*
+
+# Dependencies
+node_modules/
+.pnp/
+.pnp.js
+
+# Environment & secrets
+.env
+.env.*
+
+# Database
+*.db
+*.db-wal
+*.db-shm
+*.sqlite
+
+# Build output
+dist/
+.output/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*~
+
+# Logs
+*.log
+npm-debug.log*
+
+# Agent infrastructure
+.claude/
+
+# Misc
+*.tgz
+.cache/

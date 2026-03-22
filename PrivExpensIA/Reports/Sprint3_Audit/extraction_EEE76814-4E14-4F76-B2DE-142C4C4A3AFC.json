@@ -1,0 +1,40 @@
+{
+  "correlation_id" : "EEE76814-4E14-4F76-B2DE-142C4C4A3AFC",
+  "logs" : [
+    "10:13:37.231 PM [ℹ️ INFO] 🔧 UnifiedPipelineManager initialized",
+    "10:13:37.231 PM [ℹ️ INFO] 🎯 Starting unified extraction - Mode: auto (Smart Fusée) - ID: D4668213-C04B-48EE-90CE-144CE086E264",
+    "10:13:37.232 PM [ℹ️ INFO] 🚀 [UNIFIED_PIPELINE] Using mode: auto (Smart Fusée)",
+    "10:13:37.233 PM [🔍 DEBUG] 📖 Step 1: OCR Processing",
+    "10:13:37.233 PM [ℹ️ INFO] 📖 OCR Processing started",
+    "10:13:38.494 PM [ℹ️ INFO] ✅ OCR completed: 413 chars, confidence: 1.0",
+    "10:13:38.494 PM [ℹ️ INFO] 🚀 [EXTRACTION_MODE] Executing mode: auto (Smart Fusée)",
+    "10:13:38.494 PM [ℹ️ INFO] 🚀 [AUTO] Starting Fusée logic - Parser → AI fallback",
+    "10:13:38.494 PM [ℹ️ INFO] 🚀 [ÉTAGE 1] FUSÉE - Parser déterministe processing...",
+    "10:13:38.497 PM [ℹ️ INFO] ✅ Parser completed: Le Swann - €178.85",
+    "10:13:38.498 PM [ℹ️ INFO] 🔍 [ÉTAGE 1] Pas de résultat Swiss déterministe, préparation pour ÉTAGE 2 (IA)",
+    "10:13:38.498 PM [ℹ️ INFO] 📊 Unified parser data: confidence 0.9000000000000001",
+    "10:13:38.498 PM [ℹ️ INFO] 🚀 [AUTO] ✅ European parser SUCCESS (EUR 178.85) - Pipeline complete",
+    "10:13:38.498 PM [ℹ️ INFO] 🎉 Extraction completed in 1.27s",
+    "10:23:14.099 PM [ℹ️ INFO] 🎯 Starting unified extraction - Mode: auto (Smart Fusée) - ID: EEE76814-4E14-4F76-B2DE-142C4C4A3AFC",
+    "10:23:14.100 PM [ℹ️ INFO] 🚀 [UNIFIED_PIPELINE] Using mode: auto (Smart Fusée)",
+    "10:23:14.100 PM [🔍 DEBUG] 📖 Step 1: OCR Processing",
+    "10:23:14.100 PM [ℹ️ INFO] 📖 OCR Processing started",
+    "10:23:14.857 PM [ℹ️ INFO] ✅ OCR completed: 492 chars, confidence: 0.5",
+    "10:23:14.857 PM [ℹ️ INFO] 🚀 [EXTRACTION_MODE] Executing mode: auto (Smart Fusée)",
+    "10:23:14.858 PM [ℹ️ INFO] 🚀 [AUTO] Starting Fusée logic - Parser → AI fallback",
+    "10:23:14.858 PM [ℹ️ INFO] 🚀 [ÉTAGE 1] FUSÉE - Parser déterministe processing...",
+    "10:23:14.860 PM [ℹ️ INFO] ✅ Parser completed: Magasin Cashflow - €180.00"
+  ],
+  "extracted_data" : {
+    "currency" : "EUR",
+    "extraction_method" : "Enhanced-Parser",
+    "total_amount" : 180,
+    "category" : "Gas",
+    "merchant" : "Magasin Cashflow",
+    "tax_amount" : 13.487511563367235
+  },
+  "timestamp" : "2026-01-15_10-23-14 PM",
+  "confidence" : 0.94999999999999996,
+  "processing_time" : 0.76107490062713623,
+  "pipeline_used" : "auto (Smart Fusée)"
+}

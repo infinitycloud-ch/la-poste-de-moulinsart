@@ -1,0 +1,21 @@
+{
+  "model": "qwen2.5:3b",
+  "messages": [
+    {"role": "user", "content": "Liste les fichiers du dossier courant avec l'outil mono_ls"}
+  ],
+  "tools": [
+    {
+      "type": "function",
+      "function": {
+        "name": "mono_ls",
+        "description": "List files and directories",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "path": {"type": "string", "description": "Path to list"}
+          }
+        }
+      }
+    }
+  ]
+}

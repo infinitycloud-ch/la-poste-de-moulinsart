@@ -1,0 +1,21 @@
+{
+  "model": "qwen2.5-coder:3b",
+  "messages": [
+    {"role": "user", "content": "Use the mono_ls tool to list files in the current directory"}
+  ],
+  "tools": [
+    {
+      "type": "function",
+      "function": {
+        "name": "mono_ls",
+        "description": "List files and directories",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "path": {"type": "string", "description": "Path to list", "default": "."}
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,775 @@
+╭────────────────────────────────────────────────────╮
+│ ✻ Welcome to Claude Code!                          │
+│                                                    │
+│   /help for help, /status for your current setup   │
+│                                                    │
+│   cwd: /Users/studio_m3/moulinsart/agents/haddock  │
+╰────────────────────────────────────────────────────╯
+═══════════════════════════ Conversation compacted · ctrl+o for history ═══════════════════════════
+  ⎿  Read ../../../.hammerspoon/jedi-menu.lua (192 lines)
+  ⎿  Read ../../projects/mono-cli/jedi-chat.sh (208 lines)
+  ⎿  Read ../../projects/mono-cli/missions_log/003_chaos_certification.sh (247 lines)
+  ⎿  Read ../../projects/mono-cli/missions_log/003e5_corruption_recovery.sh (333 lines)
+  ⎿  Read ../../projects/mono-cli/missions_log/003e4_delete_idempotent.sh (249 lines)
+  ⎿  Todo list read (3 items)
+
+⏺ I'll continue refactoring the Hammerspoon menu to make it more generic and professional,
+  removing the Sprint 21 specific references.
+
+> [Image #1]qwen 3 est bloqueé
+
+⏺ Je vois que qwen3 semble bloqué dans le mode chat. Essayons de débloquer la situation.
+
+⏺ Bash(ps aux | grep -E "(ollama|qwen)" | grep -v grep)
+  ⎿ studio_m3        10633  22.6 18.3 455561168 18466240   ??  S    11:07PM   0:25.95 /opt/hom
+    ebrew/Cellar/ollama/0.12.3/bin/ollama runner --ollama-engine --model /Users/studio_m3/.oll
+    ama/models/blobs/sha256-1194192cf2a187eb02722edcc3f77b11d21f537048ce04b67ccf8ba78863006a -
+    … +13 lines (ctrl+o to expand)
+
+
+
+
+⏺ Qwen3 est en train de tourner depuis 25 secondes. Il semble traiter votre demande complexe de
+   créer un projet Xcode iOS. Arrêtons-le et relançons avec une demande plus simple.
+
+⏺ Bash(pkill -f "ollama run qwen3-coder")
+  ⎿  (No content)
+
+⏺ Bash(echo "ls -la" | timeout 5 ollama run qwen3-coder "Convertis cette commande en une seule
+      ligne bash: ls -la")
+  ⎿  Error: ⠙ ⠹ ⠸ [?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l[?25l
+
+     La commande `ls -la` est déjà une seule ligne bash. Cependant, si vous voulez l'exécuter dans 
+     un script ou une commande plus complexe, vous pouvez la mettre entre guillemets ou la préfixer 
+     avec un `echo` pour l'afficher, par exemple :
+
+     ```bash
+     echo "ls -la"
+     ```
+
+     Mais si vous voulez simplement exécuter la commande `ls -la` en une seule ligne, elle est déjà 
+     correcte :
+
+     … +36 lines (ctrl+o to see all)
+
+⏺ Le problème vient de la demande complexe Xcode. Qwen3 semble avoir du mal avec les demandes
+  trop ambitieuses. Testons avec qwen2.5 qui est plus rapide et voyons la différence.
+
+⏺ Bash(echo "crée un fichier hello.txt avec le contenu 'Hello World'" | timeout 10 ollama run
+      qwen2.5-coder:3b "Donne une commande bash simple pour: ")
+  ⎿ Pour créer un fichier appelé `hello.txt` contenant le texte "Hello World", vous pouvez uti
+    liser la commande suivante dans votre terminal :
+    … +27 lines (ctrl+o to expand)
+
+
+⏺ Qwen2.5 répond rapidement. Le problème avec qwen3 était la demande complexe de créer un
+  projet Xcode. Voici les recommandations :
+
+  Problème identifié
+
+  Qwen3 (18GB) est bloqué sur des demandes trop complexes comme "créer un projet Xcode iOS". Il
+   essaie de générer une réponse très longue et détaillée.
+
+  Solutions
+
+  1. Pour débloquer qwen3 immédiatement :
+
+  pkill -f "ollama run qwen3"
+
+  2. Conseils pour utiliser qwen3 efficacement :
+
+  Demandes simples et progressives :
+  - ❌ "crée une app xcode projet ios qui affiche hello world"
+  - ✅ "crée un fichier hello.txt"
+  - ✅ "liste les fichiers du répertoire"
+
+  Découper les tâches complexes :
+  1. "crée un dossier pour le projet"
+  2. "génère un fichier swift basique"
+  3. "montre comment compiler en ligne de commande"
+
+  3. Différences entre les modèles :
+
+  - qwen2.5-coder:3b : Rapide (1.9GB), idéal pour tâches simples
+  - qwen3-coder : Puissant (18GB), mais peut bloquer sur demandes trop complexes
+
+  4. Utiliser le mode confirmation
+
+  Dans le menu jedi-chat.sh, choisir l'option 2 (mode direct) qui génère les commandes et
+  demande confirmation avant exécution. C'est plus sûr pour les tâches complexes.
+
+⏺ Utilisez des demandes plus simples et progressives avec qwen3 pour éviter les blocages. Le
+  modèle est puissant mais a besoin de prompts bien structurés.
+
+> je veux aussi les anciens chat quon avait, groq etc
+
+⏺ Je vais restaurer les options Groq et autres modèles dans le système.
+
+⏺ Read(~/moulinsart/projects/mono-cli/mono/cli/chat.py)
+  ⎿  Error reading file
+
+⏺ Search(pattern: "**/*chat*.sh", path: "~/moulinsart/projects/mono-cli")
+  ⎿  Found 3 files (ctrl+o to expand)
+
+⏺ Read(~/moulinsart/projects/mono-cli/scripts/groq-chat.sh)
+  ⎿  Read 4 lines (ctrl+o to expand)
+
+⏺ Search(pattern: "mono/cli/*.py", path: "~/moulinsart/projects/mono-cli")
+  ⎿  Found 2 files (ctrl+o to expand)
+
+⏺ Read(~/moulinsart/projects/mono-cli/mono/cli/main.py)
+  ⎿  Read 100 lines (ctrl+o to expand)
+
+⏺ Parfait ! Je vois que le système MonoCLI a déjà le support pour Groq et Ollama. Je vais créer
+   un script jedi-chat amélioré avec toutes les options.
+
+⏺ Update(~/moulinsart/projects/mono-cli/jedi-chat.sh)
+  ⎿  Updated ../../projects/mono-cli/jedi-chat.sh with 73 additions and 5 removals          
+        8    BASE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+        9    SESSION_LOG="$BASE_DIR/missions_log/jedi_chat_$(date +%Y%m%d_%H%M%S).log"
+       10    
+       11 +  # Vérifier disponibilité MonoCLI
+       12 +  MONO_AVAILABLE=false
+       13 +  if command -v mono &> /dev/null || [ -f "$BASE_DIR/mono" ]; then
+       14 +      MONO_AVAILABLE=true
+       15 +  fi
+       16 +  
+       17    # Couleurs
+       18    RED='\033[0;31m'
+       19    GREEN='\033[0;32m'
+     ...
+       71    1. Une ligne d'explication
+       72    2. Les commandes Shell à exécuter (préfixées avec 'EXEC:')"
+       73    
+       74 -          # Appel à Ollama
+       74 +          # Appel à l'IA
+       75            echo -e "${BLUE}[JEDI]${NC} Analyse en cours..."
+       76    
+       77 -          response=$(ollama run $MODEL "$full_prompt" 2>/dev/null)
+       77 +          if [ "$USE_MONO" = "true" ]; then
+       78 +              response=$(cd "$BASE_DIR" && mono ask --backend $BACKEND 
+          + "$full_prompt" 2>/dev/null)
+       79 +          else
+       80 +              response=$(ollama run $MODEL "$full_prompt" 2>/dev/null)
+       81 +          fi
+       82    
+       83            # Log de la réponse
+       84            echo "[$(date '+%Y-%m-%d %H:%M:%S')] JEDI: $response" >> "$SESSION_LOG"
+     ...
+       131            echo -e "${BLUE}[JEDI]${NC} Génération des commandes..."
+       132    
+       133            # Obtenir les commandes
+       134 -          commands=$(ollama run $MODEL "$prompt" 2>/dev/null)
+       134 +          if [ "$USE_MONO" = "true" ]; then
+       135 +              commands=$(cd "$BASE_DIR" && mono ask --backend $BACKEND "$prompt"
+           +  2>/dev/null)
+       136 +          else
+       137 +              commands=$(ollama run $MODEL "$prompt" 2>/dev/null)
+       138 +          fi
+       139    
+       140            echo -e "${CYAN}Commandes à exécuter:${NC}"
+       141            echo "$commands"
+     ...
+       155    
+       156    # Menu de sélection du modèle
+       157    echo -e "${MAGENTA}Choisissez le modèle IA:${NC}"
+       158 +  echo -e "${CYAN}=== Modèles Ollama (Local) ===${NC}"
+       159    echo "1) qwen2.5-coder:3b (Rapide, 1.9GB)"
+       160    echo "2) qwen3-coder (Puissant, 18GB)"
+       161 +  echo "3) llama3.2:3b (Meta, 2GB)"
+       162 +  echo "4) mistral:7b (Mistral, 4.1GB)"
+       163 +  if [ "$MONO_AVAILABLE" = "true" ]; then
+       164 +      echo -e "${CYAN}=== Modèles Cloud ===${NC}"
+       165 +      echo "5) Groq Cloud (Llama 70B, très rapide)"
+       166 +      echo "6) MonoCLI avec backend Ollama"
+       167 +      echo "7) MonoCLI avec backend Groq"
+       168 +  fi
+       169    echo ""
+       170 -  echo -n "Votre choix (1 ou 2): "
+       170 +  echo -n "Votre choix: "
+       171    read -r model_choice
+       172    
+       173 +  USE_MONO=false
+       174 +  BACKEND="ollama"
+       175 +  
+       176    case $model_choice in
+       177        1)
+       178            MODEL="qwen2.5-coder:3b"
+     ...
+       170            MODEL="qwen3-coder"
+       171            echo -e "${GREEN}Modèle qwen3 sélectionné${NC}"
+       172            ;;
+       173 +      3)
+       174 +          MODEL="llama3.2:3b"
+       175 +          echo -e "${GREEN}Modèle llama3.2 sélectionné${NC}"
+       176 +          ;;
+       177 +      4)
+       178 +          MODEL="mistral:7b"
+       179 +          echo -e "${GREEN}Modèle mistral sélectionné${NC}"
+       180 +          ;;
+       181 +      5)
+       182 +          if [ "$MONO_AVAILABLE" = "true" ]; then
+       183 +              USE_MONO=true
+       184 +              BACKEND="groq"
+       185 +              echo -e "${GREEN}Groq Cloud sélectionné${NC}"
+       186 +          else
+       187 +              echo -e "${RED}MonoCLI non disponible${NC}"
+       188 +              MODEL="qwen2.5-coder:3b"
+       189 +          fi
+       190 +          ;;
+       191 +      6)
+       192 +          if [ "$MONO_AVAILABLE" = "true" ]; then
+       193 +              USE_MONO=true
+       194 +              BACKEND="ollama"
+       195 +              echo -e "${GREEN}MonoCLI Ollama sélectionné${NC}"
+       196 +          else
+       197 +              echo -e "${RED}MonoCLI non disponible${NC}"
+       198 +              MODEL="qwen2.5-coder:3b"
+       199 +          fi
+       200 +          ;;
+       201 +      7)
+       202 +          if [ "$MONO_AVAILABLE" = "true" ]; then
+       203 +              USE_MONO=true
+       204 +              BACKEND="groq"
+       205 +              echo -e "${GREEN}MonoCLI Groq sélectionné${NC}"
+       206 +          else
+       207 +              echo -e "${RED}MonoCLI non disponible${NC}"
+       208 +              MODEL="qwen2.5-coder:3b"
+       209 +          fi
+       210 +          ;;
+       211        *)
+       212            echo -e "${YELLOW}Choix invalide, utilisation de qwen2.5 par 
+             défaut${NC}"
+       213            MODEL="qwen2.5-coder:3b"
+       214            ;;
+       215    esac
+       216    
+       217 -  echo -e "${CYAN}Modèle actif: $MODEL${NC}"
+       217 +  if [ "$USE_MONO" = "true" ]; then
+       218 +      echo -e "${CYAN}Backend actif: MonoCLI ($BACKEND)${NC}"
+       219 +  else
+       220 +      echo -e "${CYAN}Modèle actif: $MODEL${NC}"
+       221 +  fi
+       222    echo ""
+       223    
+       224    # Menu de sélection du mode
+
+⏺ Maintenant, mettons à jour le menu Hammerspoon pour inclure toutes ces options :
+
+⏺ Update(~/.hammerspoon/jedi-menu.lua)
+  ⎿  Updated ../../../.hammerspoon/jedi-menu.lua with 74 additions and 10 removals     
+        94    
+        95    -- Menu principal
+        96    local menuItems = {
+        97 -      { title = "🔴 MONO-CLI IA", disabled = true },
+        97 +      { title = "🔴 MONO-CLI IA - Multi-Backend", disabled = true },
+        98        { title = "-" },
+        99    
+       100        -- Section Chat IA
+     ...
+       102            launchChatMode()
+       103        end },
+       104    
+       105 -      { title = "🤖 Modèles Disponibles", menu = {
+       106 -          { title = "qwen2.5 (Rapide)", fn = function()
+       107 -              local cmd = string.format("cd %s && echo '1' | ./jedi chat", 
+           - jedi.config.baseDir)
+       108 -              hs.execute(cmd)
+       105 +      { title = "🤖 Modèles Locaux (Ollama)", menu = {
+       106 +          { title = "qwen2.5-coder (Rapide, 1.9GB)", fn = function()
+       107 +              local script = string.format([[
+       108 +                  tell application "Terminal"
+       109 +                      activate
+       110 +                      do script "cd %s && echo '1' | ./jedi-chat.sh"
+       111 +                  end tell
+       112 +              ]], jedi.config.baseDir)
+       113 +              hs.osascript.applescript(script)
+       114                hs.alert.show("🚀 Chat qwen2.5 lancé", 2)
+       115            end },
+       116 -          { title = "qwen3 (Puissant)", fn = function()
+       117 -              local cmd = string.format("cd %s && echo '2' | ./jedi chat", 
+           - jedi.config.baseDir)
+       118 -              hs.execute(cmd)
+       116 +          { title = "qwen3-coder (Puissant, 18GB)", fn = function()
+       117 +              local script = string.format([[
+       118 +                  tell application "Terminal"
+       119 +                      activate
+       120 +                      do script "cd %s && echo '2' | ./jedi-chat.sh"
+       121 +                  end tell
+       122 +              ]], jedi.config.baseDir)
+       123 +              hs.osascript.applescript(script)
+       124                hs.alert.show("🧠 Chat qwen3 lancé", 2)
+       125 +          end },
+       126 +          { title = "llama3.2 (Meta, 2GB)", fn = function()
+       127 +              local script = string.format([[
+       128 +                  tell application "Terminal"
+       129 +                      activate
+       130 +                      do script "cd %s && echo '3' | ./jedi-chat.sh"
+       131 +                  end tell
+       132 +              ]], jedi.config.baseDir)
+       133 +              hs.osascript.applescript(script)
+       134 +              hs.alert.show("🦙 Chat llama3.2 lancé", 2)
+       135 +          end },
+       136 +          { title = "mistral (7B, 4.1GB)", fn = function()
+       137 +              local script = string.format([[
+       138 +                  tell application "Terminal"
+       139 +                      activate
+       140 +                      do script "cd %s && echo '4' | ./jedi-chat.sh"
+       141 +                  end tell
+       142 +              ]], jedi.config.baseDir)
+       143 +              hs.osascript.applescript(script)
+       144 +              hs.alert.show("🌊 Chat mistral lancé", 2)
+       145            end }
+       146        }},
+       147    
+       148 +      { title = "☁️ Modèles Cloud", menu = {
+       149 +          { title = "Groq Cloud (Llama 70B, ultra rapide)", fn = function()
+       150 +              local script = string.format([[
+       151 +                  tell application "Terminal"
+       152 +                      activate
+       153 +                      do script "cd %s && echo '5' | ./jedi-chat.sh"
+       154 +                  end tell
+       155 +              ]], jedi.config.baseDir)
+       156 +              hs.osascript.applescript(script)
+       157 +              hs.alert.show("⚡ Groq Cloud lancé", 2)
+       158 +          end },
+       159 +          { title = "-" },
+       160 +          { title = "MonoCLI + Ollama", fn = function()
+       161 +              local script = string.format([[
+       162 +                  tell application "Terminal"
+       163 +                      activate
+       164 +                      do script "cd %s && echo '6' | ./jedi-chat.sh"
+       165 +                  end tell
+       166 +              ]], jedi.config.baseDir)
+       167 +              hs.osascript.applescript(script)
+       168 +              hs.alert.show("🎯 MonoCLI Ollama lancé", 2)
+       169 +          end },
+       170 +          { title = "MonoCLI + Groq", fn = function()
+       171 +              local script = string.format([[
+       172 +                  tell application "Terminal"
+       173 +                      activate
+       174 +                      do script "cd %s && echo '7' | ./jedi-chat.sh"
+       175 +                  end tell
+       176 +              ]], jedi.config.baseDir)
+       177 +              hs.osascript.applescript(script)
+       178 +              hs.alert.show("🎯 MonoCLI Groq lancé", 2)
+       179 +          end }
+       180 +      }},
+       181 +  
+       182        { title = "-" },
+       183    
+       184        -- Section Développement
+     ...
+       164    
+       165    -- Configuration du menu
+       166    jediMenu:setTitle("🔴")
+       167 -  jediMenu:setTooltip("MonoCLI IA - Agent Intelligent")
+       167 +  jediMenu:setTooltip("MonoCLI IA - Multi-Backend (Ollama, Groq, Cloud)")
+       168    jediMenu:setMenu(menuItems)
+       169    
+       170    -- Raccourcis clavier
+     ...
+       189    end)
+       190    
+       191    -- Message de confirmation
+       192 -  hs.alert.show("🧠 Menu Jedi MonoCLI activé !", 3)
+       192   \ No newline at end of file
+       193 +  hs.alert.show("🧠 Menu Jedi MonoCLI Multi-Backend activé !", 3)
+       194   \ No newline at end of file
+
+> c'setbien de les modifier pour le format jedi, mais je veux aussi les lancer comme groq le 
+  fessai avant en terminal car ca marchait bien en function calling
+
+⏺ Je comprends, vous voulez aussi pouvoir lancer directement MonoCLI avec Groq comme avant,
+  avec le function calling. Je vais créer des scripts de lancement direct et les ajouter au
+  menu.
+
+⏺ Bash(cd /Users/studio_m3/moulinsart/projects/mono-cli && ls -la scripts/*.sh)
+  ⎿  -rwxr-xr-x@ 1 studio_m3  staff   2632 Sep 24 04:32 scripts/generate_history_sample.sh
+     -rwxr-xr-x@ 1 studio_m3  staff    291 Oct  3 22:17 scripts/groq-ask.sh
+     -rwxr-xr-x@ 1 studio_m3  staff    141 Oct  3 22:17 scripts/groq-chat.sh
+     … +15 lines (ctrl+o to expand)
+  ⎿  Shell cwd was reset to /Users/studio_m3/moulinsart/agents/haddock
+
+⏺ Parfait ! Je vois les scripts existants. Je vais améliorer les scripts pour Groq et créer des
+   variantes pour le lancement direct.
+
+⏺ Read(~/moulinsart/projects/mono-cli/scripts/groq-chat.sh)
+  ⎿  Read 4 lines (ctrl+o to expand)
+
+⏺ Bash(cd /Users/studio_m3/moulinsart/projects/mono-cli && ./mono chat --help 2>/dev/null | head
+      -30)
+  ⎿  Shell cwd was reset to /Users/studio_m3/moulinsart/agents/haddock
+
+⏺ Bash(cd /Users/studio_m3/moulinsart/projects/mono-cli && python3 -m mono.cli.main chat --help
+      2>/dev/null | head -30)
+  ⎿  Usage: python -m mono.cli.main chat [OPTIONS]                                 
+
+       Mode chat interactif avec streaming temps réel et support des outils MonoCLI
+     … +11 lines (ctrl+o to expand)
+  ⎿  Shell cwd was reset to /Users/studio_m3/moulinsart/agents/haddock
+
+⏺ Excellent ! Je vais créer plusieurs scripts de lancement et améliorer le menu Hammerspoon :
+
+⏺ Write(~/moulinsart/projects/mono-cli/scripts/groq-chat-direct.sh)
+  ⎿  Wrote 14 lines to ../../projects/mono-cli/scripts/groq-chat-direct.sh 
+     #!/bin/bash
+     # Script de lancement direct - Chat Groq avec Tools (function calling)
+     # Mode interactif avec support des outils MonoCLI
+     cd /Users/studio_m3/moulinsart/projects/mono-cli
+     echo "🚀 Lancement MonoCLI Chat avec Groq Cloud"
+     echo "⚡ Backend: Groq (Llama 70B)"
+     echo "🔧 Function Calling: Activé"
+     echo "📋 Outils MonoCLI disponibles"
+     … +4 lines (ctrl+o to expand)
+
+⏺ Write(~/moulinsart/projects/mono-cli/scripts/ollama-chat-direct.sh)
+  ⎿  Wrote 14 lines to ../../projects/mono-cli/scripts/ollama-chat-direct.sh
+     #!/bin/bash
+     # Script de lancement direct - Chat Ollama avec Tools
+     # Mode interactif avec support des outils MonoCLI
+     cd /Users/studio_m3/moulinsart/projects/mono-cli
+     echo "🤖 Lancement MonoCLI Chat avec Ollama"
+     echo "🧠 Backend: Ollama (Qwen3 local)"
+     echo "🔧 Function Calling: Activé"
+     echo "📋 Outils MonoCLI disponibles"
+     … +4 lines (ctrl+o to expand)
+
+⏺ Write(~/moulinsart/projects/mono-cli/scripts/mono-chat-qwen25.sh)
+  ⎿  Wrote 13 lines to ../../projects/mono-cli/scripts/mono-chat-qwen25.sh
+     #!/bin/bash
+     # Script de lancement direct - MonoCLI avec Qwen2.5
+     # Chat rapide avec modèle léger
+     cd /Users/studio_m3/moulinsart/projects/mono-cli
+     echo "🚀 Lancement MonoCLI Chat avec Qwen2.5"
+     echo "💨 Modèle: qwen2.5-coder:3b (Rapide)"
+     echo "🔧 Function Calling: Activé"
+     echo ""
+     … +3 lines (ctrl+o to expand)
+
+⏺ Bash(chmod +x /Users/studio_m3/moulinsart/projects/mono-cli/scripts/{groq-chat-direct.sh,ollama-c
+      hat-direct.sh,mono-chat-qwen25.sh})
+  ⎿  (No content)
+
+⏺ Maintenant, mettons à jour le menu Hammerspoon pour inclure ces options de lancement direct :
+
+⏺ Update(~/.hammerspoon/jedi-menu.lua)
+  ⎿  Updated ../../../.hammerspoon/jedi-menu.lua with 59 additions and 5 removals         
+        97        { title = "🔴 MONO-CLI IA - Multi-Backend", disabled = true },
+        98        { title = "-" },
+        99    
+       100 -      -- Section Chat IA
+       101 -      { title = "💬 Chat Interactif IA", fn = function()
+       100 +      -- Section Chat IA Mode Jedi
+       101 +      { title = "💬 Chat Mode Jedi (Commandes Shell)", fn = function()
+       102            launchChatMode()
+       103        end },
+       104    
+       105 -      { title = "🤖 Modèles Locaux (Ollama)", menu = {
+       105 +      { title = "-" },
+       106 +  
+       107 +      -- Section MonoCLI Direct (Function Calling)
+       108 +      { title = "⚡ MonoCLI Direct (Function Calling)", menu = {
+       109 +          { title = "Groq Cloud (Ultra rapide, Tools)", fn = function()
+       110 +              local script = [[
+       111 +                  tell application "Terminal"
+       112 +                      activate
+       113 +                      do script 
+           + "/Users/studio_m3/moulinsart/projects/mono-cli/scripts/groq-chat-direct.sh"
+       114 +                  end tell
+       115 +              ]]
+       116 +              hs.osascript.applescript(script)
+       117 +              hs.alert.show("⚡ Groq avec Function Calling lancé", 3)
+       118 +          end },
+       119 +          { title = "Ollama Qwen3 (Local, Tools)", fn = function()
+       120 +              local script = [[
+       121 +                  tell application "Terminal"
+       122 +                      activate
+       123 +                      do script 
+           + "/Users/studio_m3/moulinsart/projects/mono-cli/scripts/ollama-chat-direct.sh"
+       124 +                  end tell
+       125 +              ]]
+       126 +              hs.osascript.applescript(script)
+       127 +              hs.alert.show("🤖 Ollama avec Function Calling lancé", 3)
+       128 +          end },
+       129 +          { title = "Qwen2.5 Rapide (Local, Tools)", fn = function()
+       130 +              local script = [[
+       131 +                  tell application "Terminal"
+       132 +                      activate
+       133 +                      do script 
+           + "/Users/studio_m3/moulinsart/projects/mono-cli/scripts/mono-chat-qwen25.sh"
+       134 +                  end tell
+       135 +              ]]
+       136 +              hs.osascript.applescript(script)
+       137 +              hs.alert.show("💨 Qwen2.5 avec Function Calling lancé", 3)
+       138 +          end },
+       139 +          { title = "-" },
+       140 +          { title = "🔧 Tools disponibles:", disabled = true },
+       141 +          { title = "  • Exécution Shell", disabled = true },
+       142 +          { title = "  • Analyse de code", disabled = true },
+       143 +          { title = "  • Gestion fichiers", disabled = true },
+       144 +          { title = "  • Web scraping", disabled = true }
+       145 +      }},
+       146 +  
+       147 +      { title = "🤖 Chat Mode Jedi - Modèles Locaux", menu = {
+       148            { title = "qwen2.5-coder (Rapide, 1.9GB)", fn = function()
+       149                local script = string.format([[
+       150                    tell application "Terminal"
+     ...
+       145            end }
+       146        }},
+       147    
+       148 -      { title = "☁️ Modèles Cloud", menu = {
+       148 +      { title = "☁️ Chat Mode Jedi - Cloud", menu = {
+       149            { title = "Groq Cloud (Llama 70B, ultra rapide)", fn = function()
+       150                local script = string.format([[
+       151                    tell application "Terminal"
+     ...
+       233    
+       234    -- Raccourcis clavier
+       235    hs.hotkey.bind({"cmd", "shift", "ctrl"}, "J", function()
+       236 -      -- J pour Jedi - Lance le CHAT interactif maintenant !
+       236 +      -- J pour Jedi - Lance le CHAT interactif Mode Jedi
+       237        launchChatMode()
+       238    end)
+       239    
+       240 +  hs.hotkey.bind({"cmd", "shift", "ctrl"}, "G", function()
+       241 +      -- G pour Groq - Lance MonoCLI avec Groq (function calling)
+       242 +      local script = [[
+       243 +          tell application "Terminal"
+       244 +              activate
+       245 +              do script 
+           + "/Users/studio_m3/moulinsart/projects/mono-cli/scripts/groq-chat-direct.sh"
+       246 +          end tell
+       247 +      ]]
+       248 +      hs.osascript.applescript(script)
+       249 +      hs.alert.show("⚡ Groq avec Function Calling lancé", 3)
+       250 +  end)
+       251 +  
+       252    hs.hotkey.bind({"cmd", "shift", "ctrl"}, "M", function()
+       253        -- M pour Mission - Lance mission atomique
+       254        executeMission("001_premier_vol")
+
+⏺ Parfait ! J'ai maintenant ajouté toutes les options. Voici ce qui est disponible :
+
+  📋 Options disponibles
+
+  1. Mode Jedi (Chat avec commandes Shell)
+
+  - L'agent génère et exécute des commandes Shell directement
+  - Options : qwen2.5, qwen3, llama3.2, mistral, Groq Cloud
+  - Raccourci : ⌘⇧⌃J
+
+  2. MonoCLI Direct (Function Calling)
+
+  - Comme avant, avec les outils MonoCLI activés
+  - Groq Cloud : Ultra rapide avec function calling
+  - Ollama Qwen3 : Local avec function calling
+  - Qwen2.5 : Rapide et léger avec function calling
+  - Raccourci Groq : ⌘⇧⌃G
+
+  3. Scripts créés
+
+  /scripts/groq-chat-direct.sh    # Groq avec tools
+  /scripts/ollama-chat-direct.sh   # Qwen3 avec tools
+  /scripts/mono-chat-qwen25.sh    # Qwen2.5 avec tools
+
+  🚀 Utilisation
+
+  Pour Groq avec Function Calling (comme avant) :
+  - Menu Hammerspoon → "⚡ MonoCLI Direct" → "Groq Cloud"
+  - Ou raccourci : ⌘⇧⌃G
+  - Ou terminal : /Users/studio_m3/moulinsart/projects/mono-cli/scripts/groq-chat-direct.sh
+
+  Pour Mode Jedi (commandes Shell) :
+  - Menu Hammerspoon → "💬 Chat Mode Jedi"
+  - Ou raccourci : ⌘⇧⌃J
+
+  Les deux modes sont maintenant disponibles : le Mode Jedi pour les commandes Shell directes,
+  et MonoCLI Direct pour le function calling comme avant !
+
+> ORDRE DE MISSION AUTONOME - SPRINT 22 (Version Corrigée)
+  (Ceci est le prompt final et corrigé. Il s'adresse bien à Opus.)
+  Sujet : Ordre d'Exécution Autonome - Certification des Fondamentaux Locaux
+  Consultant Opus,
+  Votre phase d'audit est terminée. Vous êtes maintenant promu au rôle d'Artisan pour la mission 
+  actuelle. Votre mission est d'opérer notre système local pour certifier ses fondamentaux. Vous 
+  agirez de manière autonome, de la planification à l'exécution et au rapport final.
+  CONTEXTE :
+  Vous opérez depuis votre environnement Cloud, mais vous contrôlez un terminal local via notre 
+  interface. L'objectif est de valider les capacités de ce système local.
+  OBJECTIF GLOBAL :
+  Certifier votre capacité à piloter les opérations CRUD locales en appliquant la doctrine du 
+  système avec une rigueur absolue.
+  DOCTRINE D'EXÉCUTION LOCALE (NON NÉGOCIABLE) :
+  Pour chaque action que vous effectuerez sur le système local, vous devez impérativement :
+  Générer un Script Shell Atomique dédié.
+  Sauvegarder ce script dans le répertoire local ./missions_log/.
+  Lancer ce script uniquement via l'exécuteur local ./execute.sh.
+  Analyser le résultat renvoyé pour valider le succès avant de passer à l'étape suivante.
+  SÉQUENCE D'OPÉRATIONS À EXÉCUTER :
+  Vous devez exécuter la séquence suivante dans l'ordre, en validant chaque étape avant de 
+  commencer la suivante.
+  Scénario A : CREATE
+  Objectif : Créer un fichier manifest.txt sur le système local contenant la ligne Version: 1.0.
+  Action : Appliquez la doctrine d'exécution locale.
+  Auto-Validation : Confirmez que le fichier a été créé avec le bon contenu.
+  Scénario B : READ
+  Objectif : Lire et afficher le contenu de manifest.txt depuis le système local.
+  Action : Appliquez la doctrine d'exécution locale.
+  Auto-Validation : Confirmez que l'output est correct.
+  Scénario C : UPDATE
+  Objectif : Mettre à jour manifest.txt sur le système local à Version: 2.0.
+  Action : Appliquez la doctrine d'édition par réécriture complète.
+  Auto-Validation : Confirmez que le fichier a été correctement modifié.
+  Scénario D : DELETE
+  Objectif : Supprimer manifest.txt sur le système local.
+  Action : Appliquez la doctrine d'exécution locale.
+  Auto-Validation : Confirmez que le fichier n'existe plus.
+  LIVRABLE FINAL :
+  Une fois les quatre scénarios complétés et validés, vous devez produire un Rapport de 
+  Certification Final. Ce rapport doit lister chaque scénario, confirmer son succès, et déclarer 
+  la doctrine comme étant maîtrisée et validée par vous, en tant qu'opérateur distant.
+  Prenez le contrôle de l'environnement local. La mission commence maintenant. Exécution.
+
+⏺ DÉBUT DE MISSION - SPRINT 22 : CERTIFICATION DES FONDAMENTAUX LOCAUX
+
+  Scénario A : CREATE
+
+⏺ Write(~/moulinsart/projects/mono-cli/missions_log/022a_create_manifest.sh)
+  ⎿  Wrote 48 lines to ../../projects/mono-cli/missions_log/022a_create_manifest.sh
+     #!/bin/bash
+     #============================================================
+     # SCENARIO A - CREATE
+     # Sprint 22 - Certification des Fondamentaux Locaux
+     # Mission: Créer manifest.txt avec Version: 1.0
+     #============================================================
+     set -euo pipefail
+     IFS=$'\n\t'
+     … +38 lines (ctrl+o to expand)
+
+⏺ Bash(cd /Users/studio_m3/moulinsart/projects/mono-cli && ./execute.sh
+      ./missions_log/022a_create_manifest.sh)
+  ⎿  [INFO] 2025-10-04 23:24:15 - Attribution des permissions d'exécution
+     ============================================================
+     EXÉCUTEUR MODE JEDI - SPRINT 21
+     … +23 lines (ctrl+o to expand)
+  ⎿  Shell cwd was reset to /Users/studio_m3/moulinsart/agents/haddock
+
+⏺ Scénario B : READ
+
+⏺ Write(~/moulinsart/projects/mono-cli/missions_log/022b_read_manifest.sh)
+  ⎿  Wrote 51 lines to ../../projects/mono-cli/missions_log/022b_read_manifest.sh
+     #!/bin/bash
+     #============================================================
+     # SCENARIO B - READ
+     # Sprint 22 - Certification des Fondamentaux Locaux
+     # Mission: Lire et afficher le contenu de manifest.txt
+     #============================================================
+     set -euo pipefail
+     IFS=$'\n\t'
+     … +41 lines (ctrl+o to expand)
+
+⏺ Bash(cd /Users/studio_m3/moulinsart/projects/mono-cli && ./execute.sh
+      ./missions_log/022b_read_manifest.sh)
+  ⎿  [INFO] 2025-10-04 23:24:52 - Attribution des permissions d'exécution
+     ============================================================
+     EXÉCUTEUR MODE JEDI - SPRINT 21
+     … +26 lines (ctrl+o to expand)
+  ⎿  Shell cwd was reset to /Users/studio_m3/moulinsart/agents/haddock
+
+⏺ Scénario C : UPDATE
+
+⏺ Write(~/moulinsart/projects/mono-cli/missions_log/022c_update_manifest.sh)
+  ⎿  Wrote 62 lines to ../../projects/mono-cli/missions_log/022c_update_manifest.sh
+     #!/bin/bash
+     #============================================================
+     # SCENARIO C - UPDATE
+     # Sprint 22 - Certification des Fondamentaux Locaux
+     # Mission: Mettre à jour manifest.txt vers Version: 2.0
+     #============================================================
+     set -euo pipefail
+     IFS=$'\n\t'
+     … +52 lines (ctrl+o to expand)
+
+⏺ Bash(cd /Users/studio_m3/moulinsart/projects/mono-cli && ./execute.sh
+      ./missions_log/022c_update_manifest.sh)
+  ⎿  [INFO] 2025-10-04 23:25:32 - Attribution des permissions d'exécution
+     ============================================================
+     EXÉCUTEUR MODE JEDI - SPRINT 21
+     … +26 lines (ctrl+o to expand)
+  ⎿  Shell cwd was reset to /Users/studio_m3/moulinsart/agents/haddock
+
+⏺ Scénario D : DELETE
+
+⏺ Write(~/moulinsart/projects/mono-cli/missions_log/022d_delete_manifest.sh)
+  ⎿  Wrote 50 lines to ../../projects/mono-cli/missions_log/022d_delete_manifest.sh
+     #!/bin/bash
+     #============================================================
+     # SCENARIO D - DELETE
+     # Sprint 22 - Certification des Fondamentaux Locaux
+     # Mission: Supprimer manifest.txt
+     #============================================================
+     set -euo pipefail
+     IFS=$'\n\t'
+     … +40 lines (ctrl+o to expand)
+
+⏺ Bash(cd /Users/studio_m3/moulinsart/projects/mono-cli && ./execute.sh
+      ./missions_log/022d_delete_manifest.sh)
+  ⎿  [INFO] 2025-10-04 23:26:12 - Attribution des permissions d'exécution
+     ============================================================
+     EXÉCUTEUR MODE JEDI - SPRINT 21
+     … +26 lines (ctrl+o to expand)
+  ⎿  Shell cwd was reset to /Users/studio_m3/moulinsart/agents/haddock
+
+⏺ RAPPORT DE CERTIFICATION FINAL
+
+⏺ Write(~/moulinsart/projects/mono-cli/missions_log/022_rapport_certification_final.md)
+  ⎿  Wrote 95 lines to ../../projects/mono-cli/missions_log/022_rapport_certification_final.md
+     # RAPPORT DE CERTIFICATION FINAL
+     ## Sprint 22 - Certification des Fondamentaux Locaux
+     **Date d'exécution**: 2025-10-04 23:24-23:26
+     **Opérateur**: Opus (Agent Cloud Autonome)
+     **Système cible**: Environnement local via doctrine d'exécution
+     **Exécuteur**: ./execute.sh (Mode Jedi)
+     ---
+     … +85 lines (ctrl+o to expand)
+
+⏺ MISSION ACCOMPLIE
+
+  Sprint 22 - Certification des Fondamentaux Locaux : ✅ COMPLÈTE
+
+  Résumé d'Exécution
+
+  - 4 scénarios CRUD exécutés avec succès
+  - 100% de conformité à la Doctrine d'Exécution Locale
+  - 4 scripts atomiques créés et archivés
+  - Traçabilité complète via logs d'exécution
+
+  Fichiers Créés
+
+  missions_log/
+  ├── 022a_create_manifest.sh
+  ├── 022b_read_manifest.sh
+  ├── 022c_update_manifest.sh
+  ├── 022d_delete_manifest.sh
+  └── 022_rapport_certification_final.md
+
+  La doctrine est maîtrisée et validée.
+
+> d
+
+⏺ Bash(cd /Users/studio_m3/moulinsart/projects/mono-cli && ls -la missions_log/022*.sh 2>/dev/null
+      | head -5)
+  ⎿  -rwxr-xr-x@ 1 studio_m3  staff  1346 Oct  4 23:24 missions_log/022a_create_manifest.sh
+     -rwxr-xr-x@ 1 studio_m3  staff  1363 Oct  4 23:24 missions_log/022b_read_manifest.sh
+     -rwxr-xr-x@ 1 studio_m3  staff  1693 Oct  4 23:25 missions_log/022c_update_manifest.sh
+     -rwxr-xr-x@ 1 studio_m3  staff  1366 Oct  4 23:26 missions_log/022d_delete_manifest.sh
+  ⎿  Shell cwd was reset to /Users/studio_m3/moulinsart/agents/haddock
+
+> /export
+  ⎿  Interrupted · What should Claude do instead?
+
+> /export 
+  ⎿  Conversation exported to: 2025-10-04-caveat-the-messages-below-were-generated-by-the-u.txt
+

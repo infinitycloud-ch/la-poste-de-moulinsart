@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📮 La Poste de Moulinsart - Documentation Technique Complète</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Comic Sans MS', 'Helvetica', sans-serif;
+            background: linear-gradient(135deg, #FFF5DC 0%, #FFE5B4 100%);
+            color: #2B1B17;
+            padding: 20px;
+            line-height: 1.8;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #FFCC5C 0%, #FFA500 100%);
+            border: 4px solid #2B1B17;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 40px;
+            text-align: center;
+            box-shadow: 8px 8px 0px #2B1B17;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: "📮";
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            font-size: 100px;
+            opacity: 0.1;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            text-shadow: 2px 2px 0px #fff;
+            margin-bottom: 10px;
+        }
+        
+        .header .subtitle {
+            font-size: 1.2em;
+            font-style: italic;
+        }
+        
+        .nav {
+            background: white;
+            border: 3px solid #2B1B17;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 30px;
+            box-shadow: 4px 4px 0px #2B1B17;
+        }
+        
+        .nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+        
+        .nav a {
+            color: #2B1B17;
+            text-decoration: none;
+            padding: 8px 15px;
+            background: #FFCC5C;
+            border: 2px solid #2B1B17;
+            border-radius: 20px;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+        
+        .nav a:hover {
+            background: #FFA500;
+            transform: translateY(-2px);
+            box-shadow: 2px 2px 0px #2B1B17;
+        }
+        
+        .section {
+            background: white;
+            border: 3px solid #2B1B17;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 5px 5px 0px #2B1B17;
+        }
+        
+        h2 {
+            color: #2B1B17;
+            border-bottom: 4px solid #FFCC5C;
+            padding-bottom: 12px;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+        
+        h3 {
+            color: #4169E1;
+            margin: 20px 0 10px 0;
+            font-size: 1.3em;
+        }
+        
+        .box {
+            background: #FFE5B4;
+            border: 2px solid #2B1B17;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .agent-card {
+            background: linear-gradient(135deg, #F0FFF0 0%, #E6FFE6 100%);
+            border: 3px solid #32CD32;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            position: relative;
+        }
+        
+        .agent-card .icon {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 2em;
+        }
+        
+        .service-card {
+            background: linear-gradient(135deg, #F0F8FF 0%, #E1F0FF 100%);
+            border: 3px solid #4169E1;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .warning-box {
+            background: #FFE4E1;
+            border-left: 6px solid #DC143C;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .success-box {
+            background: #F0FFF0;
+            border-left: 6px solid #32CD32;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .info-box {
+            background: #F0F8FF;
+            border-left: 6px solid #4169E1;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        code {
+            background: #2B1B17;
+            color: #32CD32;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 0.95em;
+        }
+        
+        pre {
+            background: #2B1B17;
+            color: #32CD32;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 15px 0;
+            border: 2px solid #32CD32;
+        }
+        
+        .port {
+            display: inline-block;
+            background: #FF7F50;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-weight: bold;
+            border: 2px solid #2B1B17;
+            margin: 0 5px;
+        }
+        
+        .architecture {
+            background: #FFFACD;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 25px 0;
+            text-align: center;
+            font-family: monospace;
+            border: 3px dashed #2B1B17;
+            font-size: 1.1em;
+            line-height: 2;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 3px 3px 0px #2B1B17;
+        }
+        
+        th, td {
+            border: 2px solid #2B1B17;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        th {
+            background: #FFCC5C;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        
+        td {
+            background: white;
+        }
+        
+        tr:hover td {
+            background: #FFFACD;
+        }
+        
+        .flow-diagram {
+            background: white;
+            border: 3px solid #2B1B17;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 0.9em;
+            font-weight: bold;
+            margin: 0 5px;
+        }
+        
+        .badge-new {
+            background: #32CD32;
+            color: white;
+        }
+        
+        .badge-important {
+            background: #DC143C;
+            color: white;
+        }
+        
+        .badge-update {
+            background: #4169E1;
+            color: white;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            border-top: 3px solid #FFCC5C;
+            color: #666;
+        }
+        
+        .command-block {
+            background: #2B1B17;
+            border: 3px solid #32CD32;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            position: relative;
+        }
+        
+        .command-block code {
+            background: none;
+            color: #32CD32;
+            padding: 0;
+            font-size: 1em;
+        }
+        
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #32CD32;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .live {
+            animation: pulse 2s infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📮 La Poste de Moulinsart</h1>
+            <div class="subtitle">Système de Communication Inter-Agents par Email avec Observabilité Complète</div>
+        </div>
+        
+        <nav class="nav">
+            <ul>
+                <li><a href="#concept">🎯 Concept</a></li>
+                <li><a href="#architecture">🏗️ Architecture</a></li>
+                <li><a href="#agents">👥 Agents</a></li>
+                <li><a href="#services">🔌 Services</a></li>
+                <li><a href="#tmux">🖥️ Sessions Tmux</a></li>
+                <li><a href="#api">📡 API</a></li>
+                <li><a href="#hooks">🪝 Hooks</a></li>
+                <li><a href="#troubleshooting">🚨 Dépannage</a></li>
+            </ul>
+        </nav>
+        
+        <div class="section" id="concept">
+            <h2>🎯 Concept et Vision</h2>
+            <p><strong>La Poste de Moulinsart</strong> est un système d'automation agentic révolutionnaire où les agents Claude communiquent entre eux par email, créant un écosystème collaboratif autonome.</p>
+            
+            <div class="success-box">
+                <h3>✨ Innovation Principale</h3>
+                <p>Remplace la communication par fichiers texte par un système de messagerie électronique complet avec notifications tmux en temps réel.</p>
+            </div>
+            
+            <div class="box">
+                <h3>🎨 Caractéristiques Uniques</h3>
+                <ul>
+                    <li>📧 <strong>Communication par Email</strong> : Chaque agent a sa propre adresse email</li>
+                    <li>🔮 <strong>Observabilité Totale</strong> : Capture et traçage de tous les prompts Claude</li>
+                    <li>📮 <strong>Serveur Mail Local</strong> : SMTP complet sur port 1025</li>
+                    <li>🎭 <strong>Interface Style BD</strong> : Inspirée de l'univers Tintin/Hergé</li>
+                    <li>⚡ <strong>Temps Réel</strong> : WebSocket pour les mises à jour instantanées</li>
+                    <li>🤖 <strong>Multi-Agents Tmux</strong> : 4 instances Claude dans des panels séparés</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section" id="architecture">
+            <h2>🏗️ Architecture Technique Détaillée</h2>
+            
+            <div class="architecture">
+                <strong>📝 USER PROMPT</strong><br>
+                ↓<br>
+                <strong>🪝 HOOK CAPTURE</strong> (Python)<br>
+                ↓<br>
+                <strong>📡 API ORACLE</strong> (Port 3001)<br>
+                ↓<br>
+                <strong>📧 EMAIL SMTP</strong> → nestor@moulinsart.local<br>
+                ↓<br>
+                <strong>🎩 NESTOR DISPATCH</strong><br>
+                ├→ tintin@moulinsart.local<br>
+                ├→ dupont1@moulinsart.local<br>
+                └→ dupont2@moulinsart.local<br>
+                ↓<br>
+                <strong>💉 TMUX INJECTION</strong> (Notifications)<br>
+                ↓<br>
+                <strong>🖥️ VUE.JS DASHBOARD</strong> (Port 5175)<br>
+                ↓<br>
+                <strong>👀 OBSERVABILITÉ TEMPS RÉEL</strong>
+            </div>
+            
+            <h3>📁 Structure des Fichiers</h3>
+            <pre>~/moulinsart/
+├── oracle-observability/           # 📮 La Poste Centrale
+│   ├── server/
+│   │   ├── index.ts               # API Oracle + WebSocket
+│   │   └── mail-server.ts         # Serveur Mail SMTP/HTTP
+│   ├── client/                    # Interface Vue.js
+│   │   ├── src/
+│   │   │   ├── App.vue           # Dashboard principal
+│   │   │   └── components/
+│   │   │       └── AgentMailboxes.vue  # Viewer boîtes mail
+│   │   └── package.json
+│   ├── data/
+│   │   └── oracle.db             # Base SQLite
+│   └── hooks/                    # Capture des événements
+│       ├── oracle_prompt_hook.py
+│       ├── oracle_stop_hook.py
+│       └── email_trigger_hook.py
+├── agents/                        # Dossiers des agents
+│   ├── nestor/
+│   │   └── CLAUDE.md             # Identité Nestor
+│   ├── tintin/
+│   │   └── CLAUDE.md             # Identité Tintin
+│   ├── dupont1/
+│   │   └── CLAUDE.md             # Identité Dupont1
+│   └── dupont2/
+│       └── CLAUDE.md             # Identité Dupont2
+├── moulinsart-manager.sh          # 🎮 Gestionnaire principal
+├── launch-agents-tmux.sh          # Lancement des 4 agents
+├── control-agents.sh              # Contrôle individuel
+└── documentation-poste.html       # Cette documentation</pre>
+        </div>
+
+        <div class="section" id="agents">
+            <h2>👥 Les Agents de Moulinsart</h2>
+            
+            <div class="agent-card">
+                <span class="icon">🎩</span>
+                <h3>NESTOR - Chef d'Orchestre</h3>
+                <p><strong>Email:</strong> nestor@moulinsart.local</p>
+                <p><strong>Panel Tmux:</strong> 0 (en haut à gauche)</p>
+                <p><strong>Rôle:</strong> Reçoit tous les prompts, analyse les besoins, et dispatche les tâches aux autres agents</p>
+                <p><strong>Spécialités:</strong> Architecture, coordination, gestion de projet</p>
+            </div>
+            
+            <div class="agent-card">
+                <span class="icon">🚀</span>
+                <h3>TINTIN - QA Lead</h3>
+                <p><strong>Email:</strong> tintin@moulinsart.local</p>
+                <p><strong>Panel Tmux:</strong> 1 (en haut à droite)</p>
+                <p><strong>Rôle:</strong> Tests, validation, assurance qualité</p>
+                <p><strong>Spécialités:</strong> Tests unitaires, intégration, debugging</p>
+            </div>
+            
+            <div class="agent-card">
+                <span class="icon">🎨</span>
+                <h3>DUPONT1 - Développeur Swift</h3>
+                <p><strong>Email:</strong> dupont1@moulinsart.local</p>
+                <p><strong>Panel Tmux:</strong> 2 (en bas à gauche)</p>
+                <p><strong>Rôle:</strong> Développement iOS/macOS</p>
+                <p><strong>Spécialités:</strong> Swift, SwiftUI, Xcode, Core Data</p>
+            </div>
+            
+            <div class="agent-card">
+                <span class="icon">🔍</span>
+                <h3>DUPONT2 - Chercheur & Docs</h3>
+                <p><strong>Email:</strong> dupont2@moulinsart.local</p>
+                <p><strong>Panel Tmux:</strong> 3 (en bas à droite)</p>
+                <p><strong>Rôle:</strong> Recherche, documentation, veille technologique</p>
+                <p><strong>Spécialités:</strong> Documentation, APIs, best practices</p>
+            </div>
+        </div>
+
+        <div class="section" id="services">
+            <h2>🔌 Services et Ports</h2>
+            
+            <table>
+                <tr>
+                    <th>Service</th>
+                    <th>Port</th>
+                    <th>URL</th>
+                    <th>Description</th>
+                    <th>Status</th>
+                </tr>
+                <tr>
+                    <td>📡 API Oracle</td>
+                    <td class="port">3001</td>
+                    <td><a href="http://localhost:3001">http://localhost:3001</a></td>
+                    <td>API REST + WebSocket pour événements</td>
+                    <td><span class="badge badge-new live">LIVE</span></td>
+                </tr>
+                <tr>
+                    <td>🖥️ Dashboard Vue</td>
+                    <td class="port">5175</td>
+                    <td><a href="http://localhost:5175">http://localhost:5175</a></td>
+                    <td>Interface web temps réel style BD</td>
+                    <td><span class="badge badge-new live">LIVE</span></td>
+                </tr>
+                <tr>
+                    <td>📧 SMTP Server</td>
+                    <td class="port">1025</td>
+                    <td>localhost:1025</td>
+                    <td>Serveur mail pour réception SMTP</td>
+                    <td><span class="badge badge-new live">LIVE</span></td>
+                </tr>
+                <tr>
+                    <td>📮 Mail Web API</td>
+                    <td class="port">1080</td>
+                    <td><a href="http://localhost:1080">http://localhost:1080</a></td>
+                    <td>API HTTP pour consultation des boîtes mail</td>
+                    <td><span class="badge badge-new live">LIVE</span></td>
+                </tr>
+                <tr>
+                    <td>🔄 WebSocket</td>
+                    <td class="port">3001</td>
+                    <td>ws://localhost:3001/ws</td>
+                    <td>Stream temps réel des événements</td>
+                    <td><span class="badge badge-new live">LIVE</span></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section" id="tmux">
+            <h2>🖥️ Gestion des Sessions Tmux</h2>
+            
+            <h3>🎮 Gestionnaire Principal</h3>
+            <div class="command-block">
+                <code>./moulinsart-manager.sh</code>
+            </div>
+            <p>Menu interactif avec options:</p>
+            <ul>
+                <li>1️⃣ Reset complet et lancer</li>
+                <li>2️⃣ Attacher/Reprendre session</li>
+                <li>3️⃣ Scanner toutes les sessions</li>
+                <li>4️⃣ Lancer sans reset</li>
+                <li>5️⃣ Nettoyer tout</li>
+                <li>6️⃣ Contrôle des agents</li>
+            </ul>
+            
+            <h3>🚀 Lancement Direct</h3>
+            <div class="command-block">
+                <code>./launch-agents-tmux.sh</code>
+            </div>
+            
+            <h3>📌 Commandes Tmux Utiles</h3>
+            <table>
+                <tr>
+                    <th>Action</th>
+                    <th>Commande</th>
+                </tr>
+                <tr>
+                    <td>Attacher à la session</td>
+                    <td><code>tmux attach -t moulinsart-agents</code></td>
+                </tr>
+                <tr>
+                    <td>Naviguer entre panels</td>
+                    <td><code>Ctrl+B puis flèches</code></td>
+                </tr>
+                <tr>
+                    <td>Zoom sur un panel</td>
+                    <td><code>Ctrl+B puis Z</code></td>
+                </tr>
+                <tr>
+                    <td>Détacher la session</td>
+                    <td><code>Ctrl+B puis D</code></td>
+                </tr>
+                <tr>
+                    <td>Envoyer commande à Nestor</td>
+                    <td><code>tmux send-keys -t moulinsart-agents:agents.0 "message" Enter</code></td>
+                </tr>
+                <tr>
+                    <td>Envoyer commande à Tintin</td>
+                    <td><code>tmux send-keys -t moulinsart-agents:agents.1 "message" Enter</code></td>
+                </tr>
+            </table>
+            
+            <div class="info-box">
+                <h3>💉 Système de Notifications Tmux</h3>
+                <p>Les notifications sont automatiquement injectées dans les panels tmux lors de la réception d'emails.</p>
+                <p><strong>Mécanisme:</strong> Envoi de la commande echo, puis après 0.1s, envoi de C-m pour exécution</p>
+            </div>
+        </div>
+
+        <div class="section" id="api">
+            <h2>📡 API Endpoints</h2>
+            
+            <h3>Oracle API (Port 3001)</h3>
+            <table>
+                <tr>
+                    <th>Endpoint</th>
+                    <th>Méthode</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>/health</td>
+                    <td>GET</td>
+                    <td>Status de santé du serveur</td>
+                </tr>
+                <tr>
+                    <td>/api/events</td>
+                    <td>GET</td>
+                    <td>Liste des événements (limit, offset)</td>
+                </tr>
+                <tr>
+                    <td>/api/events</td>
+                    <td>POST</td>
+                    <td>Créer un nouvel événement</td>
+                </tr>
+                <tr>
+                    <td>/api/projects</td>
+                    <td>GET</td>
+                    <td>Liste des projets actifs</td>
+                </tr>
+                <tr>
+                    <td>/api/agents</td>
+                    <td>GET</td>
+                    <td>Status des agents</td>
+                </tr>
+                <tr>
+                    <td>/ws</td>
+                    <td>WebSocket</td>
+                    <td>Stream temps réel</td>
+                </tr>
+            </table>
+            
+            <h3>Mail Server API (Port 1080)</h3>
+            <table>
+                <tr>
+                    <th>Endpoint</th>
+                    <th>Méthode</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>/api/mailbox/{email}</td>
+                    <td>GET</td>
+                    <td>Récupérer les emails d'une boîte</td>
+                </tr>
+                <tr>
+                    <td>/api/mailboxes</td>
+                    <td>GET</td>
+                    <td>Status de toutes les boîtes</td>
+                </tr>
+                <tr>
+                    <td>/api/send</td>
+                    <td>POST</td>
+                    <td>Envoyer un email via API</td>
+                </tr>
+                <tr>
+                    <td>/api/reset-all-emails</td>
+                    <td>DELETE</td>
+                    <td>Vider toutes les boîtes mail</td>
+                </tr>
+                <tr>
+                    <td>/agents</td>
+                    <td>GET</td>
+                    <td>Liste des agents avec compteurs</td>
+                </tr>
+            </table>
+            
+            <h3>Exemples d'Utilisation</h3>
+            <pre># Vérifier le status
+curl http://localhost:3001/health
+
+# Récupérer les emails de Nestor
+curl http://localhost:1080/api/mailbox/nestor@moulinsart.local
+
+# Envoyer un email
+curl -X POST http://localhost:1080/api/send \
+  -H "Content-Type: application/json" \
+  -d '{
+    "from": "commandant@moulinsart.local",
+    "to": "nestor@moulinsart.local",
+    "subject": "Mission Urgente",
+    "body": "Nouvelle mission à distribuer"
+  }'
+
+# Reset toutes les boîtes
+curl -X DELETE http://localhost:1080/api/reset-all-emails</pre>
+        </div>
+
+        <div class="section" id="hooks">
+            <h2>🪝 Configuration des Hooks</h2>
+            
+            <h3>📝 Configuration dans ~/.claude/settings.json</h3>
+            <pre>{
+  "UserPromptSubmit": {
+    "command": "python3 ~/moulinsart/oracle-observability/hooks/oracle_prompt_hook.py"
+  },
+  "Stop": {
+    "command": "python3 ~/moulinsart/oracle-observability/hooks/oracle_stop_hook.py"
+  }
+}</pre>
+            
+            <h3>🔄 Flux des Hooks</h3>
+            <div class="flow-diagram">
+                <ol>
+                    <li><strong>Capture:</strong> Le hook Python capture le prompt Claude</li>
+                    <li><strong>Parsing:</strong> Extraction du projet et du contexte</li>
+                    <li><strong>API Call:</strong> Envoi à l'API Oracle sur port 3001</li>
+                    <li><strong>Email:</strong> Génération automatique d'un email à Nestor</li>
+                    <li><strong>Notification:</strong> Injection dans le panel tmux de Nestor</li>
+                    <li><strong>WebSocket:</strong> Broadcast à tous les clients connectés</li>
+                </ol>
+            </div>
+            
+            <div class="warning-box">
+                <h3>⚠️ Points d'Attention</h3>
+                <ul>
+                    <li>Les hooks utilisent actuellement le port 1026 au lieu de 1025 (à corriger)</li>
+                    <li>Les hooks sont silencieux - pas d'output pour ne pas perturber Claude</li>
+                    <li>Les erreurs sont loggées dans /tmp/oracle_hook.log</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section" id="troubleshooting">
+            <h2>🚨 Dépannage et Solutions</h2>
+            
+            <h3>🔴 Le serveur ne démarre pas</h3>
+            <div class="command-block">
+                <code># Vérifier si le port est libre
+lsof -i :3001
+lsof -i :1025
+lsof -i :1080
+
+# Tuer les processus si nécessaire
+kill -9 [PID]
+
+# Relancer proprement
+./moulinsart-manager.sh</code>
+            </div>
+            
+            <h3>🔴 Les hooks ne capturent pas</h3>
+            <div class="command-block">
+                <code># Vérifier la configuration
+cat ~/.claude/settings.json | grep oracle
+
+# Test manuel du hook
+echo "Test prompt" | python3 ~/moulinsart/oracle-observability/hooks/oracle_prompt_hook.py
+
+# Vérifier les logs
+tail -f /tmp/oracle_hook.log</code>
+            </div>
+            
+            <h3>🔴 Les notifications tmux ne s'exécutent pas</h3>
+            <div class="command-block">
+                <code># Vérifier la session
+tmux ls
+
+# Test manuel d'injection
+tmux send-keys -t moulinsart-agents:agents.0 "echo 'Test'" && \
+sleep 0.1 && \
+tmux send-keys -t moulinsart-agents:agents.0 C-m</code>
+            </div>
+            
+            <h3>🔴 Base de données corrompue</h3>
+            <div class="command-block">
+                <code>cd ~/moulinsart/oracle-observability/data
+mv oracle.db oracle.db.backup
+# Redémarrer le serveur créera une nouvelle base</code>
+            </div>
+            
+            <h3>🔴 Reset complet du système</h3>
+            <div class="command-block">
+                <code># Option 1: Via le gestionnaire
+./moulinsart-manager.sh
+# Choisir option 1 (Reset complet et lancer)
+
+# Option 2: Manuel
+tmux kill-server
+pkill -f "claude --dangerously"
+pkill -f "bun.*server"
+rm ~/moulinsart/oracle-observability/data/oracle.db
+./launch-agents-tmux.sh</code>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🚀 Quick Start - Démarrage Rapide</h2>
+            
+            <div class="success-box">
+                <h3>✅ Démarrage en 3 étapes</h3>
+                <ol>
+                    <li><strong>Lancer le gestionnaire:</strong> <code>./moulinsart-manager.sh</code></li>
+                    <li><strong>Choisir option 1:</strong> Reset complet et lancer</li>
+                    <li><strong>Ouvrir le dashboard:</strong> <a href="http://localhost:5175">http://localhost:5175</a></li>
+                </ol>
+            </div>
+            
+            <div class="info-box">
+                <h3>📊 Vérification du Système</h3>
+                <ul>
+                    <li>✅ Dashboard accessible sur <a href="http://localhost:5175">port 5175</a></li>
+                    <li>✅ 4 agents Claude dans tmux</li>
+                    <li>✅ Indicateur Mail: ON dans le dashboard</li>
+                    <li>✅ Boîtes mail visibles pour chaque agent</li>
+                    <li>✅ WebSocket connecté (indicateur vert)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📈 Évolutions et Améliorations</h2>
+            
+            <div class="box">
+                <h3>🎯 Récemment Implémentées</h3>
+                <ul>
+                    <li>✅ Sessions tmux multi-agents fonctionnelles</li>
+                    <li>✅ Notifications tmux avec exécution automatique</li>
+                    <li>✅ Viewer de boîtes mail dans le dashboard</li>
+                    <li>✅ Bouton de reset des emails</li>
+                    <li>✅ Indicateur de status du serveur mail</li>
+                    <li>✅ Redémarrage du serveur mail depuis l'interface</li>
+                </ul>
+            </div>
+            
+            <div class="box">
+                <h3>🔮 Prochaines Étapes</h3>
+                <ul>
+                    <li>🔄 Corriger le port SMTP dans les hooks (1026 → 1025)</li>
+                    <li>🔄 Implémenter la persistance des emails</li>
+                    <li>🔄 Ajouter un système de priorités</li>
+                    <li>🔄 Dashboard mobile responsive</li>
+                    <li>🔄 Logs détaillés par agent</li>
+                    <li>🔄 Métriques de performance</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎨 Notes Techniques</h2>
+            
+            <div class="info-box">
+                <h3>💡 Architecture Décisions</h3>
+                <ul>
+                    <li><strong>Bun.js:</strong> Choisi pour sa rapidité avec TypeScript</li>
+                    <li><strong>SQLite:</strong> Base simple et suffisante pour l'observabilité</li>
+                    <li><strong>Vue 3:</strong> Interface réactive avec Composition API</li>
+                    <li><strong>WebSocket:</strong> Updates temps réel sans polling</li>
+                    <li><strong>SMTP Custom:</strong> Contrôle total sur le routing des emails</li>
+                    <li><strong>Tmux:</strong> Gestion élégante de multiples instances Claude</li>
+                </ul>
+            </div>
+            
+            <div class="warning-box">
+                <h3>🔒 Sécurité</h3>
+                <ul>
+                    <li>Système local uniquement (localhost)</li>
+                    <li>Pas d'authentification requise (usage développement)</li>
+                    <li>Flag <code>--dangerously-skip-permissions</code> pour Claude</li>
+                    <li>À ne pas exposer sur internet</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>📮 <strong>La Poste de Moulinsart</strong> - Système d'Automation Agentic</p>
+            <p>Inspiré par l'univers de Tintin et Hergé 🚀</p>
+            <p><small>Documentation générée le <script>document.write(new Date().toLocaleDateString('fr-FR'))</script></small></p>
+        </div>
+    </div>
+</body>
+</html>

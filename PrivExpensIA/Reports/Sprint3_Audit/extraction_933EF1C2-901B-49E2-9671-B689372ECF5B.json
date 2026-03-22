@@ -1,0 +1,27 @@
+{
+  "timestamp" : "2026-01-14_3-34-56 AM",
+  "pipeline_used" : "forceQwen (100% AI)",
+  "extracted_data" : {
+    "currency" : "CHF",
+    "merchant" : "Uber Eats",
+    "total_amount" : 67.560000000000002,
+    "tax_amount" : 5.0623126734505064,
+    "category" : "transport",
+    "extraction_method" : "Qwen2.5-AI"
+  },
+  "correlation_id" : "933EF1C2-901B-49E2-9671-B689372ECF5B",
+  "confidence" : 0.84999999999999998,
+  "processing_time" : 3.6187750101089478,
+  "logs" : [
+    "3:34:52.906 AM [ℹ️ INFO] 🔧 UnifiedPipelineManager initialized",
+    "3:34:52.908 AM [ℹ️ INFO] 🎯 Starting unified extraction - Mode: forceQwen (100% AI) - ID: 933EF1C2-901B-49E2-9671-B689372ECF5B",
+    "3:34:52.908 AM [ℹ️ INFO] 🚀 [UNIFIED_PIPELINE] Using mode: forceQwen (100% AI)",
+    "3:34:52.909 AM [🔍 DEBUG] 📖 Step 1: OCR Processing",
+    "3:34:52.910 AM [ℹ️ INFO] 📖 OCR Processing started",
+    "3:34:54.492 AM [ℹ️ INFO] ✅ OCR completed: 300 chars, confidence: 1.0",
+    "3:34:54.492 AM [ℹ️ INFO] 🚀 [EXTRACTION_MODE] Executing mode: forceQwen (100% AI)",
+    "3:34:54.493 AM [ℹ️ INFO] 🧠 [FORCE_QWEN] Using AI Qwen only - Bypassing parser",
+    "3:34:54.494 AM [ℹ️ INFO] 🤖 Qwen AI processing...",
+    "3:34:56.521 AM [ℹ️ INFO] ✅ Qwen completed: confidence varies"
+  ]
+}

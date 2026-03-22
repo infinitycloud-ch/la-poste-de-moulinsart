@@ -1,0 +1,27 @@
+{
+  "correlation_id" : "4A9887E8-4C74-4A51-A9CE-70C8661144D6",
+  "pipeline_used" : "auto (Parser → Cloud fallback)",
+  "timestamp" : "2026-01-22_7-05-34 PM",
+  "processing_time" : 1.2996480464935303,
+  "extracted_data" : {
+    "merchant" : "CAM-ON.ch",
+    "total_amount" : 3.5,
+    "currency" : "CHF",
+    "category" : "Gas",
+    "extraction_method" : "FUSÉE-ÉTAGE-1-SWISS",
+    "tax_amount" : 0.26225716928769627
+  },
+  "confidence" : 0.94999999999999996,
+  "logs" : [
+    "7:05:32.985 PM [ℹ️ INFO] 🔧 UnifiedPipelineManager initialized",
+    "7:05:32.986 PM [ℹ️ INFO] 🎯 Starting unified extraction - Mode: auto (Parser → Cloud fallback) - ID: 4A9887E8-4C74-4A51-A9CE-70C8661144D6",
+    "7:05:32.986 PM [ℹ️ INFO] 🚀 [UNIFIED_PIPELINE] Using mode: auto (Parser → Cloud fallback)",
+    "7:05:32.986 PM [🔍 DEBUG] 📖 Step 1: OCR Processing",
+    "7:05:32.987 PM [ℹ️ INFO] 📖 OCR Processing started",
+    "7:05:34.281 PM [ℹ️ INFO] ✅ OCR completed: 571 chars, confidence: 1.0",
+    "7:05:34.282 PM [ℹ️ INFO] 🚀 [EXTRACTION_MODE] Executing mode: auto (Parser → Cloud fallback)",
+    "7:05:34.282 PM [ℹ️ INFO] 🚀 [AUTO] Starting smart pipeline - Parser → Cloud fallback",
+    "7:05:34.282 PM [ℹ️ INFO] 🚀 [ÉTAGE 1] FUSÉE - Parser déterministe processing...",
+    "7:05:34.284 PM [ℹ️ INFO] ✅ Parser completed: CAM-ON.ch - CHF 3.50"
+  ]
+}

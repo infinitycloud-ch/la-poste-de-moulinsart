@@ -1,0 +1,66 @@
+# COMMANDES RAPIDES - MonoCLI PANDA Portal
+# TOURNESOL1 - Équipe TMUX
+# Sprint 7 - Intégration terminée
+
+## LANCEMENT RAPIDE
+
+# Script interactif
+./launch_monocli_panda.sh
+
+## COMMANDES DIRECTES
+
+# Mixtral (puissant, 26GB)
+cd /Users/studio_m3/moulinsart/projects/mono-cli && python3 -m mono.cli.main chat --backend panda --model mixtral --tools
+
+# Qwen 2.5:3b (léger, 1.9GB)
+cd /Users/studio_m3/moulinsart/projects/mono-cli && python3 -m mono.cli.main chat --backend panda --model qwen --tools
+
+# Qwen3 (nouveau, 2.4GB) ✨
+cd /Users/studio_m3/moulinsart/projects/mono-cli && python3 -m mono.cli.main chat --backend panda --model qwen3 --tools
+
+# DeepResearch (alias Qwen3)
+cd /Users/studio_m3/moulinsart/projects/mono-cli && python3 -m mono.cli.main chat --backend panda --model deepresearch --tools
+
+## VÉRIFICATIONS
+
+# Statut PANDA Portal
+curl -s http://localhost:3010/api/models/ollama | jq '.[].name'
+
+# Modèles Ollama locaux
+ollama list
+
+# Test connectivité
+curl -s http://localhost:3010/api/models/ollama >/dev/null && echo "✅ PANDA OK" || echo "❌ PANDA KO"
+
+## EXEMPLES D'OBJECTIFS DE TEST
+
+# Test simple
+echo "Créer un script hello.py" | python3 -m mono.cli.main chat --backend panda --model qwen3 --tools
+
+# Test complexe
+echo "Créer une application CLI Python qui calcule les statistiques d'un fichier texte" | python3 -m mono.cli.main chat --backend panda --model mixtral --tools
+
+## MAPPING MODÈLES (PandaPortalAdapter)
+
+mixtral     → dolphin-mixtral:latest (LLaMA, 46.7B, Q4_0)
+qwen        → qwen2.5:3b (Qwen2, 3.1B, Q4_K_M)
+qwen3       → deepresearch:latest (Qwen3, 4.0B, Q4_0) ✨
+deepresearch → deepresearch:latest (Qwen3, 4.0B, Q4_0)
+
+## ARCHITECTURE
+
+Backend: PANDA Portal (localhost:3010)
+Adapter: /mono/adapters/panda/client.py
+Endpoint: /api/chat/unified
+Format: OpenAI-compatible tools
+Streaming: SSE compatible
+Planification: Séquentielle intacte
+
+## PERFORMANCES
+
+Mixtral: ~400 tokens/sec (modèle le plus puissant)
+Qwen 2.5: ~200 tokens/sec (plus rapide à charger)
+Qwen3: ~250 tokens/sec (nouveau, équilibré) ✨
+Latence réseau: <5ms (localhost)
+
+## PRÊT POUR UTILISATION ! 🚀

@@ -1,0 +1,85 @@
+# ZORO INTERACTIVE - MISE À JOUR TERMINÉE
+# TOURNESOL1 - Équipe TMUX
+
+## ✅ MODIFICATIONS APPORTÉES
+
+### MENU PRINCIPAL - ACCÈS DIRECT MODÈLES (1-7)
+```
+┌─ MENU PRINCIPAL - MODÈLES IA ────────────────────┐
+│  1. 🧠 Mixtral (PANDA) - Modèle puissant 26GB    │
+│  2. ⚡ Qwen2.5:3b (PANDA) - Rapide 1.9GB         │
+│  3. ✨ Qwen3 (PANDA) - Nouveau 2.4GB             │
+│  4. 🔬 DeepResearch (PANDA) - Alias Qwen3        │
+│  5. 🚀 Groq Cloud - Ultra rapide                 │
+│  6. 🍎 MLX Apple Silicon - Local                 │
+│  7. 🏠 Ollama Local - Direct                     │
+├─ OUTILS ─────────────────────────────────────────┤
+│  8. 🔧 Configuration & Tests                     │
+│  9. ❓ Aide & Informations                       │
+│  0. 🚪 Quitter                                   │
+└──────────────────────────────────────────────────┘
+```
+
+### ACCÈS INSTANTANÉ AUX MODÈLES
+- **Options 1-4** : Modèles PANDA Portal (avec tools MonoCLI)
+- **Options 5-7** : Backends directs (Groq, MLX, Ollama)
+- **Tous avec --tools** : Planification séquentielle automatique
+
+### SOUS-MENU TECHNIQUE UNIFIÉ (Option 8)
+```
+┌─ CONFIGURATION & TESTS ──────────────────────────┐
+│  === STATUS & SANTÉ ===                          │
+│  1. 📊 Status complet système                    │
+│  2. 🏥 Santé tous backends                       │
+│  3. 📋 Modèles disponibles                       │
+│  === TESTS & BENCHMARKS ===                      │
+│  4. 🧪 Tests rapides complets                    │
+│  5. 🏃 Benchmarks                                │
+│  6. ✅ Test ask simple                           │
+│  === CONFIGURATION ===                           │
+│  7. ⚙️  Configuration MonoCLI                    │
+│  8. 🔄 Réinitialiser/Maintenance                 │
+│  9. 📁 Modification fichiers                     │
+│  0. ← Retour menu principal                      │
+└──────────────────────────────────────────────────┘
+```
+
+## 🎯 COMMANDES LANCÉES
+
+### Options principales (1-7) :
+1. `mono chat --backend panda --model mixtral --tools`
+2. `mono chat --backend panda --model qwen --tools`
+3. `mono chat --backend panda --model qwen3 --tools`
+4. `mono chat --backend panda --model deepresearch --tools`
+5. `mono chat --backend groq --tools`
+6. `mono chat --backend mlx --tools`
+7. `mono chat --backend ollama --tools`
+
+### Outils techniques cachés dans option 8
+- Tests, benchmarks, configuration
+- Status et santé systèmes
+- Modification de fichiers
+- Maintenance
+
+## 🚀 UTILISATION
+
+```bash
+cd /Users/studio_m3/moulinsart/projects/mono-cli
+./zoro-interactive.sh
+```
+
+### Navigation simplifiée :
+1. **Tapez 1-7** → Lancement direct du modèle
+2. **Tapez 8** → Outils techniques avancés
+3. **Tapez 9** → Aide
+4. **Tapez 0** → Quitter
+
+## ✨ AVANTAGES
+
+- **Accès instantané** aux 7 modèles depuis la page principale
+- **4 modèles PANDA** avec planification séquentielle
+- **Tests/benchmarks cachés** dans sous-menu technique
+- **Interface épurée** focalisée sur l'usage
+- **Compatible** avec l'intégration PANDA Portal complète
+
+**Le script zoro-interactive.sh est maintenant optimisé pour un usage direct des modèles IA !** 🎉

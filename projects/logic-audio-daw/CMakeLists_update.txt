@@ -1,0 +1,16 @@
+# Ajouts pour Sprints 2-10
+set(SOURCE_FILES
+    Source/Core/AudioEngine.cpp
+    Source/Core/Track.cpp
+    Source/Core/MidiRouter.cpp
+    Source/Core/FXChain.cpp
+    Source/Core/MasterBus.cpp
+    Source/Core/ProjectManager.cpp
+    Source/UI/TrackComponent.cpp
+    Source/UI/VUMeter.cpp
+    Source/UI/MultiTrackView.cpp
+    Source/UI/FXSlotComponent.cpp
+    Source/UI/LoopComponent.cpp
+    Source/UI/PianoRoll/PianoRoll.cpp
+    Source/UI/MainLayout.cpp
+)

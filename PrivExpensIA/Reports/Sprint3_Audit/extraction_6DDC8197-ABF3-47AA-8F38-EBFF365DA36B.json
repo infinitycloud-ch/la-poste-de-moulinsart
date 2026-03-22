@@ -1,0 +1,27 @@
+{
+  "logs" : [
+    "6:27:05.787 AM [ℹ️ INFO] 🔧 UnifiedPipelineManager initialized",
+    "6:27:05.789 AM [ℹ️ INFO] 🎯 Starting unified extraction - Mode: forceQwen (100% AI) - ID: 6DDC8197-ABF3-47AA-8F38-EBFF365DA36B",
+    "6:27:05.789 AM [ℹ️ INFO] 🚀 [UNIFIED_PIPELINE] Using mode: forceQwen (100% AI)",
+    "6:27:05.790 AM [🔍 DEBUG] 📖 Step 1: OCR Processing",
+    "6:27:05.790 AM [ℹ️ INFO] 📖 OCR Processing started",
+    "6:27:07.103 AM [ℹ️ INFO] ✅ OCR completed: 300 chars, confidence: 1.0",
+    "6:27:07.104 AM [ℹ️ INFO] 🚀 [EXTRACTION_MODE] Executing mode: forceQwen (100% AI)",
+    "6:27:07.104 AM [ℹ️ INFO] 🧠 [FORCE_QWEN] Using AI Qwen only - Bypassing parser",
+    "6:27:07.105 AM [ℹ️ INFO] 🤖 AI processing via MLXService (LlamaInferenceService)...",
+    "6:27:07.121 AM [ℹ️ INFO] ✅ MLX completed: confidence 0.7"
+  ],
+  "timestamp" : "2026-01-14_6-27-07 AM",
+  "correlation_id" : "6DDC8197-ABF3-47AA-8F38-EBFF365DA36B",
+  "extracted_data" : {
+    "extraction_method" : "MLX-AI",
+    "merchant" : "20:22 1",
+    "tax_amount" : 0,
+    "currency" : "EUR",
+    "category" : "Transport",
+    "total_amount" : 67.560000000000002
+  },
+  "confidence" : 0.69999999999999996,
+  "processing_time" : 1.3376120328903198,
+  "pipeline_used" : "forceQwen (100% AI)"
+}

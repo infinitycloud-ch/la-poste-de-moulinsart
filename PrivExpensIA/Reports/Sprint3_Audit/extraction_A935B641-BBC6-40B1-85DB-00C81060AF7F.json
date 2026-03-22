@@ -1,0 +1,38 @@
+{
+  "confidence" : 0.90000000000000002,
+  "logs" : [
+    "午前3:19:33.889 [ℹ️ INFO] 🔧 UnifiedPipelineManager initialized",
+    "午前3:19:33.891 [ℹ️ INFO] 🎯 Starting unified extraction - Mode: forceQwen (100% AI) - ID: B74A26A1-6DB3-44B4-A30B-317A9D4166CA",
+    "午前3:19:33.891 [ℹ️ INFO] 🚀 [UNIFIED_PIPELINE] Using mode: forceQwen (100% AI)",
+    "午前3:19:33.891 [🔍 DEBUG] 📖 Step 1: OCR Processing",
+    "午前3:19:33.892 [ℹ️ INFO] 📖 OCR Processing started",
+    "午前3:19:35.185 [ℹ️ INFO] ✅ OCR completed: 646 chars, confidence: 1.0",
+    "午前3:19:35.186 [ℹ️ INFO] 🚀 [EXTRACTION_MODE] Executing mode: forceQwen (100% AI)",
+    "午前3:19:35.186 [ℹ️ INFO] 🧠 [FORCE_QWEN] Using AI Qwen only - Bypassing parser",
+    "午前3:19:35.187 [ℹ️ INFO] 🤖 AI processing via MLXService (LlamaInferenceService)...",
+    "午前3:19:38.360 [ℹ️ INFO] ✅ MLX completed: confidence 0.9",
+    "午前3:19:38.360 [ℹ️ INFO] 📊 Parsed MLX data: CARÉ RESTAURANT - 0.0",
+    "午前3:19:38.360 [ℹ️ INFO] 🎉 Extraction completed in 4.47s",
+    "午前3:20:15.551 [ℹ️ INFO] 🎯 Starting unified extraction - Mode: forceQwen (100% AI) - ID: A935B641-BBC6-40B1-85DB-00C81060AF7F",
+    "午前3:20:15.552 [ℹ️ INFO] 🚀 [UNIFIED_PIPELINE] Using mode: forceQwen (100% AI)",
+    "午前3:20:15.553 [🔍 DEBUG] 📖 Step 1: OCR Processing",
+    "午前3:20:15.553 [ℹ️ INFO] 📖 OCR Processing started",
+    "午前3:20:16.299 [ℹ️ INFO] ✅ OCR completed: 492 chars, confidence: 0.5",
+    "午前3:20:16.300 [ℹ️ INFO] 🚀 [EXTRACTION_MODE] Executing mode: forceQwen (100% AI)",
+    "午前3:20:16.300 [ℹ️ INFO] 🧠 [FORCE_QWEN] Using AI Qwen only - Bypassing parser",
+    "午前3:20:16.301 [ℹ️ INFO] 🤖 AI processing via MLXService (LlamaInferenceService)...",
+    "午前3:20:19.383 [ℹ️ INFO] ✅ MLX completed: confidence 0.9"
+  ],
+  "correlation_id" : "A935B641-BBC6-40B1-85DB-00C81060AF7F",
+  "timestamp" : "2026-01-17_午前3-20-19",
+  "pipeline_used" : "forceQwen (100% AI)",
+  "processing_time" : 3.8344340324401855,
+  "extracted_data" : {
+    "tax_amount" : 14.67,
+    "category" : "Sante",
+    "extraction_method" : "MLX-AI",
+    "currency" : "EUR",
+    "merchant" : "CASHFLOW",
+    "total_amount" : 180
+  }
+}

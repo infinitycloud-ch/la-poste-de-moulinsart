@@ -1,0 +1,38 @@
+{
+  "logs" : [
+    "6:27:05.787 AM [ℹ️ INFO] 🔧 UnifiedPipelineManager initialized",
+    "6:27:05.789 AM [ℹ️ INFO] 🎯 Starting unified extraction - Mode: forceQwen (100% AI) - ID: 6DDC8197-ABF3-47AA-8F38-EBFF365DA36B",
+    "6:27:05.789 AM [ℹ️ INFO] 🚀 [UNIFIED_PIPELINE] Using mode: forceQwen (100% AI)",
+    "6:27:05.790 AM [🔍 DEBUG] 📖 Step 1: OCR Processing",
+    "6:27:05.790 AM [ℹ️ INFO] 📖 OCR Processing started",
+    "6:27:07.103 AM [ℹ️ INFO] ✅ OCR completed: 300 chars, confidence: 1.0",
+    "6:27:07.104 AM [ℹ️ INFO] 🚀 [EXTRACTION_MODE] Executing mode: forceQwen (100% AI)",
+    "6:27:07.104 AM [ℹ️ INFO] 🧠 [FORCE_QWEN] Using AI Qwen only - Bypassing parser",
+    "6:27:07.105 AM [ℹ️ INFO] 🤖 AI processing via MLXService (LlamaInferenceService)...",
+    "6:27:07.121 AM [ℹ️ INFO] ✅ MLX completed: confidence 0.7",
+    "6:27:07.122 AM [ℹ️ INFO] 📊 Parsed MLX data: 20:22 1 - 67.56",
+    "6:27:07.122 AM [ℹ️ INFO] 🎉 Extraction completed in 1.34s",
+    "6:29:06.446 AM [ℹ️ INFO] 🎯 Starting unified extraction - Mode: forceQwen (100% AI) - ID: 3C5EE71A-B129-42FA-A64A-93448DBFE0D4",
+    "6:29:06.450 AM [ℹ️ INFO] 🚀 [UNIFIED_PIPELINE] Using mode: forceQwen (100% AI)",
+    "6:29:06.451 AM [🔍 DEBUG] 📖 Step 1: OCR Processing",
+    "6:29:06.451 AM [ℹ️ INFO] 📖 OCR Processing started",
+    "6:29:07.891 AM [ℹ️ INFO] ✅ OCR completed: 413 chars, confidence: 1.0",
+    "6:29:07.891 AM [ℹ️ INFO] 🚀 [EXTRACTION_MODE] Executing mode: forceQwen (100% AI)",
+    "6:29:07.892 AM [ℹ️ INFO] 🧠 [FORCE_QWEN] Using AI Qwen only - Bypassing parser",
+    "6:29:07.892 AM [ℹ️ INFO] 🤖 AI processing via MLXService (LlamaInferenceService)...",
+    "6:29:07.900 AM [ℹ️ INFO] ✅ MLX completed: confidence 0.7"
+  ],
+  "confidence" : 0.69999999999999996,
+  "correlation_id" : "3C5EE71A-B129-42FA-A64A-93448DBFE0D4",
+  "pipeline_used" : "forceQwen (100% AI)",
+  "timestamp" : "2026-01-14_6-29-07 AM",
+  "processing_time" : 1.4536529779434204,
+  "extracted_data" : {
+    "extraction_method" : "MLX-AI",
+    "merchant" : "6:28",
+    "total_amount" : 0,
+    "currency" : "EUR",
+    "category" : "Food",
+    "tax_amount" : 10
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "notification_template": {
+    "header": " NOTIFICATION SYSTÈME",
+    "separator": "━━━━━━━━━━━━━━━━━━━━",
+    "rules": [
+      " AVANT TOUT lis Claude.md et CLAUDE_MEMORY.md dans ton répertoire pas le global projet",
+      " Quand tu juge une tache complete, ne dis pas merci à lagent et notifie ton supérieur que cest terminé",
+      " MANDATORY: nutiliser que les scripts API qui ont été testés, jamais personnalisé de script, si besoin dire au supérieur hiérarchique quil y a un besoin dune nouveau script",
+      " ON EST EN PRODUCTION, minimiser les simulations inutiles"
+    ],
+    "email_format": {
+      "from": "📧 Nouveau mail de {sender}",
+      "subject": "📬 Sujet: {subject}"
+    },
+    "commands": {
+      "read": "📖 LIRE: curl http://localhost:1080/api/mailbox/{recipient}",
+      "reply": "✉️ RÉPONDRE: ./send-mail.sh destinataire@moulinsart.local \"Sujet\" \"Message\""
+    }
+  },
+  "send_reminder": false,
+  "reminder_delay": 3,
+  "clear_before_send": true
+}

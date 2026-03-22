@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📋 Documentation Technique - La Poste de Moulinsart</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            border-left: 6px solid #3498db;
+        }
+
+        .section h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .architecture-diagram {
+            background: white;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+            font-family: monospace;
+            font-size: 14px;
+            line-height: 1.4;
+            overflow-x: auto;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-left: 5px solid #e74c3c;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-card.oracle { border-left-color: #3498db; }
+        .service-card.mail { border-left-color: #e74c3c; }
+        .service-card.vue { border-left-color: #2ecc71; }
+        .service-card.tmux { border-left-color: #f39c12; }
+
+        .service-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .service-icon {
+            font-size: 2em;
+        }
+
+        .service-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .port-badge {
+            background: #e74c3c;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 15px;
+            font-size: 0.9em;
+            font-weight: bold;
+            margin-left: auto;
+        }
+
+        .port-badge.oracle { background: #3498db; }
+        .port-badge.mail { background: #e74c3c; }
+        .port-badge.vue { background: #2ecc71; }
+
+        .service-description {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-list li {
+            padding: 5px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .feature-list li::before {
+            content: "✅";
+            position: absolute;
+            left: 0;
+        }
+
+        .command-block {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            margin: 10px 0;
+            overflow-x: auto;
+        }
+
+        .flow-diagram {
+            background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+            border: 2px dashed #6c757d;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .flow-step {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 25px;
+            margin: 5px;
+            font-weight: bold;
+        }
+
+        .arrow {
+            font-size: 1.5em;
+            color: #6c757d;
+            margin: 0 10px;
+        }
+
+        .status-indicator {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #2ecc71;
+            margin-right: 8px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        .warning-box {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-left: 5px solid #f39c12;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .warning-box h4 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+
+        .critical-box {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            border-left: 5px solid #e74c3c;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .critical-box h4 {
+            color: #721c24;
+            margin-bottom: 10px;
+        }
+
+        .footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .table-container {
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        .tech-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .tech-table th {
+            background: #3498db;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        .tech-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .tech-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .tech-table tr:hover {
+            background: #e3f2fd;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏰 Documentation Technique</h1>
+            <p><strong>La Poste de Moulinsart - Infrastructure Oracle</strong></p>
+            <p>Environnement Validé et Stabilisé - 25/09/2025</p>
+        </div>
+
+        <div class="content">
+            <!-- Architecture Générale -->
+            <div class="section">
+                <h2>🏗️ Architecture Système</h2>
+                <div class="architecture-diagram">
+<pre>
+┌─────────────────────────────────────────────────────────────────────┐
+│                    🏰 CHÂTEAU DE MOULINSART                         │
+│                     Infrastructure Email + TMUX                     │
+└─────────────────────────────────────────────────────────────────────┘
+
+┌─ Oracle Server (3001) ──────┐  ┌─ Mail Server (1025/1080) ──┐
+│ 🔷 API Centrale             │  │ 📧 SMTP Entrant            │
+│ 📡 WebSocket Temps Réel     │◄─┤ 🔔 Notifications TMUX      │
+│ 🗄️ Base SQLite (WAL)        │  │ 📤 API HTTP Emails         │
+│ ⚡ Gestion Événements      │  │ 🔄 Storage Persistant      │
+└─────────────────────────────┘  └─────────────────────────────┘
+               │                                   │
+               ▼                                   ▼
+┌─ Vue Client (5175) ─────────┐  ┌─ Sessions TMUX ────────────┐
+│ 🖥️ Interface Unifiée        │  │ 🎩 nestor-agents           │
+│ 👑 Boîte Commandant         │  │   • Nestor (Panel 0)       │
+│ 📊 Monitoring Temps Réel    │  │   • Tintin (Panel 1)       │
+│ 🔄 Refresh Auto 3s          │  │   • Dupont1 (Panel 2)      │
+└─────────────────────────────┘  │   • Dupont2 (Panel 3)      │
+                                 │ ⚓ haddock-agents           │
+                                 │   • Haddock (Panel 0)      │
+                                 │   • Rastapopoulos (Panel 1)│
+                                 │   • Tournesol1 (Panel 2)   │
+                                 │   • Tournesol2 (Panel 3)   │
+                                 └─────────────────────────────┘
+</pre>
+                </div>
+            </div>
+
+            <!-- Services Détaillés -->
+            <div class="section">
+                <h2>⚙️ Services Détaillés</h2>
+                <div class="service-grid">
+                    <div class="service-card oracle">
+                        <div class="service-header">
+                            <span class="service-icon">🔷</span>
+                            <span class="service-title">Oracle Server</span>
+                            <span class="port-badge oracle">PORT 3001</span>
+                        </div>
+                        <div class="service-description">
+                            Serveur central de l'infrastructure, API REST et WebSocket temps réel
+                        </div>
+                        <ul class="feature-list">
+                            <li>API centrale (/api/events, /api/emails, /api/execute-shell)</li>
+                            <li>WebSocket temps réel (17+ clients connectés)</li>
+                            <li>Base SQLite unifiée (mode WAL)</li>
+                            <li>Gestion événements TMUX</li>
+                            <li>Monitoring système continu</li>
+                        </ul>
+                        <div class="command-block">
+# Health Check<br>
+curl -s http://localhost:3001/health<br><br>
+# Démarrage<br>
+bun run server/index.ts > /tmp/oracle.log 2>&1 &
+                        </div>
+                    </div>
+
+                    <div class="service-card mail">
+                        <div class="service-header">
+                            <span class="service-icon">📧</span>
+                            <span class="service-title">Mail Server</span>
+                            <span class="port-badge mail">PORTS 1025/1080</span>
+                        </div>
+                        <div class="service-description">
+                            Serveur email SMTP avec notifications TMUX calibrées
+                        </div>
+                        <ul class="feature-list">
+                            <li>SMTP entrant (port 1025)</li>
+                            <li>API HTTP emails (port 1080)</li>
+                            <li>Notifications TMUX avec temporisation</li>
+                            <li>Stockage SQLite persistant</li>
+                            <li>Support multi-domaines (.local)</li>
+                        </ul>
+                        <div class="command-block">
+# Test SMTP<br>
+nc -z localhost 1025<br><br>
+# Démarrage<br>
+bun run server/mail-server.ts > /tmp/mail.log 2>&1 &
+                        </div>
+                    </div>
+
+                    <div class="service-card vue">
+                        <div class="service-header">
+                            <span class="service-icon">🖥️</span>
+                            <span class="service-title">Interface Vue</span>
+                            <span class="port-badge vue">PORT 5175</span>
+                        </div>
+                        <div class="service-description">
+                            Interface utilisateur unifiée avec boîte Commandant intégrée
+                        </div>
+                        <ul class="feature-list">
+                            <li>Dashboard agents temps réel</li>
+                            <li>Section Commandant intégrée</li>
+                            <li>Composition/envoi emails</li>
+                            <li>Monitoring visuel WebSocket</li>
+                            <li>Refresh automatique (3 secondes)</li>
+                        </ul>
+                        <div class="command-block">
+# Test Interface<br>
+curl -s http://localhost:5175<br><br>
+# Démarrage<br>
+cd client && bun run dev &
+                        </div>
+                    </div>
+
+                    <div class="service-card tmux">
+                        <div class="service-header">
+                            <span class="service-icon">🖥️</span>
+                            <span class="service-title">Sessions TMUX</span>
+                            <span class="port-badge">N/A</span>
+                        </div>
+                        <div class="service-description">
+                            Sessions agents avec notifications email calibrées
+                        </div>
+                        <ul class="feature-list">
+                            <li>2 sessions : nestor-agents, haddock-agents</li>
+                            <li>4 panels par session (agents 0-3)</li>
+                            <li>Notifications non-collantes</li>
+                            <li>Temporisation 2 secondes + return</li>
+                            <li>Mapping précis agent→panel</li>
+                        </ul>
+                        <div class="command-block">
+# Lister sessions<br>
+tmux ls | grep -E "(nestor|haddock)-agents"<br><br>
+# Capturer panel<br>
+tmux capture-pane -t nestor-agents:agents.0 -p
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Flow Email Commandant -->
+            <div class="section">
+                <h2>📮 Flow Email Commandant</h2>
+                <div class="flow-diagram">
+                    <div class="flow-step">Interface Vue</div>
+                    <span class="arrow">→</span>
+                    <div class="flow-step">API Oracle (3001)</div>
+                    <span class="arrow">→</span>
+                    <div class="flow-step">Script Shell</div>
+                    <span class="arrow">→</span>
+                    <div class="flow-step">SMTP (1025)</div>
+                    <span class="arrow">→</span>
+                    <div class="flow-step">Base SQLite</div>
+                    <span class="arrow">→</span>
+                    <div class="flow-step">Notification TMUX</div>
+                    <span class="arrow">→</span>
+                    <div class="flow-step">Refresh Interface</div>
+                </div>
+
+                <div class="warning-box">
+                    <h4>⚠️ Configuration Critique</h4>
+                    <p><strong>SQLite WAL Mode obligatoire</strong> pour éviter les conflits de verrouillage entre serveurs concurrent. Sans cette config, les emails apparaissent/disparaissent de façon sporadique.</p>
+                </div>
+            </div>
+
+            <!-- Table Techniques -->
+            <div class="section">
+                <h2>🔧 Spécifications Techniques</h2>
+                <div class="table-container">
+                    <table class="tech-table">
+                        <thead>
+                            <tr>
+                                <th>Composant</th>
+                                <th>Port</th>
+                                <th>Technologie</th>
+                                <th>Fonction Principale</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>🔷 Oracle Server</td>
+                                <td><strong>3001</strong></td>
+                                <td>Bun.js + TypeScript</td>
+                                <td>API centrale + WebSocket</td>
+                                <td><span class="status-indicator"></span>Opérationnel</td>
+                            </tr>
+                            <tr>
+                                <td>📧 Mail Server</td>
+                                <td><strong>1025/1080</strong></td>
+                                <td>SMTP + HTTP API</td>
+                                <td>Gestion emails + notifications</td>
+                                <td><span class="status-indicator"></span>Opérationnel</td>
+                            </tr>
+                            <tr>
+                                <td>🖥️ Vue Client</td>
+                                <td><strong>5175</strong></td>
+                                <td>Vue.js + Vite</td>
+                                <td>Interface utilisateur</td>
+                                <td><span class="status-indicator"></span>Opérationnel</td>
+                            </tr>
+                            <tr>
+                                <td>🗄️ Base SQLite</td>
+                                <td><strong>N/A</strong></td>
+                                <td>SQLite WAL Mode</td>
+                                <td>Stockage unifié</td>
+                                <td><span class="status-indicator"></span>Opérationnel</td>
+                            </tr>
+                            <tr>
+                                <td>🎩 Session Nestor</td>
+                                <td><strong>N/A</strong></td>
+                                <td>TMUX</td>
+                                <td>4 agents (Nestor,Tintin,Dupont1,2)</td>
+                                <td><span class="status-indicator"></span>Active</td>
+                            </tr>
+                            <tr>
+                                <td>⚓ Session Haddock</td>
+                                <td><strong>N/A</strong></td>
+                                <td>TMUX</td>
+                                <td>4 agents (Haddock,Rasta,Tournesol1,2)</td>
+                                <td><span class="status-indicator"></span>Active</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Notifications TMUX -->
+            <div class="section">
+                <h2>🔔 Système Notifications TMUX</h2>
+
+                <div class="critical-box">
+                    <h4>🚨 Configuration Critique Validée</h4>
+                    <p>Algorithme final dans <code>mail-server.ts</code> ligne ~400 :</p>
+                    <div class="command-block">
+mainCommand += ` && sleep 2 && tmux send-keys -t ${sessionName}:agents.${panelNumber} C-m`;
+                    </div>
+                    <p><strong>Pourquoi :</strong> Résout les notifications "collantes" grâce à la temporisation de 2 secondes + return unique.</p>
+                </div>
+
+                <h3>📋 Mapping Agents → Panels</h3>
+                <div class="table-container">
+                    <table class="tech-table">
+                        <thead>
+                            <tr>
+                                <th>Session TMUX</th>
+                                <th>Agent</th>
+                                <th>Panel #</th>
+                                <th>Email</th>
+                                <th>Icône</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="background: #e8f4f8;">
+                                <td rowspan="4"><strong>nestor-agents</strong></td>
+                                <td>Nestor</td>
+                                <td><strong>0</strong></td>
+                                <td>nestor@moulinsart.local</td>
+                                <td>🎩</td>
+                            </tr>
+                            <tr style="background: #e8f4f8;">
+                                <td>Tintin</td>
+                                <td><strong>1</strong></td>
+                                <td>tintin@moulinsart.local</td>
+                                <td>🚀</td>
+                            </tr>
+                            <tr style="background: #e8f4f8;">
+                                <td>Dupont1</td>
+                                <td><strong>2</strong></td>
+                                <td>dupont1@moulinsart.local</td>
+                                <td>🎨</td>
+                            </tr>
+                            <tr style="background: #e8f4f8;">
+                                <td>Dupont2</td>
+                                <td><strong>3</strong></td>
+                                <td>dupont2@moulinsart.local</td>
+                                <td>🔍</td>
+                            </tr>
+                            <tr style="background: #fff2e8;">
+                                <td rowspan="4"><strong>haddock-agents</strong></td>
+                                <td>Haddock</td>
+                                <td><strong>0</strong></td>
+                                <td>haddock@moulinsart.local</td>
+                                <td>⚓</td>
+                            </tr>
+                            <tr style="background: #fff2e8;">
+                                <td>Rastapopoulos</td>
+                                <td><strong>1</strong></td>
+                                <td>rastapopoulos@moulinsart.local</td>
+                                <td>🧔</td>
+                            </tr>
+                            <tr style="background: #fff2e8;">
+                                <td>Tournesol1</td>
+                                <td><strong>2</strong></td>
+                                <td>tournesol1@moulinsart.local</td>
+                                <td>🧪</td>
+                            </tr>
+                            <tr style="background: #fff2e8;">
+                                <td>Tournesol2</td>
+                                <td><strong>3</strong></td>
+                                <td>tournesol2@moulinsart.local</td>
+                                <td>🔬</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Commandes de Monitoring -->
+            <div class="section">
+                <h2>📊 Commandes de Monitoring</h2>
+
+                <h3>🔍 Health Checks Essentiels</h3>
+                <div class="command-block">
+# Vue d'ensemble des processus
+ps aux | grep -E "(bun.*oracle|bun.*mail-server|tmux.*agents)"
+
+# Ports utilisés
+lsof -i :3001,1025,1080,5175
+
+# Health checks services
+curl -s http://localhost:3001/health  # Oracle Server
+nc -z localhost 1025                 # SMTP Server
+curl -s http://localhost:5175         # Vue Client
+
+# Vérification SQLite WAL (CRITIQUE)
+sqlite3 data/oracle.db "PRAGMA journal_mode"  # Doit retourner "wal"
+ls -la data/oracle.db* | wc -l                # Doit retourner 3 fichiers
+
+# Sessions TMUX
+tmux ls | grep -E "(nestor|haddock)-agents"
+
+# Test API Email Commandant
+curl -s "http://localhost:3001/api/emails?from=author@moulinsart.local&limit=3"
+                </div>
+
+                <h3>📋 Logs de Diagnostic</h3>
+                <div class="command-block">
+# Logs temps réel
+tail -f /tmp/oracle.log    # Serveur Oracle
+tail -f /tmp/mail.log      # Serveur Mail
+
+# Logs dernières activités
+tail -20 /tmp/oracle.log   # 20 dernières lignes
+tail -20 /tmp/mail.log     # 20 dernières lignes
+                </div>
+            </div>
+
+            <!-- Procédures d'Urgence -->
+            <div class="section">
+                <h2>🚨 Procédures d'Urgence</h2>
+
+                <div class="critical-box">
+                    <h4>🔄 Redémarrage Complet</h4>
+                    <p>Si tous les services sont défaillants :</p>
+                    <div class="command-block">
+# 1. Arrêt propre des services
+pkill -f "bun.*(oracle|mail-server)"
+lsof -i :3001,1025,1080 | awk 'NR>1 {print $2}' | xargs kill -9
+
+# 2. Vérification base SQLite
+sqlite3 data/oracle.db "PRAGMA integrity_check"
+
+# 3. Redémarrage avec config WAL
+cd ~/moulinsart/oracle-observability
+bun run server/index.ts > /tmp/oracle.log 2>&1 &
+bun run server/mail-server.ts > /tmp/mail.log 2>&1 &
+                    </div>
+                </div>
+
+                <div class="warning-box">
+                    <h4>⚠️ Ordre de Démarrage Important</h4>
+                    <ol>
+                        <li><strong>Oracle Server</strong> en premier (port 3001)</li>
+                        <li><strong>Mail Server</strong> ensuite (ports 1025/1080)</li>
+                        <li><strong>Vue Client</strong> en dernier (port 5175)</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- État Final Validé -->
+            <div class="section">
+                <h2>✅ État Final Validé</h2>
+                <div class="service-grid">
+                    <div class="service-card oracle">
+                        <div class="service-header">
+                            <span class="service-icon">🔷</span>
+                            <span class="service-title">Oracle Server</span>
+                            <span class="status-indicator"></span>
+                        </div>
+                        <ul class="feature-list">
+                            <li>17+ clients WebSocket connectés</li>
+                            <li>API /api/emails fonctionnelle</li>
+                            <li>Logs propres sans erreur</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card mail">
+                        <div class="service-header">
+                            <span class="service-icon">📧</span>
+                            <span class="service-title">Mail Server</span>
+                            <span class="status-indicator"></span>
+                        </div>
+                        <ul class="feature-list">
+                            <li>SMTP port 1025 opérationnel</li>
+                            <li>Notifications TMUX calibrées</li>
+                            <li>Plus de notifications collantes</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card vue">
+                        <div class="service-header">
+                            <span class="service-icon">🖥️</span>
+                            <span class="service-title">Interface Vue</span>
+                            <span class="status-indicator"></span>
+                        </div>
+                        <ul class="feature-list">
+                            <li>Boîte Commandant fonctionnelle</li>
+                            <li>10 emails récupérés</li>
+                            <li>Refresh auto toutes les 3s</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card tmux">
+                        <div class="service-header">
+                            <span class="service-icon">🗄️</span>
+                            <span class="service-title">SQLite WAL</span>
+                            <span class="status-indicator"></span>
+                        </div>
+                        <ul class="feature-list">
+                            <li>Mode WAL activé</li>
+                            <li>3 fichiers présents (.db, .wal, .shm)</li>
+                            <li>Plus de verrouillage concurrent</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="critical-box">
+                    <h4>🎯 Problèmes Majeurs Résolus</h4>
+                    <ul class="feature-list">
+                        <li><strong>Emails sporadiques</strong> : Configuration SQLite WAL</li>
+                        <li><strong>Notifications collantes</strong> : Temporisation 2s + return unique</li>
+                        <li><strong>Boîte Commandant vide</strong> : API intégrée Oracle 3001</li>
+                        <li><strong>Verrouillage base</strong> : Mode WAL pour accès concurrent</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p><strong>🏰 Infrastructure La Poste de Moulinsart</strong></p>
+            <p>Documentation générée le 25/09/2025 - Environnement Stable et Validé</p>
+            <p>Agent Oracle - Support Technique Infrastructure</p>
+        </div>
+    </div>
+</body>
+</html>

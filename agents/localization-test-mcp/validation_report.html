@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrivExpensIA - Rapport de Validation Localisation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .timestamp {
+            margin-top: 15px;
+            font-size: 0.9em;
+            opacity: 0.8;
+        }
+        
+        .summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 30px;
+            background: #f8f9fa;
+            border-bottom: 2px solid #e9ecef;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 2em;
+            font-weight: bold;
+            color: #6366f1;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            color: #6b7280;
+            font-size: 0.9em;
+        }
+        
+        .languages-grid {
+            padding: 30px;
+        }
+        
+        .language-section {
+            margin-bottom: 40px;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .language-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+            border-bottom: 2px solid #e5e7eb;
+        }
+        
+        .language-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .flag {
+            font-size: 2em;
+        }
+        
+        .language-name {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #1f2937;
+        }
+        
+        .language-code {
+            color: #6b7280;
+            font-size: 0.9em;
+        }
+        
+        .status-badge {
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+        
+        .status-success {
+            background: #10b981;
+            color: white;
+        }
+        
+        .status-error {
+            background: #ef4444;
+            color: white;
+        }
+        
+        .screenshots-container {
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .screenshot-box {
+            background: #f9fafb;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .screenshot-label {
+            font-weight: bold;
+            color: #4b5563;
+            margin-bottom: 10px;
+            font-size: 0.9em;
+        }
+        
+        .screenshot-img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .screenshot-img:hover {
+            transform: scale(1.05);
+        }
+        
+        .validation-info {
+            margin-top: 15px;
+            padding: 15px;
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            border-radius: 5px;
+        }
+        
+        .validation-label {
+            font-weight: bold;
+            color: #92400e;
+            margin-bottom: 5px;
+        }
+        
+        .expected-text {
+            color: #10b981;
+            font-weight: bold;
+        }
+        
+        .actual-text {
+            color: #ef4444;
+            font-weight: bold;
+        }
+        
+        footer {
+            padding: 30px;
+            text-align: center;
+            background: #f8f9fa;
+            color: #6b7280;
+            font-size: 0.9em;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            cursor: pointer;
+        }
+        
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 90%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .close:hover {
+            color: #bbb;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔍 PrivExpensIA - Rapport de Validation Localisation</h1>
+            <div class="subtitle">Système MCP de Test Automatisé</div>
+            <div class="timestamp">📅 Généré le 12 septembre 2025 à 23:59</div>
+        </header>
+        
+        <div class="summary">
+            <div class="stat-card">
+                <div class="stat-value">8</div>
+                <div class="stat-label">Langues Testées</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">1</div>
+                <div class="stat-label">✅ Succès</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">7</div>
+                <div class="stat-label">❌ Échecs</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">12.5%</div>
+                <div class="stat-label">Taux de Réussite</div>
+            </div>
+        </div>
+        
+        <div class="languages-grid">
+            
+            <!-- Français -->
+            <div class="language-section">
+                <div class="language-header">
+                    <div class="language-info">
+                        <span class="flag">🇫🇷</span>
+                        <div>
+                            <div class="language-name">Français</div>
+                            <div class="language-code">fr</div>
+                        </div>
+                    </div>
+                    <span class="status-badge status-success">✅ SUCCÈS</span>
+                </div>
+                <div class="screenshots-container">
+                    <div class="screenshot-box">
+                        <div class="screenshot-label">1. Home Initial</div>
+                        <img src="screenshots/fr_1_home_initial.png" alt="FR Home Initial" class="screenshot-img" onclick="openModal(this)">
+                    </div>
+                    <div class="screenshot-box">
+                        <div class="screenshot-label">2. Settings</div>
+                        <img src="screenshots/fr_2_settings.png" alt="FR Settings" class="screenshot-img" onclick="openModal(this)">
+                    </div>
+                    <div class="screenshot-box">
+                        <div class="screenshot-label">3. Home Final</div>
+                        <img src="screenshots/fr_5_home_final.png" alt="FR Home Final" class="screenshot-img" onclick="openModal(this)">
+                    </div>
+                </div>
+                <div class="validation-info">
+                    <div class="validation-label">Validation:</div>
+                    <div>Texte attendu: <span class="expected-text">"Bonsoir"</span></div>
+                    <div>Texte affiché: <span class="expected-text">"Bonsoir"</span> ✅</div>
+                </div>
+            </div>
+            
+            <!-- English -->
+            <div class="language-section">
+                <div class="language-header">
+                    <div class="language-info">
+                        <span class="flag">🇬🇧</span>
+                        <div>
+                            <div class="language-name">English</div>
+                            <div class="language-code">en</div>
+                        </div>
+                    </div>
+                    <span class="status-badge status-error">❌ ÉCHEC</span>
+                </div>
+                <div class="screenshots-container">
+                    <div class="screenshot-box">
+                        <div class="screenshot-label">1. Home Initial</div>
+                        <img src="screenshots/en_1_home_initial.png" alt="EN Home Initial" class="screenshot-img" onclick="openModal(this)">
+                    </div>
+                    <div class="screenshot-box">
+                        <div class="screenshot-label">2. Settings</div>
+                        <img src="screenshots/en_2_settings.png" alt="EN Settings" class="screenshot-img" onclick="openModal(this)">
+                    </div>
+                    <div class="screenshot-box">
+                        <div class="screenshot-label">3. Home Final</div>
+                        <img src="screenshots/en_5_home_final.png" alt="EN Home Final" class="screenshot-img" onclick="openModal(this)">
+                    </div>
+                </div>
+                <div class="validation-info">
+                    <div class="validation-label">Validation:</div>
+                    <div>Texte attendu: <span class="expected-text">"Good Evening"</span></div>
+                    <div>Texte affiché: <span class="actual-text">"Bonsoir"</span> ❌</div>
+                </div>
+            </div>
+            
+            <!-- Deutsch -->
+            <div class="language-section">
+                <div class="language-header">
+                    <div class="language-info">
+                        <span class="flag">🇩🇪</span>
+                        <div>
+                            <div class="language-name">Deutsch</div>
+                            <div class="language-code">de</div>
+                        </div>
+                    </div>
+                    <span class="status-badge status-error">❌ ÉCHEC</span>
+                </div>
+                <div class="screenshots-container">
+                    <div class="screenshot-box">
+                        <div class="screenshot-label">1. Home Initial</div>
+                        <img src="screenshots/de_1_home_initial.png" alt="DE Home Initial" class="screenshot-img" onclick="openModal(this)">
+                    </div>
+                    <div class="screenshot-box">
+                        <div class="screenshot-label">2. Settings</div>
+                        <img src="screenshots/de_2_settings.png" alt="DE Settings" class="screenshot-img" onclick="openModal(this)">
+                    </div>
+                    <div class="screenshot-box">
+                        <div class="screenshot-label">3. Home Final</div>
+                        <img src="screenshots/de_5_home_final.png" alt="DE Home Final" class="screenshot-img" onclick="openModal(this)">
+                    </div>
+                </div>
+                <div class="validation-info">
+                    <div class="validation-label">Validation:</div>
+                    <div>Texte attendu: <span class="expected-text">"Guten Abend"</span></div>
+                    <div>Texte affiché: <span class="actual-text">"Bonsoir"</span> ❌</div>
+                </div>
+            </div>
+            
+            <!-- Italiano -->
+            <div class="language-section">
+                <div class="language-header">
+                    <div class="language-info">
+                        <span class="flag">🇮🇹</span>
+                        <div>
+                            <div class="language-name">Italiano</div>
+                            <div class="language-code">it</div>
+                        </div>
+                    </div>
+                    <span class="status-badge status-error">❌ ÉCHEC</span>
+                </div>
+                <div class="screenshots-container">
+                    <div class="screenshot-box">
+                        <div class="screenshot-label">1. Home Initial</div>
+                        <img src="screenshots/it_1_home_initial.png" alt="IT Home Initial" class="screenshot-img" onclick="openModal(this)">
+                    </div>
+                    <div class="screenshot-box">
+                        <div class="screenshot-label">2. Settings</div>
+                        <img src="screenshots/it_2_settings.png" alt="IT Settings" class="screenshot-img" onclick="openModal(this)">
+                    </div>
+                    <div class="screenshot-box">
+                        <div class="screenshot-label">3. Home Final</div>
+                        <img src="screenshots/it_5_home_final.png" alt="IT Home Final" class="screenshot-img" onclick="openModal(this)">
+                    </div>
+                </div>
+                <div class="validation-info">
+                    <div class="validation-label">Validation:</div>
+                    <div>Texte attendu: <span class="expected-text">"Buonasera"</span></div>
+                    <div>Texte affiché: <span class="actual-text">"Bonsoir"</span> ❌</div>
+                </div>
+            </div>
+            
+            <!-- Español -->
+            <div class="language-section">
+                <div class="language-header">
+                    <div class="language-info">
+                        <span class="flag">🇪🇸</span>
+                        <div>
+                            <div class="language-name">Español</div>
+                            <div class="language-code">es</div>
+                        </div>
+                    </div>
+                    <span class="status-badge status-error">❌ ÉCHEC</span>
+                </div>
+                <div class="screenshots-container">
+                    <div class="screenshot-box">
+                        <div class="screenshot-label">1. Home Initial</div>
+                        <img src="screenshots/es_1_home_initial.png" alt="ES Home Initial" class="screenshot-img" onclick="openModal(this)">
+                    </div>
+                    <div class="screenshot-box">
+                        <div class="screenshot-label">2. Settings</div>
+                        <img src="screenshots/es_2_settings.png" alt="ES Settings" class="screenshot-img" onclick="openModal(this)">
+                    </div>
+                    <div class="screenshot-box">
+                        <div class="screenshot-label">3. Home Final</div>
+                        <img src="screenshots/es_5_home_final.png" alt="ES Home Final" class="screenshot-img" onclick="openModal(this)">
+                    </div>
+                </div>
+                <div class="validation-info">
+                    <div class="validation-label">Validation:</div>
+                    <div>Texte attendu: <span class="expected-text">"Buenas noches"</span></div>
+                    <div>Texte affiché: <span class="actual-text">"Bonsoir"</span> ❌</div>
+                </div>
+            </div>
+            
+            <!-- Japanese -->
+            <div class="language-section">
+                <div class="language-header">
+                    <div class="language-info">
+                        <span class="flag">🇯🇵</span>
+                        <div>
+                            <div class="language-name">日本語</div>
+                            <div class="language-code">ja</div>
+                        </div>
+                    </div>
+                    <span class="status-badge status-error">❌ ÉCHEC</span>
+                </div>
+                <div class="screenshots-container">
+                    <div class="screenshot-box">
+                        <div class="screenshot-label">1. Home Initial</div>
+                        <img src="screenshots/ja_1_home_initial.png" alt="JA Home Initial" class="screenshot-img" onclick="openModal(this)">
+                    </div>
+                    <div class="screenshot-box">
+                        <div class="screenshot-label">2. Settings</div>
+                        <img src="screenshots/ja_2_settings.png" alt="JA Settings" class="screenshot-img" onclick="openModal(this)">
+                    </div>
+                    <div class="screenshot-box">
+                        <div class="screenshot-label">3. Home Final</div>
+                        <img src="screenshots/ja_5_home_final.png" alt="JA Home Final" class="screenshot-img" onclick="openModal(this)">
+                    </div>
+                </div>
+                <div class="validation-info">
+                    <div class="validation-label">Validation:</div>
+                    <div>Texte attendu: <span class="expected-text">"こんばんは"</span></div>
+                    <div>Texte affiché: <span class="actual-text">"Bonsoir"</span> ❌</div>
+                </div>
+            </div>
+            
+            <!-- Korean -->
+            <div class="language-section">
+                <div class="language-header">
+                    <div class="language-info">
+                        <span class="flag">🇰🇷</span>
+                        <div>
+                            <div class="language-name">한국어</div>
+                            <div class="language-code">ko</div>
+                        </div>
+                    </div>
+                    <span class="status-badge status-error">❌ ÉCHEC</span>
+                </div>
+                <div class="screenshots-container">
+                    <div class="screenshot-box">
+                        <div class="screenshot-label">1. Home Initial</div>
+                        <img src="screenshots/ko_1_home_initial.png" alt="KO Home Initial" class="screenshot-img" onclick="openModal(this)">
+                    </div>
+                    <div class="screenshot-box">
+                        <div class="screenshot-label">2. Settings</div>
+                        <img src="screenshots/ko_2_settings.png" alt="KO Settings" class="screenshot-img" onclick="openModal(this)">
+                    </div>
+                    <div class="screenshot-box">
+                        <div class="screenshot-label">3. Home Final</div>
+                        <img src="screenshots/ko_5_home_final.png" alt="KO Home Final" class="screenshot-img" onclick="openModal(this)">
+                    </div>
+                </div>
+                <div class="validation-info">
+                    <div class="validation-label">Validation:</div>
+                    <div>Texte attendu: <span class="expected-text">"좋은 저녁"</span></div>
+                    <div>Texte affiché: <span class="actual-text">"Bonsoir"</span> ❌</div>
+                </div>
+            </div>
+            
+            <!-- Slovak -->
+            <div class="language-section">
+                <div class="language-header">
+                    <div class="language-info">
+                        <span class="flag">🇸🇰</span>
+                        <div>
+                            <div class="language-name">Slovenčina</div>
+                            <div class="language-code">sk</div>
+                        </div>
+                    </div>
+                    <span class="status-badge status-error">❌ ÉCHEC</span>
+                </div>
+                <div class="screenshots-container">
+                    <div class="screenshot-box">
+                        <div class="screenshot-label">1. Home Initial</div>
+                        <img src="screenshots/sk_1_home_initial.png" alt="SK Home Initial" class="screenshot-img" onclick="openModal(this)">
+                    </div>
+                    <div class="screenshot-box">
+                        <div class="screenshot-label">2. Settings</div>
+                        <img src="screenshots/sk_2_settings.png" alt="SK Settings" class="screenshot-img" onclick="openModal(this)">
+                    </div>
+                    <div class="screenshot-box">
+                        <div class="screenshot-label">3. Home Final</div>
+                        <img src="screenshots/sk_5_home_final.png" alt="SK Home Final" class="screenshot-img" onclick="openModal(this)">
+                    </div>
+                </div>
+                <div class="validation-info">
+                    <div class="validation-label">Validation:</div>
+                    <div>Texte attendu: <span class="expected-text">"Dobrý večer"</span></div>
+                    <div>Texte affiché: <span class="actual-text">"Bonsoir"</span> ❌</div>
+                </div>
+            </div>
+            
+        </div>
+        
+        <footer>
+            <p>🚀 Généré par le système MCP de test automatisé - Moulinsart</p>
+            <p>TINTIN - QA Lead | PrivExpensIA v1.0</p>
+        </footer>
+    </div>
+    
+    <!-- Modal pour agrandir les images -->
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImg">
+    </div>
+    
+    <script>
+        function openModal(img) {
+            var modal = document.getElementById("myModal");
+            var modalImg = document.getElementById("modalImg");
+            modal.style.display = "block";
+            modalImg.src = img.src;
+        }
+        
+        function closeModal() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        }
+        
+        // Fermer le modal en cliquant dessus
+        document.getElementById("myModal").onclick = function() {
+            closeModal();
+        }
+    </script>
+</body>
+</html>

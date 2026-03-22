@@ -1,0 +1,27 @@
+{
+  "correlation_id" : "B964E607-0A7D-43F8-ABAB-621C645009F0",
+  "extracted_data" : {
+    "total_amount" : 227.40000000000001,
+    "currency" : "EUR",
+    "category" : "Sante",
+    "tax_amount" : 55,
+    "extraction_method" : "MLX-AI",
+    "merchant" : "Oté Article"
+  },
+  "confidence" : 0.90000000000000002,
+  "timestamp" : "2026-01-17_午前3-06-20",
+  "pipeline_used" : "forceQwen (100% AI)",
+  "processing_time" : 4.9597630500793457,
+  "logs" : [
+    "午前3:06:15.243 [ℹ️ INFO] 🔧 UnifiedPipelineManager initialized",
+    "午前3:06:15.245 [ℹ️ INFO] 🎯 Starting unified extraction - Mode: forceQwen (100% AI) - ID: B964E607-0A7D-43F8-ABAB-621C645009F0",
+    "午前3:06:15.246 [ℹ️ INFO] 🚀 [UNIFIED_PIPELINE] Using mode: forceQwen (100% AI)",
+    "午前3:06:15.246 [🔍 DEBUG] 📖 Step 1: OCR Processing",
+    "午前3:06:15.246 [ℹ️ INFO] 📖 OCR Processing started",
+    "午前3:06:16.610 [ℹ️ INFO] ✅ OCR completed: 588 chars, confidence: 1.0",
+    "午前3:06:16.611 [ℹ️ INFO] 🚀 [EXTRACTION_MODE] Executing mode: forceQwen (100% AI)",
+    "午前3:06:16.612 [ℹ️ INFO] 🧠 [FORCE_QWEN] Using AI Qwen only - Bypassing parser",
+    "午前3:06:16.612 [ℹ️ INFO] 🤖 AI processing via MLXService (LlamaInferenceService)...",
+    "午前3:06:20.197 [ℹ️ INFO] ✅ MLX completed: confidence 0.9"
+  ]
+}

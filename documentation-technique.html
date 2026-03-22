@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation Technique - Ferme Agentique Moulinsart</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #121212;
+            color: #E0E0E0;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 20px auto;
+            padding: 0;
+            background: #1E1E1E;
+            border-radius: 8px;
+            border: 1px solid #333;
+            overflow: hidden;
+        }
+
+        /* TABS NAVIGATION */
+        .tabs {
+            display: flex;
+            background: #2D2D2D;
+            border-bottom: 1px solid #444;
+            overflow-x: auto;
+        }
+        .tab {
+            background: #2D2D2D;
+            border: none;
+            padding: 15px 25px;
+            cursor: pointer;
+            color: #B0B0B0;
+            font-size: 14px;
+            font-weight: 500;
+            white-space: nowrap;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+        .tab:hover {
+            background: #3A3A3A;
+            color: #E0E0E0;
+        }
+        .tab.active {
+            background: #1E1E1E;
+            color: #4D96FF;
+            border-bottom: 3px solid #4D96FF;
+        }
+
+        /* TAB CONTENT */
+        .tab-content {
+            display: none;
+            padding: 30px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        .tab-content.active {
+            display: block;
+        }
+
+        h1, h2, h3 {
+            color: #4D96FF;
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
+        }
+        h1 {
+            text-align: center;
+            font-size: 2.2em;
+            margin-top: 0;
+        }
+        h2 {
+            font-size: 1.8em;
+            margin-top: 30px;
+        }
+        h3 {
+            font-size: 1.4em;
+            color: #82AAFF;
+            border-bottom: 1px solid #333;
+        }
+        code {
+            background-color: #2C2C2C;
+            padding: 0.2em 0.4em;
+            margin: 0;
+            font-size: 0.85em;
+            border-radius: 3px;
+            font-family: "SF Mono", "Fira Code", "Consolas", monospace;
+            color: #FFCB6B;
+        }
+        pre {
+            background-color: #252526;
+            border: 1px solid #333;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        pre code {
+            padding: 0;
+            background: none;
+            font-size: 0.9em;
+            color: #C3E88D;
+        }
+        strong {
+            color: #FF8A65;
+        }
+        .component {
+            background: #252526;
+            border: 1px solid #444;
+            border-left: 5px solid #4D96FF;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .component h4 {
+            margin-top: 0;
+            color: #82AAFF;
+            font-size: 1.2em;
+        }
+        ol, ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .schema {
+            text-align: center;
+            padding: 20px;
+            background: #1C1C1C;
+            border-radius: 5px;
+            border: 1px solid #333;
+        }
+        .schema pre {
+            color: #89DDFF;
+            font-size: 1em;
+            text-align: left;
+        }
+        .key-point {
+            background-color: rgba(255, 203, 107, 0.1);
+            border-left: 4px solid #FFCB6B;
+            padding: 10px 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        /* SCROLLBAR STYLING */
+        .tab-content::-webkit-scrollbar {
+            width: 8px;
+        }
+        .tab-content::-webkit-scrollbar-track {
+            background: #2D2D2D;
+        }
+        .tab-content::-webkit-scrollbar-thumb {
+            background: #4D96FF;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Documentation Technique de la Ferme Agentique Moulinsart</h1>
+
+        <!-- TABS NAVIGATION -->
+        <div class="tabs">
+            <button class="tab active" onclick="showTab('overview')">📋 Vue d'Ensemble</button>
+            <button class="tab" onclick="showTab('architecture')">🏗️ Architecture</button>
+            <button class="tab" onclick="showTab('communication')">📡 Communication</button>
+            <button class="tab" onclick="showTab('memory')">🧠 Workflow Mémoire</button>
+            <button class="tab" onclick="showTab('technical')">🔧 Améliorations</button>
+            <button class="tab" onclick="showTab('status')">✅ État Système</button>
+        </div>
+
+        <!-- TAB: VUE D'ENSEMBLE -->
+        <div id="overview" class="tab-content active">
+            <h2>Vue d'Ensemble</h2>
+            <p>
+                Le système de Moulinsart est une <strong>"ferme agentique"</strong> conçue pour automatiser l'exécution de projets via une équipe d'agents IA. L'architecture repose sur une communication asynchrone par email, orchestrée par un serveur central qui notifie les agents de nouvelles instructions directement dans leurs terminaux.
+            </p>
+            <p>
+                L'ensemble est géré et surveillé via un portail web central, le "Portail de Moulinsart".
+            </p>
+        </div>
+
+        <!-- TAB: ARCHITECTURE -->
+        <div id="architecture" class="tab-content">
+            <h2>Architecture du Système</h2>
+            <p>Le système est composé de plusieurs services indépendants mais interconnectés qui fonctionnent en tandem.</p>
+
+            <h3>Composants Clés</h3>
+
+            <div class="component">
+                <h4>Serveur d'Observabilité Oracle (<code>server/index.ts</code>)</h4>
+                <ul>
+                    <li><strong>Rôle</strong> : Cerveau central du système.</li>
+                    <li><strong>Fonctions</strong> :
+                        <ul>
+                            <li>Fournit une API REST pour gérer les projets, les sprints et les tâches.</li>
+                            <li>Maintient l'état du système dans une base de données unique.</li>
+                            <li>Diffuse des événements en temps réel à l'interface web via WebSockets.</li>
+                            <li>Expose des endpoints pour le workflow de génération de mémoire.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="component">
+                <h4>Serveur Mail & Notifications (<code>server/mail-server.ts</code>)</h4>
+                <ul>
+                    <li><strong>Rôle</strong> : Système nerveux et de communication.</li>
+                    <li><strong>Fonctions</strong> :
+                        <ul>
+                            <li>Opère un serveur SMTP (sur le port <code>1025</code>) qui intercepte tous les emails échangés.</li>
+                            <li>Stocke chaque email dans la base de données centrale.</li>
+                            <li><strong>Déclenche le "Heartbeat"</strong> : notifie l'agent destinataire en injectant un message directement dans sa fenêtre <code>tmux</code>.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="component">
+                <h4>Sessions des Agents <code>tmux</code> (<code>moulinsart-manager.sh</code>)</h4>
+                <ul>
+                    <li><strong>Rôle</strong> : L'environnement d'exécution des agents.</li>
+                    <li><strong>Structure</strong> :
+                        <ul>
+                            <li><strong>Deux équipes</strong> sont définies : <code>nestor-agents</code> et <code>haddock-agents</code>.</li>
+                            <li>Chaque équipe est une session <code>tmux</code> contenant <strong>4 agents</strong>, chacun dans son propre panel.</li>
+                            <li>Le script <code>moulinsart-manager.sh</code> est l'outil principal pour démarrer, arrêter et gérer ces sessions et les services associés.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="component">
+                <h4>Base de Données Centrale (<code>oracle.db</code>)</h4>
+                <ul>
+                    <li><strong>Technologie</strong> : SQLite, configuré en mode <strong>WAL (Write-Ahead Logging)</strong>.</li>
+                    <li><strong>Rôle</strong> : Source de vérité unique. Le mode WAL est <strong>critique</strong> car il permet au serveur Oracle et au serveur Mail d'écrire dans la base de données simultanément sans conflits de verrouillage.</li>
+                    <li><strong>Contenu</strong> : Stocke tout : projets, tâches, emails, historique, etc.</li>
+                </ul>
+            </div>
+
+            <h3>Schéma Simplifié du Flux de Communication</h3>
+            <div class="schema">
+<pre><code>
+             +---------------------------+
+             | Commandant (Portail Web)  |
+             +-------------+-------------+
+                           |
+      (API REST / WebSockets) |
+                           |
++--------------------------v--------------------------+
+|                                                     |
+|  Serveur Oracle (index.ts) &lt;----&gt; Base de Données  |
+|  (Gestion Projets/Tâches)            (SQLite WAL)   |
+|                                                     |
++--------------------------^--------------------------+
+                           |
+      (Notification Event) |
+                           |
+             +-------------+-------------+
+             | Serveur Mail (mail-server.ts) |
+             +-------------+-------------+
+                           |
+        (Injection TMUX)   |
+  +------------------------+------------------------+
+  |                        |                        |
++-------------+          +-------------+          +-------------+
+| Agent Nestor|          | Agent Tintin|          | Agent Dupont| ... (8 agents)
++-------------+          +-------------+          +-------------+
+(Session TMUX)           (Session TMUX)           (Session TMUX)
+
+</code></pre>
+            </div>
+        </div>
+
+        <!-- TAB: COMMUNICATION -->
+        <div id="communication" class="tab-content">
+            <h2>Le Workflow de Communication : Le Cœur du Système</h2>
+            <p>Le mécanisme de notification est ce qui permet au système de fonctionner de manière asynchrone et réactive. Voici le déroulement exact :</p>
+            <ol>
+                <li><strong>Émission</strong> : Un acteur (le Commandant ou un autre agent) envoie un email à un agent (ex: <code>tintin@moulinsart.local</code>).</li>
+                <li><strong>Interception</strong> : Le serveur SMTP (<code>mail-server.ts</code>) sur le port 1025 reçoit l'email.</li>
+                <li><strong>Persistance</strong> : L'email est immédiatement sauvegardé dans la table <code>emails</code> de la base de données <code>oracle.db</code>.</li>
+                <li><strong>Notification TMUX (Étape Cruciale)</strong> :
+                    <ul>
+                        <li>La fonction <code>injectToTmux</code> est appelée.</li>
+                        <li>Elle identifie l'agent destinataire (ex: <code>tintin</code>).</li>
+                        <li>Elle détermine la session <code>tmux</code> (<code>nestor-agents</code>) et le panel (<code>1</code>) correspondants grâce à une table de mappage interne.</li>
+                        <li>Elle exécute une série de commandes <code>tmux send-keys</code> pour :
+                            <ol type="a">
+                                <li>Effacer l'écran du terminal de l'agent pour attirer son attention (<code>C-l</code>).</li>
+                                <li>Afficher un message de notification formaté, contenant l'expéditeur et le sujet de l'email.</li>
+                                <li>Fournir des commandes de base prêtes à l'emploi (ex: <code>curl</code> pour lire ses emails).</li>
+                                <li>Attendre 2 secondes, puis envoyer une touche "Entrée" (<code>C-m</code>) pour rafraîchir le prompt de l'agent et le rendre à nouveau actif.</li>
+                            </ol>
+                        </li>
+                    </ul>
+                </li>
+                <li><strong>Activation de l'Agent</strong> : L'agent, qui est en attente dans sa ligne de commande, reçoit cette notification comme s'il s'agissait d'une entrée utilisateur. Il peut alors exécuter les commandes suggérées pour prendre connaissance de sa nouvelle tâche.</li>
+            </ol>
+            <p>Ce cycle constitue le <strong>"battement de cœur" (heartbeat)</strong> du système, transformant une communication passive (email) en une action directe et ciblée.</p>
+        </div>
+
+        <!-- TAB: MEMORY WORKFLOW -->
+        <div id="memory" class="tab-content">
+            <h2>Le Workflow de Mémoire Post-Sprint</h2>
+            <p>Après la fin d'un sprint, le système dispose d'un workflow pour synthétiser les événements et mettre à jour la "mémoire" des agents. Ce processus est initié depuis l'onglet <strong>"Memory"</strong> du portail web Oracle.</p>
+
+            <div class="key-point">
+                <strong>Point Clé :</strong> La "génération" de mémoire est un processus <strong>déterministe</strong>. Il n'utilise pas de modèle de langage externe (IA). Il s'agit d'une synthèse structurée et factuelle des données collectées durant le sprint depuis la base de données, garantissant rapidité, fiabilité et prévisibilité.
+            </div>
+
+            <h3>4.0. Interface Memory - Fonctionnalités</h3>
+            <div class="component">
+                <h4>Onglet Memory du Portail Oracle (http://localhost:5175)</h4>
+                <ul>
+                    <li><strong>Filtrage par projet</strong> : Sélection du projet et du sprint concerné</li>
+                    <li><strong>Timeline fusée animée</strong> : Visualisation en temps réel du workflow 4-étapes</li>
+                    <li><strong>Bouton "Generate Memory"</strong> : Déclenche le pipeline complet automatique</li>
+                    <li><strong>Fichiers générés affichés</strong> : PROJECT_MEMORY.md et CLAUDE.md modifiés</li>
+                    <li><strong>Statistiques de purge</strong> : Nombre d'emails marqués comme lus</li>
+                </ul>
+            </div>
+
+            <h3>4.1. Schéma du Workflow de Mémoire</h3>
+            <div class="schema">
+<pre><code>
+(Portail Web)           (Serveur Oracle API)
++-------------+         +---------------------------------+
+| Clic sur    | --1--&gt; | POST /api/memory/generate       | (Lit DB)
+| "Générer"   |         | - Lit les tâches du sprint        |
+| (Sprint X)  |         | - Synthétise un objet JSON      |
++-------------+         +----------------+----------------+
+                                         |
+                                         | (Objet JSON de mémoire)
+                                         v
++-------------+         +---------------------------------+
+| Interface   | &lt;--4-- | POST /api/memory/purge-mails    | (Met à jour DB)
+| rafraîchie  |         | - Marque les emails comme lus   |
++-------------+         +----------------^----------------+
+                                         |
+                        +----------------+----------------+
+                        | POST /api/memory/write-agents   | --3--&gt; (Écrit) agents/AGENT/CLAUDE.md
+                        | - Ajoute la mémoire du sprint   |
+                        |   (vérifie les doublons)        |
+                        +----------------+----------------+
+                                         |
+                        +----------------v----------------+
+                        | POST /api/memory/write-project  | --2--&gt; (Écrit) projects/PROJET/PROJECT_MEMORY.md
+                        | - Ajoute la mémoire du sprint   |
+                        |   (vérifie les doublons)        |
+                        +---------------------------------+
+
+</code></pre>
+            </div>
+
+            <h3>4.2. Étapes Détaillées</h3>
+            <ol>
+                <li>
+                    <strong>Génération de la Synthèse (<code>/api/memory/generate</code>)</strong>
+                    <ul>
+                        <li><strong>Source de données :</strong> Uniquement les tables <code>projects</code> et <code>tasks</code> de la base de données.</li>
+                        <li><strong>Processus :</strong> Le serveur récupère toutes les tâches du sprint, les classe, et génère un résumé structuré (objectifs, tâches finies, problèmes) sous forme d'objet JSON.</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Écriture de la Mémoire Projet (<code>/api/memory/write-project</code>)</strong>
+                    <ul>
+                        <li><strong>Fichier cible :</strong> <code>/projects/NOM_PROJET/PROJECT_MEMORY.md</code>. Un seul fichier par projet.</li>
+                        <li><strong>Logique anti-doublons :</strong> Avant d'écrire, le système vérifie si un en-tête pour le sprint (ex: <code>## Sprint 8</code>) existe déjà dans le fichier. Si oui, l'écriture est <strong>annulée</strong> pour éviter les duplications.</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Mise à Jour des Agents (<code>/api/memory/write-agents</code>)</strong>
+                    <ul>
+                        <li><strong>Fichiers cibles :</strong> Le fichier <code>CLAUDE.md</code> de chaque agent ayant participé au sprint.</li>
+                        <li><strong>Logique anti-doublons :</strong> Le système vérifie également si la mémoire de ce sprint a déjà été ajoutée au <code>CLAUDE.md</code> de l'agent. Si oui, l'agent est ignoré.</li>
+                        <li><strong>Action :</strong> Un court résumé des tâches de l'agent pour ce sprint est <strong>ajouté à la fin</strong> de son fichier <code>CLAUDE.md</code>.</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Purge des Données (<code>/api/memory/purge-mails</code>)</strong>
+                    <ul>
+                        <li><strong>Action :</strong> Le système détermine les dates de début et de fin du sprint en se basant sur les tâches.</li>
+                        <li>Il marque ensuite tous les emails (en passant le champ <code>deleted</code> à 1) dans la base de données dont la date se situe dans cet intervalle. C'est un "soft delete", les données ne sont pas réellement effacées mais sont cachées.</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+
+        <!-- TAB: TECHNICAL IMPROVEMENTS -->
+        <div id="technical" class="tab-content">
+            <h2>Améliorations Techniques Récentes</h2>
+            <p>Cette section documente les corrections critiques apportées au système pour assurer sa stabilité et fiabilité.</p>
+
+            <h3>5.1. CORS Policy - Sécurité Zero</h3>
+            <div class="component">
+                <h4>Problème résolu : Blocage des requêtes DELETE</h4>
+                <ul>
+                    <li><strong>Symptôme :</strong> Erreur "Method DELETE is not allowed by Access-Control-Allow-Methods" lors de la suppression de projets</li>
+                    <li><strong>Cause :</strong> Headers CORS restrictifs dans server/index.ts</li>
+                    <li><strong>Solution :</strong> Configuration CORS zero-sécurité :</li>
+                </ul>
+                <pre><code>const headers = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "*",
+  "Access-Control-Allow-Headers": "*",
+  "Access-Control-Allow-Credentials": "true",
+  "Access-Control-Max-Age": "86400"
+};</code></pre>
+            </div>
+
+            <h3>5.2. Script Manager Brutal</h3>
+            <div class="component">
+                <h4>moulinsart-manager.sh - Version Renforcée</h4>
+                <ul>
+                    <li><strong>Fonction brutale :</strong> <code>restart_services()</code> modifiée</li>
+                    <li><strong>Actions :</strong>
+                        <ol>
+                            <li><strong>MASSACRE TOTAL :</strong> <code>pkill -9</code> tous processus Bun/Node/Vite</li>
+                            <li><strong>LIBÉRATION PORTS :</strong> <code>lsof + kill -9</code> sur 3001, 1025, 1080, 5175</li>
+                            <li><strong>REDÉMARRAGE PROPRE :</strong> Oracle (3001), Mail (1025/1080), Web (5175)</li>
+                            <li><strong>VÉRIFICATION :</strong> État final des ports</li>
+                        </ol>
+                    </li>
+                    <li><strong>Résultat :</strong> Plus jamais de conflits "port already in use"</li>
+                </ul>
+            </div>
+
+            <h3>5.3. Configuration SQLite WAL Critique</h3>
+            <div class="key-point">
+                <strong>Configuration obligatoire</strong> dans server/index.ts ET server/mail-server.ts :
+<pre><code>db.run("PRAGMA journal_mode = WAL");
+db.run("PRAGMA synchronous = NORMAL");
+db.run("PRAGMA cache_size = 1000");
+db.run("PRAGMA temp_store = memory");</code></pre>
+                Sans cette configuration, conflits de verrouillage garantis entre Oracle et Mail servers.
+            </div>
+
+            <h3>5.4. Diagnostic et Maintenance</h3>
+            <div class="component">
+                <h4>Commandes de Vérification</h4>
+                <ul>
+                    <li><strong>État des services :</strong> <code>curl -s http://localhost:3001/health</code></li>
+                    <li><strong>Ports actifs :</strong> <code>lsof -i :3001,1025,1080,5175</code></li>
+                    <li><strong>Mode SQLite :</strong> <code>sqlite3 data/oracle.db "PRAGMA journal_mode"</code></li>
+                    <li><strong>Logs temps réel :</strong> <code>tail -f /tmp/oracle.log</code></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- TAB: STATUS SUMMARY -->
+        <div id="status" class="tab-content">
+            <h2>État Actuel du Système</h2>
+            <div class="key-point">
+                <strong>✅ SYSTÈME OPÉRATIONNEL</strong> - Tous les composants principaux fonctionnent :
+                <ul>
+                    <li>🔗 API Oracle + WebSocket temps réel</li>
+                    <li>📧 Notifications TMUX + Heartbeat calibré</li>
+                    <li>🗃️ SQLite WAL sans conflits</li>
+                    <li>🧠 Workflow mémoire 4-étapes</li>
+                    <li>🎯 Interface web complète (Sprint Dashboard + Memory)</li>
+                    <li>🔥 Script manager brutal anti-conflit</li>
+                    <li>🚫 CORS zero-sécurité</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function showTab(tabName) {
+            // Masquer tous les contenus d'onglets
+            const allTabs = document.querySelectorAll('.tab-content');
+            allTabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Désactiver tous les boutons d'onglets
+            const allButtons = document.querySelectorAll('.tab');
+            allButtons.forEach(button => {
+                button.classList.remove('active');
+            });
+
+            // Activer l'onglet sélectionné
+            document.getElementById(tabName).classList.add('active');
+
+            // Activer le bouton correspondant
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>

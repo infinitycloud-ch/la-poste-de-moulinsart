@@ -1,0 +1,27 @@
+{
+  "confidence" : 0.94999999999999996,
+  "logs" : [
+    "4:04:21.793 AM [ℹ️ INFO] 🔧 UnifiedPipelineManager initialized",
+    "4:04:21.795 AM [ℹ️ INFO] 🎯 Starting unified extraction - Mode: auto (Smart Fusée) - ID: 69393887-D401-4093-8763-648D41C6EEA8",
+    "4:04:21.795 AM [ℹ️ INFO] 🚀 [UNIFIED_PIPELINE] Using mode: auto (Smart Fusée)",
+    "4:04:21.796 AM [🔍 DEBUG] 📖 Step 1: OCR Processing",
+    "4:04:21.797 AM [ℹ️ INFO] 📖 OCR Processing started",
+    "4:04:23.089 AM [ℹ️ INFO] ✅ OCR completed: 588 chars, confidence: 1.0",
+    "4:04:23.090 AM [ℹ️ INFO] 🚀 [EXTRACTION_MODE] Executing mode: auto (Smart Fusée)",
+    "4:04:23.090 AM [ℹ️ INFO] 🚀 [AUTO] Starting Fusée logic - Parser → AI fallback",
+    "4:04:23.091 AM [ℹ️ INFO] 🚀 [ÉTAGE 1] FUSÉE - Parser déterministe processing...",
+    "4:04:23.094 AM [ℹ️ INFO] ✅ Parser completed: La Pinte Neuchateloise - CHF 227.40"
+  ],
+  "timestamp" : "2026-01-16_4-04-23 AM",
+  "extracted_data" : {
+    "extraction_method" : "FUSÉE-ÉTAGE-1-SWISS",
+    "tax_amount" : 17.039222941720624,
+    "total_amount" : 227.40000000000001,
+    "merchant" : "La Pinte Neuchateloise",
+    "category" : "Gas",
+    "currency" : "CHF"
+  },
+  "pipeline_used" : "auto (Smart Fusée)",
+  "correlation_id" : "69393887-D401-4093-8763-648D41C6EEA8",
+  "processing_time" : 1.3031389713287354
+}

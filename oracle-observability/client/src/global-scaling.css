@@ -1,0 +1,218 @@
+/* Global Scaling - Réduction de 30% de toutes les tailles */
+
+:root {
+  /* Facteur de réduction global */
+  --scale-factor: 0.7;
+  
+  /* Tailles de police de base */
+  --font-size-xs: calc(10px * var(--scale-factor));
+  --font-size-sm: calc(12px * var(--scale-factor));
+  --font-size-base: calc(14px * var(--scale-factor));
+  --font-size-md: calc(16px * var(--scale-factor));
+  --font-size-lg: calc(18px * var(--scale-factor));
+  --font-size-xl: calc(20px * var(--scale-factor));
+  --font-size-2xl: calc(24px * var(--scale-factor));
+  
+  /* Espacements */
+  --spacing-xs: calc(4px * var(--scale-factor));
+  --spacing-sm: calc(8px * var(--scale-factor));
+  --spacing-md: calc(12px * var(--scale-factor));
+  --spacing-lg: calc(16px * var(--scale-factor));
+  --spacing-xl: calc(20px * var(--scale-factor));
+  --spacing-2xl: calc(24px * var(--scale-factor));
+}
+
+/* Application globale */
+html {
+  font-size: calc(16px * 0.7); /* 11.2px au lieu de 16px */
+}
+
+body {
+  font-size: var(--font-size-base);
+}
+
+/* Headers */
+h1 {
+  font-size: var(--font-size-2xl) !important;
+}
+
+h2 {
+  font-size: var(--font-size-xl) !important;
+}
+
+h3 {
+  font-size: var(--font-size-lg) !important;
+}
+
+/* Boutons */
+button {
+  padding: var(--spacing-xs) var(--spacing-sm) !important;
+  font-size: var(--font-size-sm) !important;
+}
+
+/* Inputs et textareas */
+input, textarea, select {
+  padding: var(--spacing-xs) var(--spacing-sm) !important;
+  font-size: var(--font-size-sm) !important;
+}
+
+/* Labels */
+label {
+  font-size: var(--font-size-sm) !important;
+}
+
+/* Réduction des marges et paddings globaux */
+.header-btn {
+  padding: calc(6px * 0.7) calc(12px * 0.7) !important;
+  font-size: calc(0.9em * 0.7) !important;
+}
+
+/* Header principal */
+header {
+  padding: calc(10px * 0.7) calc(20px * 0.7) !important;
+  height: calc(60px * 0.7) !important;
+}
+
+header h1 {
+  font-size: calc(1.5em * 0.7) !important;
+}
+
+/* Panneaux */
+.left-panel, .right-panel {
+  padding: calc(15px * 0.7) !important;
+}
+
+/* Cartes et conteneurs */
+.mailbox-card {
+  padding: 0 !important;
+}
+
+/* Les autres éléments utilisent maintenant --scale-factor dynamiquement */
+
+/* Modals */
+.modal-content {
+  width: calc(600px * 0.7) !important;
+  max-width: 90% !important;
+}
+
+.modal-header {
+  padding: calc(15px * 0.7) calc(20px * 0.7) !important;
+}
+
+.modal-body {
+  padding: calc(20px * 0.7) !important;
+}
+
+/* Feed et événements */
+.event-card {
+  padding: calc(15px * 0.7) !important;
+  margin-bottom: calc(10px * 0.7) !important;
+}
+
+/* Database viewer */
+.filters-panel {
+  padding: calc(20px * 0.7) !important;
+}
+
+/* TMUX Commands */
+.command-card {
+  margin-bottom: calc(8px * 0.7) !important;
+}
+
+.command-header {
+  padding: calc(8px * 0.7) calc(12px * 0.7) !important;
+}
+
+.command-content {
+  padding: calc(10px * 0.7) !important;
+  max-height: calc(60px * 0.7) !important;
+}
+
+.command-footer {
+  padding: calc(6px * 0.7) calc(10px * 0.7) !important;
+  font-size: calc(0.75em * 0.7) !important;
+}
+
+/* Icônes et emojis */
+.agent-icon, .command-icon {
+  font-size: calc(1.2em * 0.7) !important;
+}
+
+/* Titres des sections */
+.mailboxes-title {
+  font-size: calc(1.3em * 0.7) !important;
+  margin: 0 0 calc(15px * 0.7) 0 !important;
+}
+
+.project-title {
+  font-size: calc(1.1em * 0.7) !important;
+}
+
+.section-title {
+  padding: calc(8px * 0.7) calc(12px * 0.7) !important;
+  font-size: calc(0.85em * 0.7) !important;
+}
+
+/* Actions et boutons */
+.mailbox-actions {
+  padding: calc(10px * 0.7) !important;
+}
+
+.action-btn {
+  padding: calc(8px * 0.7) !important;
+  font-size: calc(0.85em * 0.7) !important;
+}
+
+/* Resize bar */
+.resize-bar {
+  width: calc(4px * 0.7) !important;
+}
+
+/* Tabs */
+.tabs {
+  height: calc(40px * 0.7) !important;
+}
+
+.tab {
+  padding: calc(10px * 0.7) calc(15px * 0.7) !important;
+  font-size: calc(0.9em * 0.7) !important;
+}
+
+/* Status badges */
+.email-count, .service-status {
+  padding: calc(2px * 0.7) calc(6px * 0.7) !important;
+  font-size: calc(0.8em * 0.7) !important;
+}
+
+/* Forms */
+.form-group {
+  margin-bottom: calc(15px * 0.7) !important;
+}
+
+.form-group label {
+  margin-bottom: calc(5px * 0.7) !important;
+}
+
+/* Tooltips et petits textes */
+.event-time, .email-date {
+  font-size: calc(0.8em * 0.7) !important;
+}
+
+/* Ajustements pour les éléments trop serrés */
+.commands-grid {
+  gap: calc(8px * 0.7) !important;
+}
+
+.emails-list {
+  gap: calc(4px * 0.7) !important;
+  padding: calc(8px * 0.7) !important;
+}
+
+/* Fix pour les scrollbars */
+::-webkit-scrollbar {
+  width: calc(8px * 0.7) !important;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: calc(4px * 0.7) !important;
+}

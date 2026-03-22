@@ -1,0 +1,27 @@
+{
+  "processing_time" : 4.049686074256897,
+  "correlation_id" : "096F17D2-FB38-4377-A156-C98D65F73E31",
+  "timestamp" : "2026-01-16_2-49-36 AM",
+  "confidence" : 0.90000000000000002,
+  "pipeline_used" : "forceQwen (100% AI)",
+  "extracted_data" : {
+    "extraction_method" : "MLX-AI",
+    "merchant" : "CASHFLOW",
+    "category" : "Sante",
+    "currency" : "EUR",
+    "total_amount" : 180,
+    "tax_amount" : 14.67
+  },
+  "logs" : [
+    "2:49:32.951 AM [ℹ️ INFO] 🔧 UnifiedPipelineManager initialized",
+    "2:49:32.952 AM [ℹ️ INFO] 🎯 Starting unified extraction - Mode: forceQwen (100% AI) - ID: 096F17D2-FB38-4377-A156-C98D65F73E31",
+    "2:49:32.952 AM [ℹ️ INFO] 🚀 [UNIFIED_PIPELINE] Using mode: forceQwen (100% AI)",
+    "2:49:32.953 AM [🔍 DEBUG] 📖 Step 1: OCR Processing",
+    "2:49:32.953 AM [ℹ️ INFO] 📖 OCR Processing started",
+    "2:49:33.756 AM [ℹ️ INFO] ✅ OCR completed: 492 chars, confidence: 0.5",
+    "2:49:33.756 AM [ℹ️ INFO] 🚀 [EXTRACTION_MODE] Executing mode: forceQwen (100% AI)",
+    "2:49:33.757 AM [ℹ️ INFO] 🧠 [FORCE_QWEN] Using AI Qwen only - Bypassing parser",
+    "2:49:33.757 AM [ℹ️ INFO] 🤖 AI processing via MLXService (LlamaInferenceService)...",
+    "2:49:36.998 AM [ℹ️ INFO] ✅ MLX completed: confidence 0.9"
+  ]
+}

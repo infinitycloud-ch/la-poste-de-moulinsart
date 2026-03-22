@@ -1,0 +1,27 @@
+{
+  "pipeline_used" : "forceQwen (100% AI)",
+  "timestamp" : "2026-01-15_2-08-04 AM",
+  "logs" : [
+    "2:08:03.252 AM [ℹ️ INFO] 🔧 UnifiedPipelineManager initialized",
+    "2:08:03.254 AM [ℹ️ INFO] 🎯 Starting unified extraction - Mode: forceQwen (100% AI) - ID: DBA38DAF-1E45-4A0C-875E-978BB56C7F1E",
+    "2:08:03.254 AM [ℹ️ INFO] 🚀 [UNIFIED_PIPELINE] Using mode: forceQwen (100% AI)",
+    "2:08:03.254 AM [🔍 DEBUG] 📖 Step 1: OCR Processing",
+    "2:08:03.255 AM [ℹ️ INFO] 📖 OCR Processing started",
+    "2:08:04.617 AM [ℹ️ INFO] ✅ OCR completed: 413 chars, confidence: 1.0",
+    "2:08:04.618 AM [ℹ️ INFO] 🚀 [EXTRACTION_MODE] Executing mode: forceQwen (100% AI)",
+    "2:08:04.620 AM [ℹ️ INFO] 🧠 [FORCE_QWEN] Using AI Qwen only - Bypassing parser",
+    "2:08:04.620 AM [ℹ️ INFO] 🤖 AI processing via MLXService (LlamaInferenceService)...",
+    "2:08:04.629 AM [ℹ️ INFO] ✅ MLX completed: confidence 0.3"
+  ],
+  "processing_time" : 1.3799999952316284,
+  "extracted_data" : {
+    "merchant" : "6:28",
+    "total_amount" : 0,
+    "category" : "Restaurant",
+    "tax_amount" : 10,
+    "extraction_method" : "MLX-AI",
+    "currency" : "EUR"
+  },
+  "confidence" : 0.29999999999999999,
+  "correlation_id" : "DBA38DAF-1E45-4A0C-875E-978BB56C7F1E"
+}

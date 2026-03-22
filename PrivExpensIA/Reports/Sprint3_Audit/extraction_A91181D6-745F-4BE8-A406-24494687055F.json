@@ -1,0 +1,38 @@
+{
+  "extracted_data" : {
+    "tax_amount" : 0,
+    "total_amount" : 0,
+    "extraction_method" : "MLX-AI",
+    "currency" : "EUR",
+    "category" : "Restaurant",
+    "merchant" : "LE SWANN"
+  },
+  "timestamp" : "2026-01-15_2-43-30 AM",
+  "correlation_id" : "A91181D6-745F-4BE8-A406-24494687055F",
+  "pipeline_used" : "forceQwen (100% AI)",
+  "confidence" : 0.90000000000000002,
+  "processing_time" : 3.2866699695587158,
+  "logs" : [
+    "2:37:22.049 AM [ℹ️ INFO] 🔧 UnifiedPipelineManager initialized",
+    "2:37:22.051 AM [ℹ️ INFO] 🎯 Starting unified extraction - Mode: forceQwen (100% AI) - ID: 52A7AF42-D52E-4EED-BF07-3E7FEB615213",
+    "2:37:22.051 AM [ℹ️ INFO] 🚀 [UNIFIED_PIPELINE] Using mode: forceQwen (100% AI)",
+    "2:37:22.052 AM [🔍 DEBUG] 📖 Step 1: OCR Processing",
+    "2:37:22.052 AM [ℹ️ INFO] 📖 OCR Processing started",
+    "2:37:23.371 AM [ℹ️ INFO] ✅ OCR completed: 413 chars, confidence: 1.0",
+    "2:37:23.372 AM [ℹ️ INFO] 🚀 [EXTRACTION_MODE] Executing mode: forceQwen (100% AI)",
+    "2:37:23.372 AM [ℹ️ INFO] 🧠 [FORCE_QWEN] Using AI Qwen only - Bypassing parser",
+    "2:37:23.373 AM [ℹ️ INFO] 🤖 AI processing via MLXService (LlamaInferenceService)...",
+    "2:37:33.322 AM [ℹ️ INFO] ✅ MLX completed: confidence 0.9",
+    "2:37:33.323 AM [ℹ️ INFO] 📊 Parsed MLX data: restaurantleswann - 0.0",
+    "2:37:33.325 AM [ℹ️ INFO] 🎉 Extraction completed in 11.28s",
+    "2:43:27.702 AM [ℹ️ INFO] 🎯 Starting unified extraction - Mode: forceQwen (100% AI) - ID: A91181D6-745F-4BE8-A406-24494687055F",
+    "2:43:27.703 AM [ℹ️ INFO] 🚀 [UNIFIED_PIPELINE] Using mode: forceQwen (100% AI)",
+    "2:43:27.703 AM [🔍 DEBUG] 📖 Step 1: OCR Processing",
+    "2:43:27.704 AM [ℹ️ INFO] 📖 OCR Processing started",
+    "2:43:27.858 AM [ℹ️ INFO] ✅ OCR completed: 413 chars, confidence: 1.0",
+    "2:43:27.859 AM [ℹ️ INFO] 🚀 [EXTRACTION_MODE] Executing mode: forceQwen (100% AI)",
+    "2:43:27.860 AM [ℹ️ INFO] 🧠 [FORCE_QWEN] Using AI Qwen only - Bypassing parser",
+    "2:43:27.861 AM [ℹ️ INFO] 🤖 AI processing via MLXService (LlamaInferenceService)...",
+    "2:43:30.988 AM [ℹ️ INFO] ✅ MLX completed: confidence 0.9"
+  ]
+}

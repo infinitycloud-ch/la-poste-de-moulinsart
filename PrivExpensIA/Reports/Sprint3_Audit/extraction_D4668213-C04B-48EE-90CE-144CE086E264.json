@@ -1,0 +1,27 @@
+{
+  "correlation_id" : "D4668213-C04B-48EE-90CE-144CE086E264",
+  "pipeline_used" : "auto (Smart Fusée)",
+  "confidence" : 0.90000000000000013,
+  "timestamp" : "2026-01-15_10-13-38 PM",
+  "extracted_data" : {
+    "merchant" : "Le Swann",
+    "category" : "Restaurant",
+    "currency" : "EUR",
+    "extraction_method" : "Enhanced-Parser",
+    "total_amount" : 178.84999999999999,
+    "tax_amount" : 0
+  },
+  "logs" : [
+    "10:13:37.231 PM [ℹ️ INFO] 🔧 UnifiedPipelineManager initialized",
+    "10:13:37.231 PM [ℹ️ INFO] 🎯 Starting unified extraction - Mode: auto (Smart Fusée) - ID: D4668213-C04B-48EE-90CE-144CE086E264",
+    "10:13:37.232 PM [ℹ️ INFO] 🚀 [UNIFIED_PIPELINE] Using mode: auto (Smart Fusée)",
+    "10:13:37.233 PM [🔍 DEBUG] 📖 Step 1: OCR Processing",
+    "10:13:37.233 PM [ℹ️ INFO] 📖 OCR Processing started",
+    "10:13:38.494 PM [ℹ️ INFO] ✅ OCR completed: 413 chars, confidence: 1.0",
+    "10:13:38.494 PM [ℹ️ INFO] 🚀 [EXTRACTION_MODE] Executing mode: auto (Smart Fusée)",
+    "10:13:38.494 PM [ℹ️ INFO] 🚀 [AUTO] Starting Fusée logic - Parser → AI fallback",
+    "10:13:38.494 PM [ℹ️ INFO] 🚀 [ÉTAGE 1] FUSÉE - Parser déterministe processing...",
+    "10:13:38.497 PM [ℹ️ INFO] ✅ Parser completed: Le Swann - €178.85"
+  ],
+  "processing_time" : 1.2674639225006104
+}

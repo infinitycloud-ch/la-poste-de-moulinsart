@@ -1,0 +1,38 @@
+{
+  "extracted_data" : {
+    "total_amount" : 198,
+    "currency" : "CHF",
+    "category" : "Gas",
+    "merchant" : "Magasin Cashflow",
+    "tax_amount" : 14.836262719703967,
+    "extraction_method" : "FUSÉE-ÉTAGE-1-SWISS"
+  },
+  "correlation_id" : "5DDE51AA-8814-4604-A701-736C89BAF694",
+  "pipeline_used" : "auto (Smart Fusée)",
+  "confidence" : 0.94999999999999996,
+  "logs" : [
+    "2:49:32.951 AM [ℹ️ INFO] 🔧 UnifiedPipelineManager initialized",
+    "2:49:32.952 AM [ℹ️ INFO] 🎯 Starting unified extraction - Mode: forceQwen (100% AI) - ID: 096F17D2-FB38-4377-A156-C98D65F73E31",
+    "2:49:32.952 AM [ℹ️ INFO] 🚀 [UNIFIED_PIPELINE] Using mode: forceQwen (100% AI)",
+    "2:49:32.953 AM [🔍 DEBUG] 📖 Step 1: OCR Processing",
+    "2:49:32.953 AM [ℹ️ INFO] 📖 OCR Processing started",
+    "2:49:33.756 AM [ℹ️ INFO] ✅ OCR completed: 492 chars, confidence: 0.5",
+    "2:49:33.756 AM [ℹ️ INFO] 🚀 [EXTRACTION_MODE] Executing mode: forceQwen (100% AI)",
+    "2:49:33.757 AM [ℹ️ INFO] 🧠 [FORCE_QWEN] Using AI Qwen only - Bypassing parser",
+    "2:49:33.757 AM [ℹ️ INFO] 🤖 AI processing via MLXService (LlamaInferenceService)...",
+    "2:49:36.998 AM [ℹ️ INFO] ✅ MLX completed: confidence 0.9",
+    "2:49:36.999 AM [ℹ️ INFO] 📊 Parsed MLX data: CASHFLOW - 180.0",
+    "2:49:36.999 AM [ℹ️ INFO] 🎉 Extraction completed in 4.05s",
+    "2:51:40.922 AM [ℹ️ INFO] 🎯 Starting unified extraction - Mode: auto (Smart Fusée) - ID: 5DDE51AA-8814-4604-A701-736C89BAF694",
+    "2:51:40.925 AM [ℹ️ INFO] 🚀 [UNIFIED_PIPELINE] Using mode: auto (Smart Fusée)",
+    "2:51:40.925 AM [🔍 DEBUG] 📖 Step 1: OCR Processing",
+    "2:51:40.926 AM [ℹ️ INFO] 📖 OCR Processing started",
+    "2:51:41.686 AM [ℹ️ INFO] ✅ OCR completed: 492 chars, confidence: 0.5",
+    "2:51:41.687 AM [ℹ️ INFO] 🚀 [EXTRACTION_MODE] Executing mode: auto (Smart Fusée)",
+    "2:51:41.687 AM [ℹ️ INFO] 🚀 [AUTO] Starting Fusée logic - Parser → AI fallback",
+    "2:51:41.687 AM [ℹ️ INFO] 🚀 [ÉTAGE 1] FUSÉE - Parser déterministe processing...",
+    "2:51:41.690 AM [ℹ️ INFO] ✅ Parser completed: Magasin Cashflow - CHF 198.00"
+  ],
+  "processing_time" : 0.76795899868011475,
+  "timestamp" : "2026-01-16_2-51-41 AM"
+}

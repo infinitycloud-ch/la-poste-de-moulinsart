@@ -1,0 +1,16 @@
+{
+  "agent": "nestor",
+  "lastUpdate": "2025-09-15T16:56:15.197Z",
+  "tasks": [
+    {
+      "id": 1,
+      "title": "Test Task 1",
+      "status": "TODO",
+      "priority": "medium",
+      "progress": 0,
+      "due_date": null,
+      "project_name": "oracle-observability",
+      "incompleteValidations": 5
+    }
+  ]
+}

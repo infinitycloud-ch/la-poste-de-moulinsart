@@ -1,0 +1,16 @@
+📮 NOTIFICATION POUR NESTOR
+Date: 2025-09-10 03:26
+De: Claude
+Pour: Nestor
+
+Message:
+Ceci est un test de communication via fichier.
+Merci de confirmer la réception de ce message en écrivant "OK - Message reçu" dans le fichier response.txt
+
+Actions requises:
+1. Lire ce message
+2. Créer un fichier response.txt
+3. Confirmer la réception
+
+---
+Fin du message

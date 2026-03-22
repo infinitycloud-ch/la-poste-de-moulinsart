@@ -1,0 +1,54 @@
+{
+  "app_bundle": "com.minhtam.ExpenseAI",
+  "simulator_name": "tintin",
+  "openai_api_key": "sk-YOUR_KEY_HERE",
+  "languages": {
+    "en": {
+      "name": "English",
+      "home_texts": ["Good Evening", "Good Morning", "Good Afternoon", "Today's Spending", "Budget Left", "Weekly Average", "Saved"],
+      "settings_texts": ["Settings", "Language", "Currency", "Notifications", "Export Data"]
+    },
+    "fr": {
+      "name": "Français",
+      "home_texts": ["Bonsoir", "Bonjour", "Bon après-midi", "Dépenses du jour", "Budget restant", "Moyenne hebdomadaire", "Économisé"],
+      "settings_texts": ["Paramètres", "Langue", "Devise", "Notifications", "Exporter les données"]
+    },
+    "de": {
+      "name": "Deutsch", 
+      "home_texts": ["Guten Abend", "Guten Morgen", "Guten Tag", "Heutige Ausgaben", "Verbleibendes Budget", "Wochendurchschnitt", "Gespart"],
+      "settings_texts": ["Einstellungen", "Sprache", "Währung", "Benachrichtigungen", "Daten exportieren"]
+    },
+    "it": {
+      "name": "Italiano",
+      "home_texts": ["Buonasera", "Buongiorno", "Buon pomeriggio", "Spese di oggi", "Budget rimanente", "Media settimanale", "Risparmiato"],
+      "settings_texts": ["Impostazioni", "Lingua", "Valuta", "Notifiche", "Esporta dati"]
+    },
+    "es": {
+      "name": "Español",
+      "home_texts": ["Buenas noches", "Buenos días", "Buenas tardes", "Gastos de hoy", "Presupuesto restante", "Promedio semanal", "Ahorrado"],
+      "settings_texts": ["Configuración", "Idioma", "Moneda", "Notificaciones", "Exportar datos"]
+    },
+    "ja": {
+      "name": "日本語",
+      "home_texts": ["こんばんは", "おはよう", "こんにちは", "今日の支出", "残り予算", "週平均", "節約"],
+      "settings_texts": ["設定", "言語", "通貨", "通知", "データをエクスポート"]
+    },
+    "ko": {
+      "name": "한국어",
+      "home_texts": ["좋은 저녁", "좋은 아침", "좋은 오후", "오늘 지출", "남은 예산", "주간 평균", "절약됨"],
+      "settings_texts": ["설정", "언어", "통화", "알림", "데이터 내보내기"]
+    },
+    "sk": {
+      "name": "Slovenčina",
+      "home_texts": ["Dobrý večer", "Dobré ráno", "Dobré popoludnie", "Dnešné výdavky", "Zostávajúci rozpočet", "Týždenný priemer", "Ušetrené"],
+      "settings_texts": ["Nastavenia", "Jazyk", "Mena", "Oznámenia", "Exportovať údaje"]
+    }
+  },
+  "tabs": {
+    "home": {"index": 0, "position": [50, 850]},
+    "expenses": {"index": 1, "position": [140, 850]},
+    "scanner": {"index": 2, "position": [207, 850]},
+    "statistics": {"index": 3, "position": [290, 850]},
+    "settings": {"index": 4, "position": [370, 850]}
+  }
+}

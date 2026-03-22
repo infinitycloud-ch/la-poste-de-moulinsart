@@ -1,0 +1,27 @@
+{
+  "correlation_id" : "CCFB78A2-0ED2-41DA-8B84-5F4A9CFB1A77",
+  "timestamp" : "2026-01-15_10-03-54 PM",
+  "pipeline_used" : "forceQwen (100% AI)",
+  "processing_time" : 4.6868289709091187,
+  "confidence" : 0.90000000000000002,
+  "extracted_data" : {
+    "merchant" : "LE SWANN",
+    "tax_amount" : 20,
+    "total_amount" : 271,
+    "category" : "Restaurant",
+    "extraction_method" : "MLX-AI",
+    "currency" : "EUR"
+  },
+  "logs" : [
+    "10:03:49.874 PM [ℹ️ INFO] 🔧 UnifiedPipelineManager initialized",
+    "10:03:49.875 PM [ℹ️ INFO] 🎯 Starting unified extraction - Mode: forceQwen (100% AI) - ID: CCFB78A2-0ED2-41DA-8B84-5F4A9CFB1A77",
+    "10:03:49.875 PM [ℹ️ INFO] 🚀 [UNIFIED_PIPELINE] Using mode: forceQwen (100% AI)",
+    "10:03:49.875 PM [🔍 DEBUG] 📖 Step 1: OCR Processing",
+    "10:03:49.875 PM [ℹ️ INFO] 📖 OCR Processing started",
+    "10:03:51.188 PM [ℹ️ INFO] ✅ OCR completed: 413 chars, confidence: 1.0",
+    "10:03:51.188 PM [ℹ️ INFO] 🚀 [EXTRACTION_MODE] Executing mode: forceQwen (100% AI)",
+    "10:03:51.189 PM [ℹ️ INFO] 🧠 [FORCE_QWEN] Using AI Qwen only - Bypassing parser",
+    "10:03:51.189 PM [ℹ️ INFO] 🤖 AI processing via MLXService (LlamaInferenceService)...",
+    "10:03:54.556 PM [ℹ️ INFO] ✅ MLX completed: confidence 0.9"
+  ]
+}

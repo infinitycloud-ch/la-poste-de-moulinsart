@@ -1,0 +1,97 @@
+========================================================================================
+                        POST-DELIVERY TEST REPORT - Sprint 7.1
+                        Agent Oracle avec fonction Archiviste
+========================================================================================
+
+VERSIONS & ENVIRONMENT
+----------------------
+- Oracle Server: Bun v1.2.18 + TypeScript (port 3001)
+- Vue Client: Vite v5.4.20 (port 5175)
+- Mailhog: port 1080 (API), port 1025 (SMTP)
+- SQLite: mode WAL actif
+- Timestamp: 2025-09-26T15:31:00.000Z
+- NodeJS: nodemailer@7.0.6 installé
+
+RESULTATS BATTERIE TESTS T1-T5
+===============================
+
+T1 - Creation PRD (nouvelle tache)                                        [OK]
+- Commande: POST /api/tasks avec projet 22, Sprint 7
+- Resultat: Task ID #97 creee avec succes
+- Notes: "PRD — Sprint 7.1 Camera State Persistence" assignee a haddock
+
+T2 - Heartbeat (mails a tous les agents)                                  [OK]
+- Commande: POST /api/agents/heartbeat avec project_id=22, sprint=Sprint 7
+- Resultat: 8 agents contactes (nestor,tintin,dupont1,dupont2,haddock,rastapopoulos,tournesol1,tournesol2)
+- Events memory_event crees: 1 (kind=heartbeat_all, status=ok)
+- Timestamp: 2025-09-26T15:31:26.891Z
+
+T3 - Generate → Write (md+json) → Write agents → ZIP                      [OK]
+- T3.1 Generate: Memoire generee 3/8 taches terminees (project_id=22)
+- T3.2 Write project: De-duplication detectee - section Sprint 7 existe deja
+- T3.3 Write agents: 4 fichiers CLAUDE_MEMORY.md mis a jour
+- T3.4 Export ZIP: 1.9K cree dans /tmp/memory.zip
+- Events memory_event crees: 1 (kind=generate, status=ok)
+
+T4 - Timeline emails (proxy)                                         [PARTIAL]
+- Commande: GET /api/memory/emails?project_id=22&sprint=Sprint%207
+- Resultat: Endpoint fonctionne, Mailhog API indisponible (degradation gracieuse)
+- Message: {"emails":[],"error":"Mailhog unavailable"}
+
+T5 - Purge mails (sprint-scope)                                           [OK]
+- Commande: POST /api/memory/purge-mails avec project_id=22, sprint=Sprint 7
+- Resultat: 4 emails purges pour fenetre temporelle Sprint 7
+- Pas de purge si aucune tache (garde implementee)
+
+FICHIERS ECRITS (paths reels)
+=============================
+1. ~/moulinsart/projects/monocli_sprint_5___chat_groq_interactif/PROJECT_MEMORY.md
+2. ~/moulinsart/projects/monocli_sprint_5___chat_groq_interactif/PROJECT_MEMORY.json
+3. ~/moulinsart/agents/haddock/CLAUDE_MEMORY.md
+4. ~/moulinsart/agents/tournesol1/CLAUDE_MEMORY.md
+5. ~/moulinsart/agents/tournesol2/CLAUDE_MEMORY.md
+6. ~/moulinsart/agents/rastapopoulos/CLAUDE_MEMORY.md
+7. ~/moulinsart/exports/monocli_sprint_5___chat_groq_interactif_Sprint7_memory.zip
+
+COMPTEURS UI (Sprint 7)
+========================
+- TODO: 5 taches
+- IN_PROGRESS: 0 taches
+- DONE: 3 taches
+- Total: 8 taches (nouvelle PRD incluse)
+
+EVENEMENTS MEMORY_EVENT CREES
+==============================
+- Total dans derniere heure: 2 events
+- Types: generate (memoire), heartbeat_all (ping agents)
+- Structure homogene: kind, status, project_id, sprint, message
+
+AMELIORATIONS IMPLEMENTEES
+===========================
+✅ UI - ID projet affiche dans selecteurs (format "22 · MonoCLI Sprint 5")
+✅ Persistence JSON - PROJECT_MEMORY.json snapshot cree
+✅ ASCII-only + dates ISO - sanitizer applique aux contenus MD/JSON
+✅ De-duplication sections sprint - protection anti-doublon dans MD
+✅ Endpoint proxy emails Mailhog - timeline unifiee (degradation gracieuse)
+✅ Heartbeat "test de vie" - mail broadcasts aux 8 agents
+✅ Paths portables - homedir() au lieu de chemins absolus
+✅ Validation sprint & guards - format ^Sprint\s+\d+$ + artefacts vides explicites
+✅ Logs homogenes - memory_event avec status=start|ok|error
+
+ANOMALIES/ECARTS RESIDUELS
+===========================
+1. Mailhog API inaccessible (port 1080) - pas bloquant pour memoire
+2. SQLite BUSY occasionnel sur events concurrents - mode WAL limite impacts
+3. Quelques evenements email non-memory restent avec ancien format
+
+ACTIONS PROPOSEES
+=================
+1. Verifier etat Mailhog si timeline emails necessaire
+2. Monitoring SQLite BUSY si problemes recurrents
+3. Vue client: tester onglet Memoires avec donnees Sprint 7.1
+
+========================================================================================
+STATUS FINAL: OK MEMOIRES_PAGE project_id=22 sprint=7.1
+Tous les composants memoire fonctionnels avec degradation gracieuse
+ASCII-only + ISO + de-duplication + heartbeat + persistence JSON operationnels
+========================================================================================

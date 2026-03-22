@@ -1,0 +1,27 @@
+{
+  "extracted_data" : {
+    "total_amount" : 59.049999999999997,
+    "category" : "Groceries",
+    "merchant" : "Migros",
+    "tax_amount" : 4.424653098982418,
+    "currency" : "CHF",
+    "extraction_method" : "FUSÉE-ÉTAGE-1-SWISS"
+  },
+  "correlation_id" : "1DB9FB71-1D35-4A0F-A64F-18FA63CD3FCB",
+  "timestamp" : "2026-01-21_10-26-15 PM",
+  "pipeline_used" : "auto (Parser → Cloud fallback)",
+  "confidence" : 0.94999999999999996,
+  "processing_time" : 1.9455000162124634,
+  "logs" : [
+    "10:26:13.106 PM [ℹ️ INFO] 🔧 UnifiedPipelineManager initialized",
+    "10:26:13.106 PM [ℹ️ INFO] 🎯 Starting unified extraction - Mode: auto (Parser → Cloud fallback) - ID: 1DB9FB71-1D35-4A0F-A64F-18FA63CD3FCB",
+    "10:26:13.107 PM [ℹ️ INFO] 🚀 [UNIFIED_PIPELINE] Using mode: auto (Parser → Cloud fallback)",
+    "10:26:13.107 PM [🔍 DEBUG] 📖 Step 1: OCR Processing",
+    "10:26:13.107 PM [ℹ️ INFO] 📖 OCR Processing started",
+    "10:26:15.046 PM [ℹ️ INFO] ✅ OCR completed: 1003 chars, confidence: 1.0",
+    "10:26:15.047 PM [ℹ️ INFO] 🚀 [EXTRACTION_MODE] Executing mode: auto (Parser → Cloud fallback)",
+    "10:26:15.047 PM [ℹ️ INFO] 🚀 [AUTO] Starting smart pipeline - Parser → Cloud fallback",
+    "10:26:15.047 PM [ℹ️ INFO] 🚀 [ÉTAGE 1] FUSÉE - Parser déterministe processing...",
+    "10:26:15.049 PM [ℹ️ INFO] ✅ Parser completed: Migros - CHF 59.05"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "phase": "phase2_doctrine",
+  "timestamp": "20251006_193302",
+  "iterations": 100,
+  "results": {
+    "direct": {
+      "total_time_ms": 7,
+      "per_execution_ms": .07
+    },
+    "doctrine": {
+      "total_time_ms": 105579,
+      "per_execution_ms": 1055.79
+    },
+    "overhead": {
+      "total_ms": 105572,
+      "per_execution_ms": 1055.72,
+      "percent": 1508171.42
+    },
+    "breakdown": {
+      "script_creation_ms": 5,
+      "chmod_ms": 4,
+      "execute_sh_ms": 1049
+    }
+  },
+  "interpretation": {
+    "cost_of_robustness": "1055.72ms per action",
+    "acceptable": false
+  }
+}
