@@ -9,22 +9,30 @@
 
 > **This is an archive showcase.** Moulinsart is preserved as a historical snapshot of the first "Ferme Agentique" (Agent Farm) — a fully functional multi-agent system that predates mainstream adoption. It is not intended to be installed or run independently.
 
-## Academic Paper (September 2025)
+## Academic Paper (September 12, 2025)
 
-This project is documented in an **IEEE-format research paper**, timestamped September 2025:
+This project is documented in an **IEEE-format research paper**, providing timestamped, peer-reviewable evidence of the architecture and results — **two months before** multi-agent frameworks like OpenClaw became mainstream:
 
 > **"PrivExpensIA: Observational Study of a Multi-Agent Orchestration Framework Based on Local Claude CLI with Email-mediated Communication"**
 >
-> The paper presents an observational study of a multi-agent orchestration framework where autonomous AI agents collaborate through email-mediated communication and tmux-based session management. It covers the sprint-based development methodology, agent role specialization, and real-time observability architecture.
+> *This paper documents the experimental deployment of a local multi-agent orchestration system, nicknamed La Poste de Moulinsart. Unlike cloud-based agent frameworks (CrewAI, LangGraph, AutoGen), this architecture leverages parallel Claude CLI instances orchestrated via email-based communication and tmux integration. Results: **95.4% accuracy, <300ms latency, 0 crashes/1000 ops** — production-level artefacts delivered in under 48 hours.*
 
-The full paper is available at [`docs/PrivExpensIA_Moulinsart_IEEE_v3.pdf`](docs/PrivExpensIA_Moulinsart_IEEE_v3.pdf).
+| Document | Description |
+|----------|-------------|
+| [**RESEARCH.md**](RESEARCH.md) | Full paper summary: abstract, architecture, results, comparison table |
+| [`docs/PrivExpensIA_Moulinsart_IEEE_v3.pdf`](docs/PrivExpensIA_Moulinsart_IEEE_v3.pdf) | Original IEEE paper (PDF) |
+| [**MANIFESTO.md**](MANIFESTO.md) | Agentic Sustainability Manifesto (English) |
+| [`docs/InfinityCloud_AgenticSustainabilityManifesto.pdf`](docs/InfinityCloud_AgenticSustainabilityManifesto.pdf) | Original manifesto (PDF) |
+| [`docs/MOULINSART_VS_CLAUDE_CODE.md`](docs/MOULINSART_VS_CLAUDE_CODE.md) | Moulinsart vs Claude Code — chronological comparison (April 2026) |
 
-Also included is the [**Agentic Sustainability Manifesto**](docs/InfinityCloud_AgenticSustainabilityManifesto.pdf) — Infinity Cloud's founding principles for sustainable AI agent development:
-1. **Repair rather than reinitialize** — Every iteration is a step forward, never a total regression
-2. **Heal rather than consume** — Broken apps are diagnosed and strengthened
-3. **Durable memory** — Logs and adjustments form a collective memory of progress
-4. **Software ecology** — Every line of code saved is energy not spent
-5. **Agentic ethics** — Agents embody fidelity, persistence, and the value of repair
+### Measured Results vs. Other Frameworks
+
+| Framework | Communication | Context | Observability | Resilience | Deployment |
+|-----------|--------------|---------|---------------|------------|------------|
+| AutoGPT (2023) | API calls | Reset each loop | File logs | Medium | Cloud / PC |
+| CrewAI (2024) | API orchestrator | Shared prompt | Minimal | Variable | Cloud |
+| LangChain Agents (2024) | Chained API calls | Partial reset | Basic logging | Variable | Cloud / Hybrid |
+| **Moulinsart (Sept 2025)** | **Emails + tmux CLI** | **200k ctx/agent** | **Real-time dashboard** | **0 crash / 1000 ops** | **100% Local** |
 
 <!--
 ## Screenshots
@@ -136,10 +144,27 @@ During its active period, Moulinsart successfully delivered:
 | Validation AI | Gemini 1.5 Pro |
 | Design System | Liquid Glass (Apple iOS 26 aesthetic) |
 
+## Key Files
+
+| File | Description |
+|------|-------------|
+| [`RESEARCH.md`](RESEARCH.md) | IEEE paper summary with results, architecture, and comparison table |
+| [`MANIFESTO.md`](MANIFESTO.md) | Agentic Sustainability Manifesto (English) |
+| [`docs/PrivExpensIA_Moulinsart_IEEE_v3.pdf`](docs/PrivExpensIA_Moulinsart_IEEE_v3.pdf) | Original IEEE research paper (September 12, 2025) |
+| [`docs/InfinityCloud_AgenticSustainabilityManifesto.pdf`](docs/InfinityCloud_AgenticSustainabilityManifesto.pdf) | Original manifesto (PDF) |
+| `oracle-observability/server/index.ts` | Oracle API server (127KB) |
+| `oracle-observability/server/mail-server.ts` | SMTP email server for inter-agent communication |
+| `moulinsart-manager.sh` | Service orchestrator (start/stop teams, health, backup) |
+
 ## Repository Structure
 
 ```
 moulinsart/
+├── RESEARCH.md                  # IEEE paper summary
+├── MANIFESTO.md                 # Agentic Sustainability Manifesto
+├── docs/                        # Research papers (PDFs)
+│   ├── PrivExpensIA_Moulinsart_IEEE_v3.pdf
+│   └── InfinityCloud_AgenticSustainabilityManifesto.pdf
 ├── agents/                      # 8 agent workspaces (4 per team)
 │   ├── nestor/                  # Orchestrator
 │   ├── tintin/                  # Reporter/QA
